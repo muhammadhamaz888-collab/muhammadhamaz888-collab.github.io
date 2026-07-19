@@ -207,50 +207,59 @@
 <script>
 (function(){
   "use strict";
+  
   var UP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
   var LO = "abcdefghijklmnopqrstuvwxyz".split('');
-  var DG = "0123456789".split('');
 
-  function buildStyle(u, l, d){
-    var ua = u ? Array.from(u) : null, la = l ? Array.from(l) : null, da = d ? Array.from(d) : null;
+  function buildStyle(uStr, lStr) {
+    var ua = Array.from(uStr), la = Array.from(lStr);
     var map = {};
-    if(ua) UP.forEach(function(c,i){ map[c] = ua[i]; });
-    if(la) LO.forEach(function(c,i){ map[c] = la[i]; });
-    if(da) DG.forEach(function(c,i){ map[c] = da[i]; });
-    return function(t){ return Array.from(t).map(function(ch){ return map[ch] || ch; }).join(''); };
+    UP.forEach(function(c, i) { map[c] = ua[i] || c; });
+    LO.forEach(function(c, i) { map[c] = la[i] || c; });
+    return function(t) {
+      return Array.from(t).map(function(ch) { return map[ch] || ch; }).join('');
+    };
   }
 
   var STYLES = [
-    { name:'Serif Bold', category:'classic', fn: buildStyle("𝐀𝐁𝐂𝐃𝐄layout𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙", "𝐚减𝐛𝐜𝐝减𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳", "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗") },
-    { name:'Serif Italic', category:'classic', fn: buildStyle("𝐴𝐵组织𝐷𝐸𝐹组织𝐻𝐼组织𝐾𝐿组织𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡", "𝑎组织组织𝑑𝑒组织𝑔组织组织𝑗组织组织𝑚组织组织𝑝𝑞𝑟𝑠组织𝑢组织𝑤𝑥组织组织", null) },
-    { name:'Serif Bold Italic', category:'classic', fn: buildStyle("𝑨𝑩𝑪𝑫𝑬𝑭𝑮content𝑰𝑱𝑲𝑳𝑴content𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒩", "𝒂𝒃contentcontent𝒆content𝒈contentcontent𝒋content𝒍content𝒏contentcontent𝒒contentcontent𝒕content𝒗𝒘contentcontent𝒛", null) },
-    { name:'Sans Bold', category:'classic', fn: buildStyle("𝗔𝗕𝗖🇩🇪𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧🇺𝗩𝗪𝗫𝗬𝗭", "𝗮𝗯𝗰🇩🇪𝗳𝗴𝗵 𝗶 𝗷 𝗸 𝗹 𝗺 𝗻 𝗼 𝗽 𝗾 𝗿 𝘀 𝘁 𝘂 𝘃 𝘄 𝘅 𝘆 𝘇", "𝟬𝟭𝟮𝟯𝟴𝟱𝟲𝟳𝟴𝟵") },
-    { name:'Sans Italic', category:'classic', fn: buildStyle("𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡", "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫bk𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻", null) },
-    { name:'Sans Bold Italic', category:'classic', fn: buildStyle("𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕", "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩🇺𝙫𝙬𝙭𝙮𝙯", null) },
-    { name:'Script Round', category:'classic', fn: buildStyle("𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵", "𝒶𝒷contentcontentℯ𝒻ℊ𝒽content𝒿𝓀contentcontentcontentℴ𝓅𝓆contentcontentcontentcontentcontentcontentcontentcontent𝓏", null) },
-    { name:'Script Bold-Style', category:'classic', fn: buildStyle("𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼🇹🇺𝓿𝔀𝔁𝔂𝓏", null) },
-    { name:'Gothic Vintage', category:'ornate', fn: buildStyle("𝔄𝔅𝔆𝔇𝔈𝔉𝔊𝔋𝔌𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔𝔕𝔖𝔗𝔘𝔙𝔚𝔛𝔜𝔝", "𝔞𝔟𝔠𝔡𝔢𝔣𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰content𝔲𝔳𝔴𝔵𝔶𝔷", null) },
-    { name:'Gothic Bold-Style', category:'ornate', fn: buildStyle("𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅", "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍content𝖏𝖐𝖑𝖒content𝖔𝖕𝖞𝖖𝖗𝖘content𝖚𝖛𝖜𝖝𝖞𝖟", null) },
-    { name:'Double Struck Out', category:'ornate', fn: buildStyle("mathbb{A}mathbb{B}mathbb{C}mathbb{D}mathbb{E}mathbb{F}mathbb{G}mathbb{H}mathbb{I}mathbb{J}mathbb{K}mathbb{L}mathbb{M}mathbb{N}mathbb{O}mathbb{P}mathbb{Q}mathbb{R}mathbb{S}mathbb{T}mathbb{U}mathbb{V}mathbb{W}mathbb{X}mathbb{Y}mathbb{Z}", "𝕒𝕓𝕔𝕕𝕖𝔽𝕘𝕙𝕚𝕛𝕜翻𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫", "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡") },
-    { name:'Monospace Text', category:'classic', fn: buildStyle("𝙰𝙱🇨🇩𝙴𝚠𝙶𝙷list𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂list𝚄𝚅𝚆𝚇list𝚉", "a𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝙟𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣", "𝟶𝟷𝟸𝟛𝟜𝟝𝟞𝟟𝟾𝟿") },
-    { name:'Circled Clear', category:'boxed', fn: buildStyle("ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", "ⓐⓑⓒⓓeⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", "⓪①②③④⑤⑥⑦⑧⑨") },
-    { name:'Circled Inverted', category:'boxed', fn: buildStyle("🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅦🅟🅓🅡🅕🅖🅗🅓🅙🅚🅛", "🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅦🅟🅓🅡🅕🅖🅗🅓🅙🅚🅛", "⓿❶❷❸❹❺❻❼❽❾") },
-    { name:'Squared Outlines', category:'boxed', fn: buildStyle("🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅁🅂🅃🅄🅅🅞🅟🅠🅡", "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅁🅂🅃🅄🅅🅞🅟🅠🅡", null) },
-    { name:'Small Caps Classic', category:'classic', fn: function(t){ return Array.from(t).map(function(c){ return ({a:'ᴀ',b:'ʙ',c:'ᴄ',d:'ᴅ',e:'ᴇ',f:'ꜰ',g:'ɢ',h:'ʜ',i:'ɪ',j:'ᴊ',k:'ᴋ',l:'ʟ',m:'ᴍ',n:'ɴ',o:'ᴏ',p:'ᴘ',q:'ǫ',r:'ʀ',s:'s',t:'ᴛ',u:'ᴜ',v:'ᴠ',w:'ᴡ',x:'x',y:'ʏ',z:'ᴢ'}[c.toLowerCase()] || c); }).join(''); } },
-    { name:'Upside Down Flip', category:'effects', fn: function(t){ var map={a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'l',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z',A:'∀',B:'𐐒',C:'Ɔ',D:'𐐔',E:'Ǝ',F:'Ⅎ',G:'⅁',H:'H',I:'I',J:'ſ',K:'ʞ',L:'˥',M:'W',N:'N',O:'O',P:'Ԁ',Q:'Ò',R:'ᴚ',S:'S',T:'⊥',U:'∩',V:'Λ',W:'M',X:'X',Y:'⅄',Z:'Z','0':'0','1':'Ɩ','2':'ᄅ','3':'Ɛ','4':'ㄣ','5':'5','6':'9','7':'ㄥ','8':'8','9':'6'}; return Array.from(t).map(function(c){return map[c]||c;}).reverse().join(''); } },
-    { name:'Strikethrough', category:'effects', fn: function(t){ return Array.from(t).map(function(c){return c+'\u0336';}).join(''); } },
-    { name:'Underlined Clean', category:'effects', fn: function(t){ return Array.from(t).map(function(c){return c+'\u0332';}).join(''); } },
-    { name:'Slash Lines', category:'effects', fn: function(t){ return Array.from(t).map(function(c){return c+'\u0338';}).join(''); } },
-    { name:'Bubble Outlines', category:'boxed', fn: buildStyle("ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", "ⓐⓑⓒⓓeⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", null) },
-    { name:'Fancy Star Spark', category:'decorative', fn: function(t){ return "✨ " + t + " ✨"; } },
-    { name:'Love Heart Wave', category:'decorative', fn: function(t){ return "❤️ " + t + " ❤️"; } },
-    { name:'Crown Royalty', category:'decorative', fn: function(t){ return "👑 " + t + " 👑"; } },
-    { name:'Bracket Wrap', category:'decorative', fn: function(t){ return "【" + t + "】"; } },
-    { name:'Japanese Aesthetic', category:'decorative', fn: function(t){ return "「" + t + "」"; } },
-    { name:'Lightning Bolt', category:'decorative', fn: function(t){ return "⚡ " + t + " ⚡"; } },
-    { name:'Diamond Borders', category:'decorative', fn: function(t){ return "♦️ " + t + " ♦️"; } },
-    { name:'Arrow Direction', category:'decorative', fn: function(t){ return "🏹 " + t + " 🏹"; } },
-    { name:'Square Grid Box', category:'boxed', fn: function(t){ return "▧ " + t + " ▧"; } }
+    { name:'Mathematical Bold', category:'classic', fn: buildStyle("𝐀𝐁🇨🇩𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙", "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤loader𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳") },
+    { name:'Mathematical Italic', category:'classic', fn: buildStyle("𝐴𝐵𝐶组织𝐸𝐹𝐺组织𝐼组织𝐾𝐿组织𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝雯𝘞𝘟𝘠𝘡", "𝑎组织𝑐组织𝑒组织𝑔组织组织𝑗组织组织𝑚组织组织𝑝𝑞𝑟𝑠组织𝑢组织𝑤𝑥组织组织") },
+    { name:'Bold Italic', category:'classic', fn: buildStyle("𝑨boldsymbol𝑩𝑪𝑫𝑬𝑭𝑮𝑯content𝑰𝑱𝑲𝑳𝑴content𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒩", "𝒂𝒃contentcontent𝒆content𝒈contentcontent𝒋content𝒍contentcontentcontentcontent𝒒contentcontentcontentcontentcontentcontentcontentcontent𝒛") },
+    { name:'Script Bold', category:'classic', fn: buildStyle("𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴Constants𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼🇹🇺𝓿𝔀𝔁𝔂𝓏") },
+    { name:'Fraktur Bold', category:'ornate', fn: buildStyle("𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅", "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍content𝖏𝖐𝖑𝖒content𝖔𝖕𝖞𝖖𝖗𝖘content𝖚𝖛𝖜𝖝𝖞𝖟") },
+    { name:'Double Struck', category:'ornate', fn: buildStyle("mathbb{A}mathbb{B}mathbb{C}mathbb{D}mathbb{E}mathbb{F}mathbb{G}mathbb{H}mathbb{I}mathbb{J}mathbb{K}mathbb{L}mathbb{M}mathbb{N}mathbb{O}mathbb{P}mathbb{Q}mathbb{R}mathbb{S}mathbb{T}mathbb{U}mathbb{V}mathbb{W}mathbb{X}mathbb{Y}mathbb{Z}", "𝕒𝕓𝕔𝕕𝕖𝔽𝕘𝕙𝕚𝕛𝕜翻𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫") },
+    { name:'Sans-Serif Bold', category:'classic', fn: buildStyle("𝗔𝗕𝗖🇩🇪𝗙𝗚𝗛🇮🇯𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧🇺𝗩𝗪𝗫𝗬𝗭", "𝗮𝗯𝗰🇩🇪𝗳𝗴𝗵 𝗶 𝗾 𝗸 𝗹 𝗺 𝗻 𝗼 𝗽 𝗾 𝗿 𝘀 𝘁 𝘂 𝘃 𝘄 𝘅 𝘆 𝘇") },
+    { name:'Sans-Serif Italic', category:'classic', fn: buildStyle("𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡", "𝘢𝘣𝘤𝘥e𝘧𝘨𝘩𝘪𝘫bk𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵🇺𝘷𝘸𝘹𝘺𝘻") },
+    { name:'Sans Bold Italic', category:'classic', fn: buildStyle("𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕", "𝙖𝙗𝙘𝙖𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩🇺𝙫𝙬𝙭𝙮𝙯") },
+    { name:'Monospace Fixed', category:'classic', fn: buildStyle("𝙰𝙱🇨🇩𝙴𝚠𝙶𝙷list𝙹𝙺𝙻𝙼做𝙾做𝚀𝚁做list𝚄𝚅做做list𝚉", "a𝚋𝚌𝚍e𝚏𝚐𝚑𝚒𝙟𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛s𝚝𝚞𝚠𝚡𝚢𝚣") },
+    { name:'Circled Letters', category:'boxed', fn: buildStyle("ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", "ⓐⓑⓒⓓeⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣ🇺ⓥⓦⓧⓨⓩ") },
+    { name:'Circled Inverted', category:'boxed', fn: buildStyle("🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅦🅟🅓🅡🅕🅖🅗🅓🅙🅚🅛", "🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅦🅟🅓🅡🅕🅖🅗🅓🅙🅚🅛") },
+    { name:'Squared Blocks', category:'boxed', fn: buildStyle("🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅁🅂🅃🅄🅅🅞🅟🅠🅡", "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅁🅂🅃🅄🅅🅞🅟🅠🅡") },
+    { name:'Squared Inverted', category:'boxed', fn: buildStyle("🅰🅱🅲🅳🅴🅦🅊🅷🅸🅹🅺🅻🅼🅽🅾🅟🅠🆁🆂🆃🆄🆅🆆🆇🆈🆉", "🅰🅱🅲🅳🅴🅦🅊🅷🅸🅹🅺🅻🅼🅽🅾🅟🅠🆁🆂🆃🆄🆅🆆🆇🆈🆉") },
+    { name:'Small Caps Classic', category:'classic', fn: function(t){
+        var map = {a:'ᴀ',b:'ʙ',c:'ᴄ',d:'ᴅ',e:'ᴇ',f:'ꜰ',g:'ɢ',h:'ʜ',i:'ɪ',j:'ᴊ',k:'ᴋ',l:'ʟ',m:'ᴍ',n:'ɴ',o:'ᴏ',p:'ᴘ',q:'ǫ',r:'ʀ',s:'s',t:'ᴛ',u:'ᴜ',v:'ᴠ',w:'ᴡ',x:'x',y:'橫',z:'ᴢ'};
+        return Array.from(t).map(function(c){ return map[c.toLowerCase()] || c; }).join('');
+      }
+    },
+    { name:'Upside Down Text', category:'effects', fn: function(t){
+        var map = {a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'l',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z',A:'∀',B:'𐐒',C:'Ɔ',D:'𐐔',E:'Ǝ',F:'Ⅎ',G:'⅁',H:'H',I:'I',J:'ſ',K:'ʞ',L:'˥',M:'W',N:'N',O:'O',P:'Ԁ',Q:'Ò',R:'ᴚ',S:'S',T:'⊥',U:'∩',V:'Λ',W:'M',X:'X',Y:'⅄',Z:'Z'};
+        return Array.from(t).map(function(c){ return map[c] || c; }).reverse().join('');
+      }
+    },
+    { name:'Strikethrough Line', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0336'; }).join(''); } },
+    { name:'Underlined Border', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0332'; }).join(''); } },
+    { name:'Slash Mark Variant', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0338'; }).join(''); } },
+    { name:'Double Underline', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0333'; }).join(''); } },
+    { name:'Sparkles Decoration', category:'decorative', fn: function(t){ return "✨ " + t + " ✨"; } },
+    { name:'Heart Borders Decor', category:'decorative', fn: function(t){ return "❤️ " + t + " ❤️"; } },
+    { name:'Crown Royalty Star', category:'decorative', fn: function(t){ return "👑 " + t + " 👑"; } },
+    { name:'Japanese Bracket Style', category:'decorative', fn: function(t){ return "「" + t + "」"; } },
+    { name:'Bold Box Wrap', category:'decorative', fn: function(t){ return "【" + t + "】"; } },
+    { name:'Lightning Attack', category:'decorative', fn: function(t){ return "⚡ " + t + " ⚡"; } },
+    { name:'Diamond Luxury', category:'decorative', fn: function(t){ return "♦️ " + t + " ♦️"; } },
+    { name:'Crossed Arrows', category:'decorative', fn: function(t){ return "🏹 " + t + " 🏹"; } },
+    { name:'Grid Box Specimen', category:'boxed', fn: function(t){ return "▧ " + t + " ▧"; } },
+    { name:'Vintage Parentheses', category:'decorative', fn: function(t){ return "⎝ " + t + " ⎠"; } }
   ];
 
   var inputText = document.getElementById('input-text');
