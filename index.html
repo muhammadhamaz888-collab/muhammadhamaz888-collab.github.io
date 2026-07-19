@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Fancy Font Generator — Stylish Text for Instagram, Discord &amp; WhatsApp</title>
+<meta name="description" content="Type your text and instantly get 30 stylish fancy fonts — bold, cursive, gothic, boxed, and more. Tap to copy and paste anywhere.">
+<meta name="theme-color" content="#18151F">
+<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='20'%20fill='%23E7572C'/%3E%3Ctext%20x='50'%20y='68'%20font-size='56'%20font-family='Georgia,serif'%20fill='%23F4EEDF'%20text-anchor='middle'%3EAa%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  /* ============ DESIGN TOKENS ============ */
+  :root{
+    --ink:#18151F;
+    --ink-panel:#211C2C;
+    --paper:#F4EEDF;
+    --paper-2:#EAE0C8;
+    --rule:#3A3548;
+    --rule-soft:#CFC3A2;
+    --stamp:#E7572C;
+    --stamp-2:#C2431E;
+    --gold:#D9A441;
+    --ink-soft:#6E6754;
+    --ink-faint:#A79CC9;
+    --success:#4C9A6A;
+    --radius:16px;
+    --radius-sm:10px;
+    --shadow:0 18px 40px -20px rgba(0,0,0,.55);
+    --font-display:'Fraunces', Georgia, serif;
+    --font-body:'Space Grotesk', system-ui, -apple-system, sans-serif;
+    --font-mono:'JetBrains Mono', 'Courier New', monospace;
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    background:var(--ink);
+    color:var(--paper);
+    font-family:var(--font-body);
+    line-height:1.5;
+    min-height:100vh;
+  }
+  img,svg{display:block;max-width:100%;}
+  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
+  textarea{font:inherit;color:inherit;}
+  a{color:inherit;}
+
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px;}
+
+  .visually-hidden{
+    position:absolute;width:1px;height:1px;overflow:hidden;
+    clip:rect(0 0 0 0);white-space:nowrap;
+  }
+
+  /* ============ HEADER ============ */
+  .site-header{
+    border-bottom:1px solid var(--rule);
+    background:
+      radial-gradient(circle at 1px 1px, rgba(244,238,223,.06) 1px, transparent 1px) 0 0/16px 16px,
+      var(--ink-panel);
+  }
+  .header-inner{
+    max-width:1180px;margin:0 auto;padding:16px 20px;
+    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
+  }
+  .brand{display:flex;align-items:center;gap:10px;}
+  .brand-mark{
+    font-family:var(--font-display);font-weight:700;font-size:1.1rem;
+    background:var(--stamp);color:var(--paper);
+    width:36px;height:36px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .brand-name{font-family:var(--font-display);font-weight:600;font-size:1.05rem;letter-spacing:.01em;}
+  .header-note{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.03em;}
+
+  /* ============ AD SLOTS ============ */
+  .ad-slot{max-width:1180px;margin:22px auto;padding:0 20px;}
+  .ad-label{
+    display:block;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px;text-align:center;
+  }
+  .ad-box{
+    border:1.5px dashed var(--rule-soft);
+    border-radius:var(--radius-sm);
+    background:rgba(244,238,223,.04);
+    display:flex;align-items:center;justify-content:center;
+    min-height:90px;padding:14px;
+    color:var(--ink-faint);
+  }
+  .ad-placeholder-text{
+    font-family:var(--font-mono);font-size:.78rem;letter-spacing:.03em;
+    text-align:center;
+  }
+  .ad-top .ad-box, .ad-bottom .ad-box{min-height:90px;}
+  .ad-sidebar .ad-box{min-height:250px;}
+
+  /* ============ MAIN / HERO ============ */
+  .page{max-width:1180px;margin:0 auto;padding:8px 20px 0;}
+
+  .hero{
+    text-align:center;max-width:720px;margin:38px auto 30px;
+    padding:0 8px;
+  }
+  .eyebrow{
+    font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;
+    text-transform:uppercase;color:var(--gold);margin-bottom:14px;
+  }
+  .hero h1{
+    font-family:var(--font-display);font-weight:600;
+    font-size:clamp(1.9rem, 1.4rem + 2.4vw, 3.1rem);
+    line-height:1.12;letter-spacing:-.01em;margin-bottom:14px;
+  }
+  .hero-sub{
+    color:var(--ink-faint);font-size:clamp(.95rem,.9rem + .3vw,1.05rem);
+    max-width:520px;margin:0 auto;
+  }
+
+  /* ============ COMPOSER ============ */
+  .composer-card{
+    background:var(--paper);color:var(--ink);
+    border-radius:var(--radius);box-shadow:var(--shadow);
+    max-width:760px;margin:0 auto 34px;
+    padding:20px 20px 16px;
+  }
+  .composer-label{
+    display:block;font-family:var(--font-mono);font-size:.7rem;
+    letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  #input-text{
+    width:100%;min-height:88px;resize:vertical;
+    border:1px solid var(--rule-soft);border-radius:var(--radius-sm);
+    background:#FFFDF7;color:var(--ink);
+    padding:14px 16px;font-size:1.15rem;font-family:var(--font-body);
+    line-height:1.4;
+  }
+  #input-text:focus{border-color:var(--stamp);}
+  .composer-meta{
+    display:flex;align-items:center;justify-content:space-between;
+    margin-top:10px;font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);
+  }
+  .ghost-btn{
+    font-family:var(--font-mono);font-size:.75rem;letter-spacing:.04em;
+    text-transform:uppercase;color:var(--ink-soft);
+    border:1px solid var(--rule-soft);border-radius:999px;
+    padding:6px 14px;transition:background .15s ease,color .15s ease,border-color .15s ease;
+  }
+  .ghost-btn:hover{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+
+  /* ============ LAYOUT (results + sidebar ad) ============ */
+  .layout{
+    display:grid;grid-template-columns:1fr;gap:28px;
+    align-items:start;
+  }
+  .layout-aside{order:3;}
+  .layout-aside .ad-slot{margin:0;padding:0;}
+
+  @media (min-width:1024px){
+    .layout{grid-template-columns:1fr 300px;}
+    .layout-aside{order:2;position:sticky;top:20px;}
+  }
+
+  /* ============ TOOLBAR / FILTERS ============ */
+  .toolbar{
+    display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;
+  }
+  .chip{
+    font-family:var(--font-mono);font-size:.75rem;letter-spacing:.03em;
+    text-transform:uppercase;padding:7px 14px;border-radius:999px;
+    border:1px solid var(--rule);color:var(--ink-faint);
+    transition:background .15s ease,color .15s ease,border-color .15s ease;
+    min-height:32px;
+  }
+  .chip:hover{border-color:var(--gold);color:var(--paper);}
+  .chip.is-active{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600;}
+  .stat-line{
+    font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);
+    margin:-8px 0 16px;
+  }
+
+  /* ============ RESULTS GRID ============ */
+  .results-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(240px, 1fr));
+    gap:14px;
+    padding-bottom:8px;
+  }
+
+  .specimen-card{
+    display:flex;flex-direction:column;gap:12px;
+    background:var(--paper);color:var(--ink);
+    border:1px solid var(--rule-soft);border-radius:var(--radius);
+    padding:16px 16px 14px;text-align:left;
+    box-shadow:var(--shadow);cursor:pointer;
+    transition:transform .16s ease, box-shadow .16s ease, border-color .16s ease;
+    opacity:0;animation:rise .4s ease forwards;
+    animation-delay:calc(var(--i, 0) * 18ms);
+  }
+  .specimen-card:hover{transform:translateY(-3px);border-color:var(--stamp);}
+  .specimen-card.is-copied{border-color:var(--success);}
+
+  @keyframes rise{from{opacity:0;transform:translateY(8px);}to{opacity:1;transform:none;}}
+
+  .specimen-head{
+    display:flex;align-items:baseline;gap:9px;
+    border-bottom:1px dashed var(--rule-soft);padding-bottom:9px;
+  }
+  .specimen-no{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-soft);flex-shrink:0;}
+  .specimen-name{
+    font-family:var(--font-body);font-weight:600;font-size:.76rem;
+    letter-spacing:.05em;text-transform:uppercase;color:var(--stamp-2);
+  }
+
+  .specimen-preview{
+    font-family:system-ui, 'Segoe UI', 'Noto Sans', Arial, sans-serif;
+    font-size:1.3rem;line-height:1.35;color:var(--ink);
+    word-break:break-word;min-height:2.6em;
+    display:flex;align-items:center;
+  }
+
+  .specimen-foot{display:flex;justify-content:flex-end;}
+  .specimen-action{
+    font-family:var(--font-mono);font-size:.68rem;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--ink);
+    border:1px solid var(--ink);border-radius:999px;
+    padding:5px 12px;transition:background .15s ease,color .15s ease,border-color .15s ease;
+  }
+  .specimen-card:hover .specimen-action{background:var(--stamp);color:var(--paper);border-color:var(--stamp);}
+  .specimen-card.is-copied .specimen-action{background:var(--success);color:#fff;border-color:var(--success);}
+
+  .empty-state{
+    grid-column:1/-1;
+    border:1.5px dashed var(--rule-soft);border-radius:var(--radius);
+    padding:40px 20px;text-align:center;color:var(--ink-faint);
+  }
+  .empty-title{font-family:var(--font-display);font-size:1.2rem;color:var(--paper);margin-bottom:8px;}
+  .empty-sub{font-size:.9rem;max-width:360px;margin:0 auto;}
+
+  /* ============ FOOTER ============ */
+  .site-footer{
+    max-width:1180px;margin:40px auto 0;padding:22px 20px 40px;
+    border-top:1px solid var(--rule);
+    color:var(--ink-faint);font-size:.82rem;text-align:center;
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:.001ms !important;animation-iteration-count:1 !important;transition-duration:.001ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true">Aa</span>
+      <span class="brand-name">Fancy Font Generator</span>
+    </div>
+    <span class="header-note">Free · No sign-up · Instant copy</span>
+  </div>
+</header>
+
+<!-- ============ ADSTERRA: TOP BANNER ============
+     Recommended size: 728x90 (desktop) / 320x50 (mobile).
+     Paste your Adsterra ad script inside #ad-top-banner, replacing the placeholder span. -->
+<div class="ad-slot ad-top">
+  <span class="ad-label">Advertisement</span>
+  <div class="ad-box" id="ad-top-banner">
+    <!-- ADSTERRA TOP BANNER CODE GOES HERE -->
+    <span class="ad-placeholder-text">Top Banner Ad Space · 728×90</span>
+  </div>
+</div>
+
+<main class="page">
+
+  <section class="hero">
+    <p class="eyebrow">Specimen Catalog · No. 001</p>
+    <h1>Turn plain text into 30 stylish fonts</h1>
+    <p class="hero-sub">Type your line once — get bold, cursive, gothic, boxed and decorative versions instantly. Tap any card to copy.</p>
+  </section>
+
+  <section class="composer-card">
+    <label for="input-text" class="composer-label">Compose</label>
+    <textarea id="input-text" maxlength="200" placeholder="Type something…">Fancy Text</textarea>
+    <div class="composer-meta">
+      <span id="char-count">0 / 200</span>
+      <button type="button" id="clear-btn" class="ghost-btn">Clear</button>
+    </div>
+  </section>
+
+  <div class="layout">
+    <div class="layout-main">
+      <div class="toolbar" id="filter-toolbar" role="group" aria-label="Filter font styles">
+        <button class="chip is-active" data-filter="all" aria-pressed="true">All</button>
+        <button class="chip" data-filter="classic" aria-pressed="false">Classic</button>
+        <button class="chip" data-filter="ornate" aria-pressed="false">Ornate</button>
+        <button class="chip" data-filter="boxed" aria-pressed="false">Boxed</button>
+        <button class="chip" data-filter="effects" aria-pressed="false">Effects</button>
+        <button class="chip" data-filter="decorative" aria-pressed="false">Decorative</button>
+      </div>
+      <p class="stat-line" id="stat-line"></p>
+
+      <div class="results-grid" id="results-grid"><!-- cards injected by JS --></div>
+    </div>
+
+    <aside class="layout-aside">
+      <!-- ============ ADSTERRA: SIDEBAR ============
+           Recommended size: 300x250 or 160x600.
+           Paste your Adsterra ad script inside #ad-sidebar, replacing the placeholder span. -->
+      <div class="ad-slot ad-sidebar">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-box" id="ad-sidebar">
+          <!-- ADSTERRA SIDEBAR CODE GOES HERE -->
+          <span class="ad-placeholder-text">Sidebar Ad Space · 300×250</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+
+  <!-- ============ ADSTERRA: BOTTOM BANNER ============
+       Recommended size: 728x90 (desktop) / 320x50 (mobile).
+       Paste your Adsterra ad script inside #ad-bottom-banner, replacing the placeholder span. -->
+  <div class="ad-slot ad-bottom">
+    <span class="ad-label">Advertisement</span>
+    <div class="ad-box" id="ad-bottom-banner">
+      <!-- ADSTERRA BOTTOM BANNER CODE GOES HERE -->
+      <span class="ad-placeholder-text">Bottom Banner Ad Space · 728×90</span>
+    </div>
+  </div>
+
+</main>
+
+<footer class="site-footer">
+  <p>Fancy Font Generator — styled Unicode text for Instagram, Discord, WhatsApp &amp; more. Rendering may vary slightly by device.</p>
+</footer>
+
+<div id="sr-announcer" class="visually-hidden" aria-live="polite"></div>
+
+<script>
+(function(){
+  "use strict";
+
+  var UP = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split('');
+  var LO = "abcdefghijklmnopqrstuvwxyz".split('');
+  var DG = "0123456789".split('');
+
+  // Builds a lookup-based transform function from target character sets.
+  // Splits target strings with spread so astral (surrogate-pair) Unicode
+  // characters — like Mathematical Alphanumeric Symbols — are handled correctly.
+  function buildStyle(upperStr, lowerStr, digitStr){
+    var upperArr = upperStr ? Array.from(upperStr) : null;
+    var lowerArr = lowerStr ? Array.from(lowerStr) : null;
+    var digitArr = digitStr ? Array.from(digitStr) : null;
+    var map = {};
+    if (upperArr) UP.forEach(function(c,i){ map[c] = upperArr[i]; });
+    if (lowerArr) LO.forEach(function(c,i){ map[c] = lowerArr[i]; });
+    if (digitArr) DG.forEach(function(c,i){ map[c] = digitArr[i]; });
+    return function(text){
+      return Array.from(text).map(function(ch){
+        return Object.prototype.hasOwnProperty.call(map, ch) ? map[ch] : ch;
+      }).join('');
+    };
+  }
+
+  function wrap(before, after){
+    return function(text){ return before + text + after; };
+  }
+
+  function markCombine(mark){
+    return function(text){
+      return Array.from(text).map(function(ch){
+        return ch === ' ' ? ch : ch + mark;
+      }).join('');
+    };
+  }
+
+  var UPSIDE_MAP = {
+    a:'ɐ', b:'q', c:'ɔ', d:'p', e:'ǝ', f:'ɟ', g:'ƃ', h:'ɥ', i:'ᴉ', j:'ɾ',
+    k:'ʞ', l:'l', m:'ɯ', n:'u', o:'o', p:'d', q:'b', r:'ɹ', s:'s', t:'ʇ',
+    u:'n', v:'ʌ', w:'ʍ', x:'x', y:'ʎ', z:'z',
+    A:'∀', B:'B', C:'Ɔ', D:'D', E:'Ǝ', F:'Ⅎ', G:'⅁', H:'H', I:'I', J:'ſ',
+    K:'ʞ', L:'˥', M:'W', N:'N', O:'O', P:'Ԁ', Q:'Ò', R:'ᴚ', S:'S', T:'⊥',
+    U:'∩', V:'Λ', W:'M', X:'X', Y:'⅄', Z:'Z',
+    '0':'0','1':'Ɩ','2':'ᄅ','3':'Ɛ','4':'ㄣ','5':'5','6':'9','7':'ㄥ','8':'8','9':'6',
+    ',':"'",'.':'˙','?':'¿','!':'¡',"'":',','"':',,','(':')',')':'(','[':']',']':'[',
+    '{':'}','}':'{','<':'>','>':'<','_':'‾','&':'⅋'
+  };
+  function upsideDown(text){
+    var chars = Array.from(text).map(function(ch){
+      return Object.prototype.hasOwnProperty.call(UPSIDE_MAP, ch) ? UPSIDE_MAP[ch] : ch;
+    });
+    return chars.reverse().join('');
+  }
+
+  var SMALLCAPS_MAP = {
+    a:'ᴀ', b:'ʙ', c:'ᴄ', d:'ᴅ', e:'ᴇ', f:'ꜰ', g:'ɢ', h:'ʜ', i:'ɪ', j:'ᴊ',
+    k:'ᴋ', l:'ʟ', m:'ᴍ', n:'ɴ', o:'ᴏ', p:'ᴘ', q:'ǫ', r:'ʀ', s:'s', t:'ᴛ',
+    u:'ᴜ', v:'ᴠ', w:'ᴡ', x:'x', y:'ʏ', z:'ᴢ'
+  };
+  function smallCaps(text){
+    return Array.from(text).map(function(ch){
+      var low = ch.toLowerCase();
+      return Object.prototype.hasOwnProperty.call(SMALLCAPS_MAP, low) ? SMALLCAPS_MAP[low] : ch;
+    }).join('');
+  }
+
+  var SUPER_MAP = {
+    a:'ᵃ', b:'ᵇ', c:'ᶜ', d:'ᵈ', e:'ᵉ', f:'ᶠ', g:'ᵍ', h:'ʰ', i:'ⁱ', j:'ʲ',
+    k:'ᵏ', l:'ˡ', m:'ᵐ', n:'ⁿ', o:'ᵒ', p:'ᵖ', q:'q', r:'ʳ', s:'ˢ', t:'ᵗ',
+    u:'ᵘ', v:'ᵛ', w:'ʷ', x:'ˣ', y:'ʸ', z:'ᶻ',
+    A:'ᴬ', B:'ᴮ', C:'ᶜ', D:'ᴰ', E:'ᴱ', F:'ᶠ', G:'ᴳ', H:'ᴴ', I:'ᴵ', J:'ᴶ',
+    K:'ᴷ', L:'ᴸ', M:'ᴹ', N:'ᴺ', O:'ᴼ', P:'ᴾ', Q:'Q', R:'ᴿ', S:'ˢ', T:'ᵀ',
+    U:'ᵁ', V:'ⱽ', W:'ᵂ', X:'X', Y:'Y', Z:'Z',
+    '0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹',
+    '+':'⁺','-':'⁻','=':'⁼','(':'⁽',')':'⁾'
+  };
+  function superscript(text){
+    return Array.from(text).map(function(ch){
+      return Object.prototype.hasOwnProperty.call(SUPER_MAP, ch) ? SUPER_MAP[ch] : ch;
+    }).join('');
+  }
+
+  var SUB_MAP = {
+    a:'ₐ', e:'ₑ', h:'ₕ', i:'ᵢ', j:'ⱼ', k:'ₖ', l:'ₗ', m:'ₘ', n:'ₙ', o:'ₒ',
+    p:'ₚ', r:'ᵣ', s:'ₛ', t:'ₜ', u:'ᵤ', v:'ᵥ', x:'ₓ',
+    '0':'₀','1':'₁','2':'₂','3':'₃','4':'₄','5':'₅','6':'₆','7':'₇','8':'₈','9':'₉',
+    '+':'₊','-':'₋','=':'₌','(':'₍',')':'₎'
+  };
+  function subscript(text){
+    return Array.from(text).map(function(ch){
+      return Object.prototype.hasOwnProperty.call(SUB_MAP, ch) ? SUB_MAP[ch] : ch;
+    }).join('');
+  }
+
+  // ============ STYLE DEFINITIONS ============
+  var STYLES = [
+    // -------- Classic --------
+    { name:'Bold', category:'classic', fn: buildStyle(
+        "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙",
+        "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳",
+        "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗") },
+    { name:'Italic', category:'classic', fn: buildStyle(
+        "𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍",
+        "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧",
+        null) },
+    { name:'Bold Italic', category:'classic', fn: buildStyle(
+        "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁",
+        "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛",
+        null) },
+    { name:'Script', category:'classic', fn: buildStyle(
+        "𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵",
+        "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏",
+        null) },
+    { name:'Bold Script', category:'classic', fn: buildStyle(
+        "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩",
+        "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃",
+        null) },
+    { name:'Small Caps', category:'classic', fn: smallCaps },
+    { name:'Sans-Serif', category:'classic', fn: buildStyle(
+        "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹",
+        "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓",
+        "𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫") },
+    { name:'Sans Bold', category:'classic', fn: buildStyle(
+        "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
+        "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇",
+        "𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵") },
+    { name:'Sans Italic', category:'classic', fn: buildStyle(
+        "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡",
+        "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻",
+        null) },
+    { name:'Sans Bold Italic', category:'classic', fn: buildStyle(
+        "𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕",
+        "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯",
+        null) },
+    { name:'Monospace', category:'classic', fn: buildStyle(
+        "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉",
+        "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣",
+        "𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿") },
+
+    // -------- Ornate --------
+    { name:'Gothic', category:'ornate', fn: buildStyle(
+        "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ",
+        "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷",
+        null) },
+    { name:'Bold Gothic', category:'ornate', fn: buildStyle(
+        "𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅",
+        "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟",
+        null) },
+    { name:'Double-Struck', category:'ornate', fn: buildStyle(
+        "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ",
+        "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫",
+        "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡") },
+
+    // -------- Boxed --------
+    { name:'Circled', category:'boxed', fn: buildStyle(
+        "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ",
+        "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ",
+        "⓪①②③④⑤⑥⑦⑧⑨") },
+    { name:'Circled Dark', category:'boxed', fn: buildStyle(
+        "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩",
+        "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩",
+        null) },
+    { name:'Squared', category:'boxed', fn: buildStyle(
+        "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉",
+        "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉",
+        null) },
+    { name:'Squared Dark', category:'boxed', fn: buildStyle(
+        "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
+        "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
+        null) },
+    { name:'Fullwidth', category:'boxed', fn: buildStyle(
+        "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ",
+        "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ",
+        "０１２３４５６７８９") },
+
+    // -------- Effects --------
+    { name:'Superscript', category:'effects', fn: superscript },
+    { name:'Subscript', category:'effects', fn: subscript },
+    { name:'Strikethrough', category:'effects', fn: markCombine('\u0336') },
+    { name:'Underline', category:'effects', fn: markCombine('\u0332') },
+    { name:'Upside Down', category:'effects', fn: upsideDown },
+
+    // -------- Decorative --------
+    { name:'Sparkle', category:'decorative', fn: wrap('✧･ﾟ: *✦ ', ' ✦* :･ﾟ✧') },
+    { name:'Bracket', category:'decorative', fn: wrap('【', '】') },
+    { name:'Cute', category:'decorative', fn: wrap('°˖✧ ', ' ✧˖°') },
+    { name:'Crown', category:'decorative', fn: wrap('👑 ', ' 👑') },
+    { name:'Fire', category:'decorative', fn: wrap('🔥 ', ' 🔥') },
+    { name:'Heart', category:'decorative', fn: wrap('💕 ', ' 💕') }
+  ];
+
+  // ============ DOM / RENDER ============
+  var inputEl = document.getElementById('input-text');
+  var grid = document.getElementById('results-grid');
+  var charCountEl = document.getElementById('char-count');
+  var clearBtn = document.getElementById('clear-btn');
+  var toolbar = document.getElementById('filter-toolbar');
+  var statLine = document.getElementById('stat-line');
+  var srAnnouncer = document.getElementById('sr-announcer');
+
+  var currentFilter = 'all';
+  var currentResults = [];
+
+  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+
+  function buildEmptyState(){
+    var div = document.createElement('div');
+    div.className = 'empty-state';
+    div.innerHTML = '<p class="empty-title">Nothing set yet</p>' +
+      '<p class="empty-sub">Type a word or a name above — your 30 specimens will line up here, ready to copy.</p>';
+    return div;
+  }
+
+  function buildCard(item, index){
+    var btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'specimen-card';
+    btn.dataset.index = String(index);
+    btn.dataset.category = item.category;
+    btn.style.setProperty('--i', index);
+    btn.setAttribute('aria-label', item.name + ' style — tap to copy');
+
+    var head = document.createElement('div');
+    head.className = 'specimen-head';
+
+    var no = document.createElement('span');
+    no.className = 'specimen-no';
+    no.textContent = 'No. ' + pad(index + 1);
+
+    var name = document.createElement('span');
+    name.className = 'specimen-name';
+    name.textContent = item.name;
+
+    head.appendChild(no);
+    head.appendChild(name);
+
+    var preview = document.createElement('div');
+    preview.className = 'specimen-preview';
+    preview.textContent = item.text;
+
+    var foot = document.createElement('div');
+    foot.className = 'specimen-foot';
+    var action = document.createElement('span');
+    action.className = 'specimen-action';
+    action.textContent = 'Copy';
+    foot.appendChild(action);
+
+    btn.appendChild(head);
+    btn.appendChild(preview);
+    btn.appendChild(foot);
+    return btn;
+  }
+
+  function applyFilter(){
+    var cards = grid.querySelectorAll('.specimen-card');
+    var visible = 0;
+    cards.forEach(function(card){
+      var show = currentFilter === 'all' || card.dataset.category === currentFilter;
+      card.style.display = show ? '' : 'none';
+      if (show) visible++;
+    });
+    if (cards.length){
+      statLine.textContent = 'Showing ' + visible + ' of ' + STYLES.length + ' styles';
+    } else {
+      statLine.textContent = '';
+    }
+  }
+
+  function render(){
+    var text = inputEl.value;
+    grid.innerHTML = '';
+
+    if (!text.trim()){
+      grid.appendChild(buildEmptyState());
+      statLine.textContent = '';
+      currentResults = [];
+      return;
+    }
+
+    currentResults = STYLES.map(function(s){
+      return { name: s.name, category: s.category, text: s.fn(text) };
+    });
+
+    currentResults.forEach(function(item, i){
+      grid.appendChild(buildCard(item, i));
+    });
+
+    applyFilter();
+  }
+
+  function updateCharCount(){
+    charCountEl.textContent = inputEl.value.length + ' / ' + inputEl.maxLength;
+  }
+
+  async function copyText(text){
+    try{
+      await navigator.clipboard.writeText(text);
+      return true;
+    } catch(e){
+      try{
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.style.position = 'fixed';
+        ta.style.opacity = '0';
+        document.body.appendChild(ta);
+        ta.focus();
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        return true;
+      } catch(e2){
+        return false;
+      }
+    }
+  }
+
+  grid.addEventListener('click', async function(e){
+    var card = e.target.closest('.specimen-card');
+    if (!card) return;
+    var idx = Number(card.dataset.index);
+    var item = currentResults[idx];
+    if (!item) return;
+
+    var ok = await copyText(item.text);
+    if (ok){
+      card.classList.add('is-copied');
+      var actionEl = card.querySelector('.specimen-action');
+      actionEl.textContent = 'Copied ✓';
+      srAnnouncer.textContent = item.name + ' style copied to clipboard';
+      clearTimeout(card._copyTimeout);
+      card._copyTimeout = setTimeout(function(){
+        card.classList.remove('is-copied');
+        actionEl.textContent = 'Copy';
+      }, 1400);
+    }
+  });
+
+  inputEl.addEventListener('input', function(){
+    updateCharCount();
+    render();
+  });
+
+  clearBtn.addEventListener('click', function(){
+    inputEl.value = '';
+    updateCharCount();
+    render();
+    inputEl.focus();
+  });
+
+  toolbar.addEventListener('click', function(e){
+    var chip = e.target.closest('.chip');
+    if (!chip) return;
+    currentFilter = chip.dataset.filter;
+    toolbar.querySelectorAll('.chip').forEach(function(c){
+      var active = c === chip;
+      c.classList.toggle('is-active', active);
+      c.setAttribute('aria-pressed', active ? 'true' : 'false');
+    });
+    applyFilter();
+  });
+
+  document.addEventListener('DOMContentLoaded', function(){
+    updateCharCount();
+    render();
+  });
+
+  // In case DOMContentLoaded already fired (script at end of body)
+  updateCharCount();
+  render();
+})();
+</script>
+</body>
+</html>
