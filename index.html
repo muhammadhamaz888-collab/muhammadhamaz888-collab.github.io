@@ -263,24 +263,9 @@
   </div>
 </header>
 
-<!-- ============ ADSTERRA: TOP BANNER ============
-     Recommended size: 728x90 (desktop) / 320x50 (mobile).
-     Paste your Adsterra ad script inside #ad-top-banner, replacing the placeholder span. -->
 <div class="ad-slot ad-top">
   <span class="ad-label">Advertisement</span>
   <div class="ad-box" id="ad-top-banner">
-    
-    <!-- <script>
-  atOptions = {
-    'key' : 'b36d31ccf5ff108812022138b5f34ba4',
-    'format' : 'iframe',
-    'height' : 90,
-    'width' : 728,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
-    
     <span class="ad-placeholder-text">Top Banner Ad Space · 728×90</span>
   </div>
 </div>
@@ -314,41 +299,22 @@
       </div>
       <p class="stat-line" id="stat-line"></p>
 
-      <div class="results-grid" id="results-grid"><!-- cards injected by JS --></div>
+      <div class="results-grid" id="results-grid"></div>
     </div>
 
     <aside class="layout-aside">
-      <!-- ============ ADSTERRA: SIDEBAR ============
-           Recommended size: 300x250 or 160x600.
-           Paste your Adsterra ad script inside #ad-sidebar, replacing the placeholder span. -->
       <div class="ad-slot ad-sidebar">
         <span class="ad-label">Advertisement</span>
         <div class="ad-box" id="ad-sidebar">
-          
-          <!-- <script>
-  atOptions = {
-    'key' : '7b298fcb50faf70c6b17c128304176f6',
-    'format' : 'iframe',
-    'height' : 250,
-    'width' : 300,
-    'params' : {}
-  };
-</script>
-<script src="https://www.highperformanceformat.com/7b298fcb50faf70c6b17c128304176f6/invoke.js"></script>
-          
           <span class="ad-placeholder-text">Sidebar Ad Space · 300×250</span>
         </div>
       </div>
     </aside>
   </div>
 
-  <!-- ============ ADSTERRA: BOTTOM BANNER ============
-       Recommended size: 728x90 (desktop) / 320x50 (mobile).
-       Paste your Adsterra ad script inside #ad-bottom-banner, replacing the placeholder span. -->
   <div class="ad-slot ad-bottom">
     <span class="ad-label">Advertisement</span>
     <div class="ad-box" id="ad-bottom-banner">
-      <!-- ADSTERRA BOTTOM BANNER CODE GOES HERE -->
       <span class="ad-placeholder-text">Bottom Banner Ad Space · 728×90</span>
     </div>
   </div>
@@ -369,9 +335,6 @@
   var LO = "abcdefghijklmnopqrstuvwxyz".split('');
   var DG = "0123456789".split('');
 
-  // Builds a lookup-based transform function from target character sets.
-  // Splits target strings with spread so astral (surrogate-pair) Unicode
-  // characters — like Mathematical Alphanumeric Symbols — are handled correctly.
   function buildStyle(upperStr, lowerStr, digitStr){
     var upperArr = upperStr ? Array.from(upperStr) : null;
     var lowerArr = lowerStr ? Array.from(lowerStr) : null;
@@ -459,284 +422,136 @@
 
   // ============ STYLE DEFINITIONS ============
   var STYLES = [
-    // -------- Classic --------
-    { name:'Bold', category:'classic', fn: buildStyle(
-        "𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙",
-        "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳",
-        "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗") },
-    { name:'Italic', category:'classic', fn: buildStyle(
-        "𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽𝐾𝐿𝑀𝑁𝑂𝑃𝑄𝑅𝑆𝑇𝑈𝑉𝑊𝑋𝑌𝑍",
-        "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖𝑗𝑘𝑙𝑚𝑛𝑜𝑝𝑞𝑟𝑠𝑡𝑢𝑣𝑤𝑥𝑦𝑧",
-        null) },
-    { name:'Bold Italic', category:'classic', fn: buildStyle(
-        "𝑨𝑩𝑪𝑫𝑬𝑭𝑮𝑯𝑰𝑱𝑲𝑳𝑴𝑵𝑶𝑷𝑸𝑹𝑺𝑻𝑼𝑽𝑾𝑿𝒀𝒁",
-        "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛",
-        null) },
-    { name:'Script', category:'classic', fn: buildStyle(
-        "𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵",
-        "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏",
-        null) },
-    { name:'Bold Script', category:'classic', fn: buildStyle(
-        "𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩",
-        "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃",
-        null) },
+    { name:'Bold', category:'classic', fn: buildStyle("𝐀𝐁𝐂𝐃𝐄𝐅𝐆𝐇𝐈𝐉𝐊𝐋𝐌𝐍𝐎𝐏𝐐𝐑𝐒𝐓𝐔𝐕𝐖𝐗𝐘𝐙", "𝐚𝐛𝐜𝐝𝐞𝐟𝐠𝐡𝐢𝐣𝐤𝐥𝐦𝐧𝐨𝐩𝐪𝐫𝐬𝐭𝐮𝐯𝐰𝐱𝐲𝐳", "𝟎𝟏𝟐𝟑𝟒𝟓𝟔𝟕𝟖𝟗") },
+    { name:'Italic', category:'classic', fn: buildStyle("𝐴𝐵𝐶𝐷𝐸𝐹𝐺𝐻𝐼𝐽开", "𝑎𝑏𝑐𝑑𝑒𝑓𝑔ℎ𝑖组织𝑘𝑙𝑚组织𝑜𝑝𝑞𝑟𝑠𝑡𝑢组织𝑤𝑥𝑦𝑧", null) },
+    { name:'Bold Italic', category:'classic', fn: buildStyle("𝑨\u1d43\u1d47\u1d48\u1d49\u1d4a\u1d4b\u1d4c\u1d4d\u1d4e\u1d4f\u1d50\u1d51\u1d52\u1d53\u1d54\u1d55\u1d56\u1d57\u1d58\u1d59\u1d5a\u1d5b\u1d5c\u1d5d\u1d5e\u1d5f", "𝒂𝒃𝒄𝒅𝒆𝒇𝒈𝒉𝒊𝒋𝒌𝒍𝒎𝒏𝒐𝒑𝒒𝒓𝒔𝒕𝒖𝒗𝒘𝒙𝒚𝒛", null) },
+    { name:'Script', category:'classic', fn: buildStyle("𝒜ℬ𝒞𝒟ℰℱ𝒢ℋℐ𝒥𝒦ℒℳ𝒩𝒪𝒫𝒬ℛ𝒮𝒯𝒰𝒱𝒲𝒳𝒴𝒵", "𝒶𝒷𝒸𝒹ℯ𝒻ℊ𝒽𝒾𝒿𝓀𝓁𝓂𝓃ℴ𝓅𝓆𝓇𝓈𝓉𝓊𝓋𝓌𝓍𝓎𝓏", null) },
+    { name:'Bold Script', category:'classic', fn: buildStyle("𝓐𝓑𝓒𝓓𝓔𝓕𝓖𝓗𝓘𝓙𝓚𝓛𝓜𝓝𝓞𝓟𝓠𝓡𝓢𝓣𝓤𝓥𝓦𝓧𝓨𝓩", "𝓪𝓫𝓬𝓭𝓮𝓯𝓰𝓱𝓲𝓳𝓴𝓵𝓶𝓷𝓸𝓹𝓺𝓻𝓼𝓽𝓾𝓿𝔀𝔁𝔂𝔃", null) },
     { name:'Small Caps', category:'classic', fn: smallCaps },
-    { name:'Sans-Serif', category:'classic', fn: buildStyle(
-        "𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹",
-        "𝖺𝖻𝖼𝖽𝖾𝖿𝗀𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌𝗍𝗎𝗏𝗐𝗑𝗒𝗓",
-        "𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫") },
-    { name:'Sans Bold', category:'classic', fn: buildStyle(
-        "𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭",
-        "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇",
-        "𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵") },
-    { name:'Sans Italic', category:'classic', fn: buildStyle(
-        "𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡",
-        "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻",
-        null) },
-    { name:'Sans Bold Italic', category:'classic', fn: buildStyle(
-        "𝘼𝘽𝘾𝘿𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕",
-        "𝙖𝙗𝙘𝙙𝙚𝙛𝙜𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙫𝙬𝙭𝙮𝙯",
-        null) },
-    { name:'Monospace', category:'classic', fn: buildStyle(
-        "𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉",
-        "𝚊𝚋𝚌𝚍𝚎𝚏𝚐𝚑𝚒𝚓𝚔𝚕𝚖𝚗𝚘𝚙𝚚𝚛𝚜𝚝𝚞𝚟𝚠𝚡𝚢𝚣",
-        "𝟶𝟷𝟸𝟹𝟺𝟻𝟼𝟽𝟾𝟿") },
-
-    // -------- Ornate --------
-    { name:'Gothic', category:'ornate', fn: buildStyle(
-        "𝔄𝔅ℭ𝔇𝔈𝔉𝔊ℌℑ𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔ℜ𝔖𝔗𝔘𝔙𝔚𝔛𝔜ℨ",
-        "𝔞𝔟𝔠𝔡𝔢𝔣𝔤𝔥𝔦𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷",
-        null) },
-    { name:'Bold Gothic', category:'ornate', fn: buildStyle(
-        "𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅",
-        "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟",
-        null) },
-    { name:'Double-Struck', category:'ornate', fn: buildStyle(
-        "𝔸𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ",
-        "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫",
-        "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡") },
-
-    // -------- Boxed --------
-    { name:'Circled', category:'boxed', fn: buildStyle(
-        "ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ",
-        "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ",
-        "⓪①②③④⑤⑥⑦⑧⑨") },
-    { name:'Circled Dark', category:'boxed', fn: buildStyle(
-        "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩",
-        "🅐🅑🅒🅓🅔🅕🅖🅗🅘🅙🅚🅛🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩",
-        null) },
-    { name:'Squared', category:'boxed', fn: buildStyle(
-        "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉",
-        "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🅀🅁🅂🅃🅄🅅🅆🅇🅈🅉",
-        null) },
-    { name:'Squared Dark', category:'boxed', fn: buildStyle(
-        "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
-        "🅰🅱🅲🅳🅴🅵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉",
-        null) },
-    { name:'Fullwidth', category:'boxed', fn: buildStyle(
-        "ＡＢＣＤＥＦＧＨＩＪＫＬＭＮＯＰＱＲＳＴＵＶＷＸＹＺ",
-        "ａｂｃｄｅｆｇｈｉｊｋｌｍｎｏｐｑｒｓｔｕｖｗｘｙｚ",
-        "０１２３４５６７８９") },
-
-    // -------- Effects --------
+    { name:'Sans-Serif', category:'classic', fn: buildStyle("𝖠𝖡𝖢𝖣𝖤𝖥𝖦𝖧𝖨𝖩𝖪𝖫𝖬𝖭𝖮𝖯𝖰𝖱𝖲𝖳𝖴𝖵𝖶𝖷𝖸𝖹", "𝖺𝖻𝖼 d𝖾𝖿𝗀 organizers𝗁𝗂𝗃𝗄𝗅𝗆𝗇𝗈𝗉𝗊𝗋𝗌 organiser𝗍𝗎𝗏𝗐𝗑𝗒𝗓", "𝟢𝟣𝟤𝟥𝟦𝟧𝟨𝟩𝟪𝟫") },
+    { name:'Sans Bold', category:'classic', fn: buildStyle("𝗔𝗕𝗖𝗗𝗘𝗙𝗚𝗛𝗜𝗝𝗞𝗟𝗠𝗡𝗢𝗣𝗤𝗥𝗦𝗧𝗨𝗩𝗪𝗫𝗬𝗭", "𝗮𝗯𝗰𝗱𝗲𝗳𝗴𝗵𝗶𝗷𝗸 organiser𝗹𝗺𝗻𝗼𝗽𝗾𝗿𝘀𝘁𝘂𝘃𝘄𝘅𝘆𝘇", "𝟬𝟭𝟮𝟯𝟰𝟱𝟲𝟳𝟴𝟵") },
+    { name:'Sans Italic', category:'classic', fn: buildStyle("𝘈𝘉𝘊𝘋𝘌𝘍𝘎𝘏𝘐𝘑𝘒𝘓𝘔𝘕𝘖𝘗𝘘𝘙𝘚𝘛𝘜𝘝𝘞𝘟𝘠𝘡", "𝘢𝘣𝘤𝘥𝘦𝘧𝘨𝘩𝘪𝘫𝘬 organizer𝘭𝘮𝘯𝘰𝘱𝘲𝘳𝘴𝘵𝘶𝘷𝘸𝘹𝘺𝘻", null) },
+    { name:'Sans Bold Italic', category:'classic', fn: buildStyle("𝘼𝘽𝘾𝘿path𝙀𝙁𝙂𝙃𝙄𝙅𝙆𝙇𝙈𝙉𝙊𝙋𝙌𝙍𝙎𝙏𝙐𝙑𝙒𝙓𝙔𝙕", "𝙖𝙗𝙘𝙙𝙚𝙛grand𝙜𝙦𝙝𝙞𝙟𝙠𝙡𝙢𝙣𝙤𝙥𝙦𝙧𝙨𝙩𝙪𝙿𝙫𝙬𝙭𝙮𝙯", null) },
+    { name:'Monospace', category:'classic', fn: buildStyle("𝙰𝙱𝙲𝙳𝙴𝙵𝙶𝙷𝙸𝙹𝙺𝙻𝙼𝙽𝙾𝙿𝚀𝚁𝚂𝚃𝚄𝚅𝚆𝚇𝚈𝚉", "𝚊𝚋𝚌\u0064\u0065\u0066\u0067\u0068\u0069\u006a\u006b\u006c\u006d\u006e\u006f\u0070\u0071\u0072\u0073\u0074\u0075\u0076\u0077\u0078\u0079\u007a", "𝟶𝟛𝟜𝟝𝟞𝟟𝟾𝟿") },
+    { name:'Gothic', category:'ornate', fn: buildStyle("𝔄𝔅𝔆𝔇𝔈𝔉𝔊𝔋𝔌𝔍𝔎𝔏𝔐𝔑𝔒𝔓𝔔𝔕𝔖𝔗𝔘𝔙𝔚𝔛𝔜𝔝", "𝔞𝔟𝔠𝔡𝔢𝔣𝔧𝔨𝔩𝔪𝔫𝔬𝔭𝔮𝔯𝔰𝔱𝔲𝔳𝔴𝔵𝔶𝔷", null) },
+    { name:'Bold Gothic', category:'ornate', fn: buildStyle("𝕬𝕭𝕮𝕯𝕰𝕱𝕲𝕳𝕴𝕵𝕶𝕷𝕸𝕹𝕺𝕻𝕼𝕽𝕾𝕿𝖀𝖁𝖂𝖃𝖄𝖅", "𝖆𝖇𝖈𝖉𝖊𝖋𝖌𝖍𝖎𝖏𝖐𝖑𝖒𝖓𝖔𝖕𝖞𝖖𝖗𝖘𝖙𝖚𝖛𝖜𝖝𝖞𝖟", null) },
+    { name:'Double Struck', category:'ornate', fn: buildStyle("𝔸𝕡𝔹ℂ𝔻𝔼𝔽𝔾ℍ𝕀𝕁𝕂𝕃𝕄ℕ𝕆ℙℚℝ𝕊𝕋𝕌𝕍𝕎𝕏𝕐ℤ", "𝕒𝕓𝕔𝕕𝕖𝕗𝕘𝕙𝕚𝕛𝕜𝕝𝕞𝕟𝕠𝕡𝕢𝕣𝕤𝕥𝕦𝕧𝕨𝕩𝕪𝕫", "𝟘𝟙𝟚𝟛𝟜𝟝𝟞𝟟𝟠𝟡") },
+    { name:'Circled', category:'boxed', fn: buildStyle("ⒶⒷⒸⒹⒺⒻⒼⒽⒾⒿⓀⓁⓂⓃⓄⓅⓆⓇⓈⓉⓊⓋⓌⓍⓎⓏ", "ⓐⓑⓒⓓⓔⓕⓖⓗⓘⓙⓚⓛⓜⓝⓞⓟⓠⓡⓢⓣⓤⓥⓦⓧⓨⓩ", "⓪①②③④⑤⑥⑦⑧⑨") },
+    { name:'Circled Dark', category:'boxed', fn: buildStyle("🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅦🅟🅓🅡🅕🅖🅗🅓🅙🅚🅛", "🅜🅝🅞🅟🅠🅡🅢🅣🅤🅥🅦🅧🅨🅩🅐🅦🅟🅓🅡🅕🅖🅗🅓🅙🅚🅛", "⓿❶❷❸❹❺❻❼❽❾") },
+    { name:'Squared', category:'boxed', fn: buildStyle("🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🄵🅁🅂🅃🅄🅅🅞🅟🅠🅡", "🄰🄱🄲🄳🄴🄵🄶🄷🄸🄹🄺🄻🄼🄽🄾🄿🄵🅁🅂🅃🅄🅅🅞🅟🅠🅡", null) },
+    { name:'Squared Dark', category:'boxed', fn: buildStyle("🅰🅱🅲🅳🅴🵵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉", "🅰🅱🅲🅳🅴🵵🅶🅷🅸🅹🅺🅻🅼🅽🅾🅿🆀🆁🆂🆃🆄🆅🆆🆇🆈🆉", null) },
     { name:'Superscript', category:'effects', fn: superscript },
     { name:'Subscript', category:'effects', fn: subscript },
-    { name:'Strikethrough', category:'effects', fn: markCombine('\u0336') },
-    { name:'Underline', category:'effects', fn: markCombine('\u0332') },
     { name:'Upside Down', category:'effects', fn: upsideDown },
-
-    // -------- Decorative --------
-    { name:'Sparkle', category:'decorative', fn: wrap('✧･ﾟ: *✦ ', ' ✦* :･ﾟ✧') },
-    { name:'Bracket', category:'decorative', fn: wrap('【', '】') },
-    { name:'Cute', category:'decorative', fn: wrap('°˖✧ ', ' ✧˖°') },
-    { name:'Crown', category:'decorative', fn: wrap('👑 ', ' 👑') },
-    { name:'Fire', category:'decorative', fn: wrap('🔥 ', ' 🔥') },
-    { name:'Heart', category:'decorative', fn: wrap('💕 ', ' 💕') }
+    { name:'Strikethrough', category:'effects', fn: markCombine("\u0336") },
+    { name:'Underline', category:'effects', fn: markCombine("\u0332") },
+    { name:'Slash Through', category:'effects', fn: markCombine("\u0338") },
+    { name:'Sparkles', category:'decorative', fn: wrap("✨ ", " ✨") },
+    { name:'Heart Borders', category:'decorative', fn: wrap("❤️ ", " ❤️") },
+    { name:'Bracketed', category:'decorative', fn: wrap("[ ", " ]") }
   ];
 
-  // ============ DOM / RENDER ============
-  var inputEl = document.getElementById('input-text');
-  var grid = document.getElementById('results-grid');
-  var charCountEl = document.getElementById('char-count');
+  // ============ DOM OPERATIONS & LOGIC ============
+  var inputText = document.getElementById('input-text');
+  var charCount = document.getElementById('char-count');
   var clearBtn = document.getElementById('clear-btn');
-  var toolbar = document.getElementById('filter-toolbar');
+  var resultsGrid = document.getElementById('results-grid');
+  var filterToolbar = document.getElementById('filter-toolbar');
   var statLine = document.getElementById('stat-line');
-  var srAnnouncer = document.getElementById('sr-announcer');
+  var announcer = document.getElementById('sr-announcer');
 
   var currentFilter = 'all';
-  var currentResults = [];
 
-  function pad(n){ return n < 10 ? '0' + n : '' + n; }
+  function renderCards() {
+    var query = inputText.value || "";
+    charCount.textContent = query.length + " / 200";
+    resultsGrid.innerHTML = "";
 
-  function buildEmptyState(){
-    var div = document.createElement('div');
-    div.className = 'empty-state';
-    div.innerHTML = '<p class="empty-title">Nothing set yet</p>' +
-      '<p class="empty-sub">Type a word or a name above — your 30 specimens will line up here, ready to copy.</p>';
-    return div;
-  }
-
-  function buildCard(item, index){
-    var btn = document.createElement('button');
-    btn.type = 'button';
-    btn.className = 'specimen-card';
-    btn.dataset.index = String(index);
-    btn.dataset.category = item.category;
-    btn.style.setProperty('--i', index);
-    btn.setAttribute('aria-label', item.name + ' style — tap to copy');
-
-    var head = document.createElement('div');
-    head.className = 'specimen-head';
-
-    var no = document.createElement('span');
-    no.className = 'specimen-no';
-    no.textContent = 'No. ' + pad(index + 1);
-
-    var name = document.createElement('span');
-    name.className = 'specimen-name';
-    name.textContent = item.name;
-
-    head.appendChild(no);
-    head.appendChild(name);
-
-    var preview = document.createElement('div');
-    preview.className = 'specimen-preview';
-    preview.textContent = item.text;
-
-    var foot = document.createElement('div');
-    foot.className = 'specimen-foot';
-    var action = document.createElement('span');
-    action.className = 'specimen-action';
-    action.textContent = 'Copy';
-    foot.appendChild(action);
-
-    btn.appendChild(head);
-    btn.appendChild(preview);
-    btn.appendChild(foot);
-    return btn;
-  }
-
-  function applyFilter(){
-    var cards = grid.querySelectorAll('.specimen-card');
-    var visible = 0;
-    cards.forEach(function(card){
-      var show = currentFilter === 'all' || card.dataset.category === currentFilter;
-      card.style.display = show ? '' : 'none';
-      if (show) visible++;
+    var filteredStyles = STYLES.filter(function(style) {
+      return currentFilter === 'all' || style.category === currentFilter;
     });
-    if (cards.length){
-      statLine.textContent = 'Showing ' + visible + ' of ' + STYLES.length + ' styles';
-    } else {
-      statLine.textContent = '';
-    }
-  }
 
-  function render(){
-    var text = inputEl.value;
-    grid.innerHTML = '';
+    statLine.textContent = "Showing " + filteredStyles.length + " font variations";
 
-    if (!text.trim()){
-      grid.appendChild(buildEmptyState());
-      statLine.textContent = '';
-      currentResults = [];
+    if (query.trim() === "") {
+      resultsGrid.innerHTML = '<div class="empty-state"><p class="empty-title">No text entered</p><p class="empty-sub">Please type something in the composer box above to see font magic.</p></div>';
       return;
     }
 
-    currentResults = STYLES.map(function(s){
-      return { name: s.name, category: s.category, text: s.fn(text) };
-    });
+    filteredStyles.forEach(function(style, index) {
+      var transformed = style.fn(query);
+      
+      var card = document.createElement('div');
+      card.className = 'specimen-card';
+      card.style.setProperty('--i', index);
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
+      card.setAttribute('aria-label', style.name + " font version. Click to copy.");
 
-    currentResults.forEach(function(item, i){
-      grid.appendChild(buildCard(item, i));
-    });
+      card.innerHTML = '<div class="specimen-head">' +
+        '<span class="specimen-no">' + String(index + 1).padStart(2, '0') + '</span>' +
+        '<span class="specimen-name">' + style.name + '</span>' +
+      '</div>' +
+      '<div class="specimen-preview">' + transformed + '</div>' +
+      '<div class="specimen-foot">' +
+        '<span class="specimen-action">Copy</span>' +
+      '</div>';
 
-    applyFilter();
-  }
-
-  function updateCharCount(){
-    charCountEl.textContent = inputEl.value.length + ' / ' + inputEl.maxLength;
-  }
-
-  async function copyText(text){
-    try{
-      await navigator.clipboard.writeText(text);
-      return true;
-    } catch(e){
-      try{
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        ta.style.position = 'fixed';
-        ta.style.opacity = '0';
-        document.body.appendChild(ta);
-        ta.focus();
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        return true;
-      } catch(e2){
-        return false;
+      function handleCopy() {
+        navigator.clipboard.writeText(transformed).then(function() {
+          card.classList.add('is-copied');
+          var actionText = card.querySelector('.specimen-action');
+          actionText.textContent = 'Copied!';
+          announcer.textContent = style.name + " text copied to clipboard.";
+          
+          setTimeout(function() {
+            card.classList.remove('is-copied');
+            actionText.textContent = 'Copy';
+          }, 1500);
+        }).catch(function(err) {
+          console.error('Could not copy text: ', err);
+        });
       }
-    }
+
+      card.addEventListener('click', handleCopy);
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          handleCopy();
+        }
+      });
+
+      resultsGrid.appendChild(card);
+    });
   }
 
-  grid.addEventListener('click', async function(e){
-    var card = e.target.closest('.specimen-card');
-    if (!card) return;
-    var idx = Number(card.dataset.index);
-    var item = currentResults[idx];
-    if (!item) return;
+  inputText.addEventListener('input', renderCards);
 
-    var ok = await copyText(item.text);
-    if (ok){
-      card.classList.add('is-copied');
-      var actionEl = card.querySelector('.specimen-action');
-      actionEl.textContent = 'Copied ✓';
-      srAnnouncer.textContent = item.name + ' style copied to clipboard';
-      clearTimeout(card._copyTimeout);
-      card._copyTimeout = setTimeout(function(){
-        card.classList.remove('is-copied');
-        actionEl.textContent = 'Copy';
-      }, 1400);
-    }
+  clearBtn.addEventListener('click', function() {
+    inputText.value = "";
+    inputText.focus();
+    renderCards();
   });
 
-  inputEl.addEventListener('input', function(){
-    updateCharCount();
-    render();
-  });
-
-  clearBtn.addEventListener('click', function(){
-    inputEl.value = '';
-    updateCharCount();
-    render();
-    inputEl.focus();
-  });
-
-  toolbar.addEventListener('click', function(e){
-    var chip = e.target.closest('.chip');
-    if (!chip) return;
-    currentFilter = chip.dataset.filter;
-    toolbar.querySelectorAll('.chip').forEach(function(c){
-      var active = c === chip;
-      c.classList.toggle('is-active', active);
-      c.setAttribute('aria-pressed', active ? 'true' : 'false');
+  filterToolbar.addEventListener('click', function(e) {
+    var btn = e.target.closest('.chip');
+    if (!btn) return;
+    
+    filterToolbar.querySelectorAll('.chip').forEach(function(b) {
+      b.classList.remove('is-active');
+      b.setAttribute('aria-pressed', 'false');
     });
-    applyFilter();
+
+    btn.classList.add('is-active');
+    btn.setAttribute('aria-pressed', 'true');
+    currentFilter = btn.getAttribute('data-filter');
+    renderCards();
   });
 
-  document.addEventListener('DOMContentLoaded', function(){
-    updateCharCount();
-    render();
-  });
+  // Execute initial rendering
+  renderCards();
 
-  // In case DOMContentLoaded already fired (script at end of body)
-  updateCharCount();
-  render();
 })();
 </script>
-  
-<script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
-<div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
-  
 </body>
 </html>
