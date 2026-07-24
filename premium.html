@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>40+ Premium Stylish Fonts | Glitch, Zalgo & More (Free)</title>
-    <meta name="description" content="Unlock 40+ exclusive premium fancy fonts – Glitch, Zalgo, Old English, Demon, Angel & more. All free, no signup required.">
+    <title>44+ Premium Stylish Fonts | Glitch, Zalgo & More (Free)</title>
+    <meta name="description" content="Unlock 44+ exclusive premium fancy fonts – Glitch, Zalgo, Old English, Game On, Cute styles & more. All free, no signup required.">
     
     <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
     <script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
@@ -75,8 +75,8 @@
 
     <!-- Main Container -->
     <div class="w-full max-w-4xl text-center">
-        <h1 class="text-3xl md:text-5xl font-bold mb-2 gradient-text">40+ Exclusive Premium Fonts</h1>
-        <p class="text-zinc-400 mb-8 text-sm md:text-base">Glitch, Zalgo, Old English, Demon, Angel & more – absolutely FREE!</p>
+        <h1 class="text-3xl md:text-5xl font-bold mb-2 gradient-text">44+ Exclusive Premium Fonts</h1>
+        <p class="text-zinc-400 mb-8 text-sm md:text-base">Glitch, Zalgo, Old English, Game On & more – absolutely FREE!</p>
 
         <!-- ADSTERRA AD SLOT 1 (Top) -->
         <div class="w-full flex justify-center mb-8 min-h-[90px]">
@@ -86,8 +86,8 @@
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <!-- Input Box -->
-        <input type="text" id="userInput" placeholder="✨ Type here (e.g. Muhammad / Mazzi Khan)... ✨" value="Muhammad"
+        <!-- Input Box (No default value, new placeholder) -->
+        <input type="text" id="userInput" placeholder="✨ Type here (e.g. Hamaz / Mazzi Khan)... ✨"
                class="w-full p-5 text-lg bg-card border-2 border-border rounded-2xl text-white outline-none focus:border-gold focus:ring-4 focus:ring-gold/20 transition placeholder:text-zinc-500 mb-8">
 
         <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
@@ -119,7 +119,6 @@
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
 
-        // Zalgo function with adjustable intensity
         function zalgo(text, intensity = 5) {
             const zalgoUp = [0x030D,0x030E,0x0304,0x0305,0x033F,0x0311,0x0306,0x0310,0x0352,0x0357,0x0351,0x0307,0x0308,0x030A,0x0342,0x0343,0x0344,0x034A,0x034B,0x034C,0x0303,0x0302,0x030C,0x0350,0x0300,0x0301,0x030B,0x030F,0x0312,0x0313,0x0314,0x033D,0x0309,0x0363,0x0364,0x0365,0x0366,0x0367,0x0368,0x0369,0x036A,0x036B,0x036C,0x036D,0x036E,0x036F,0x033E,0x035B,0x0346,0x031A];
             const zalgoMid = [0x0315,0x031B,0x0340,0x0341,0x0358,0x0321,0x0322,0x0327,0x0328,0x0334,0x0335,0x0336,0x034F,0x035C,0x035D,0x035E,0x035F,0x0360,0x0362,0x0338,0x0337,0x0361,0x0489];
@@ -136,7 +135,6 @@
             }).join('');
         }
 
-        // Glitch heavy
         function glitch(text) {
             const marks = ['\u0336', '\u0337', '\u0338', '\u035C', '\u035D', '\u035E', '\u0323', '\u0324'];
             return Array.from(text).map(c => {
@@ -148,7 +146,6 @@
             }).join('');
         }
 
-        // Old English (Fraktur)
         function oldEnglish(str) {
             const map = {
                 'a':'𝔞','b':'𝔟','c':'𝔠','d':'𝔡','e':'𝔢','f':'𝔣','g':'𝔤','h':'𝔥','i':'𝔦','j':'𝔧','k':'𝔨','l':'𝔩','m':'𝔪','n':'𝔫','o':'𝔬','p':'𝔭','q':'𝔮','r':'𝔯','s':'𝔰','t':'𝔱','u':'𝔲','v':'𝔳','w':'𝔴','x':'𝔵','y':'𝔶','z':'𝔷',
@@ -157,8 +154,8 @@
             return Array.from(str).map(c => map[c] || c).join('');
         }
 
-        // 40 PREMIUM STYLES
         const PREMIUM_STYLES = [
+            // existing 39
             { name: 'Glitch Storm', fn: glitch },
             { name: 'Zalgo Max', fn: t => zalgo(t, 8) },
             { name: 'Zalgo Medium', fn: t => zalgo(t, 4) },
@@ -171,8 +168,8 @@
                 'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'};
                 return m[c] || c;
             }).join('') },
-            { name: 'Cursed Text', fn: t => Array.from(t).map(c => c + '\u0361' + c).join('') }, // ties
-            { name: 'Mirror (Right-to-Left)', fn: t => '\u202E' + t + '\u202C' }, // visually mirrored, use carefully
+            { name: 'Cursed Text', fn: t => Array.from(t).map(c => c + '\u0361' + c).join('') },
+            { name: 'Mirror (RTL)', fn: t => '\u202E' + t + '\u202C' },
             { name: 'Wingdings Style', fn: t => Array.from(t).map(c => {
                 const w = {'a':'♋︎','b':'♌︎','c':'♍︎','d':'♎︎','e':'♏︎','f':'♐︎','g':'♑︎','h':'♒︎','i':'♓︎','j':'♈︎','k':'♉︎','l':'♊︎','m':'♠︎','n':'♣︎','o':'♥︎','p':'♦︎','q':'♤','r':'♧','s':'♡','t':'♢','u':'☀','v':'☁','w':'☂','x':'☃','y':'☄','z':'★',
                 'A':'♋︎','B':'♌︎','C':'♍︎','D':'♎︎','E':'♏︎','F':'♐︎','G':'♑︎','H':'♒︎','I':'♓︎','J':'♈︎','K':'♉︎','L':'♊︎','M':'♠︎','N':'♣︎','O':'♥︎','P':'♦︎','Q':'♤','R':'♧','S':'♡','T':'♢','U':'☀','V':'☁','W':'☂','X':'☃','Y':'☄','Z':'★'};
@@ -227,10 +224,20 @@
                 };
                 return flip[c] || c;
             }).join('') },
+            // 5 NEW PREMIUM FONTS
+            { name: 'Game On', fn: t => `▶ ${t} ◀` },
+            { name: 'Shadow Block', fn: t => `░▒▓█ ${t} █▓▒░` },
+            { name: 'Heartbeat', fn: t => `💓 ${t} 💓` },
+            { name: 'Bunny Cute', fn: t => `🐰 ${t} 🐰` },
+            { name: 'Neon Cyber', fn: t => `▀▄▀▄ ${t} ▄▀▄▀` },
         ];
 
         function renderCards() {
-            const val = input.value.trim() || "Muhammad";
+            const val = input.value.trim();
+            if (!val) {
+                resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-16 text-xl col-span-full">✨ Type something above to generate fonts ✨</p>`;
+                return;
+            }
             resultsContainer.innerHTML = "";
             PREMIUM_STYLES.forEach(style => {
                 const transformed = style.fn(val);
