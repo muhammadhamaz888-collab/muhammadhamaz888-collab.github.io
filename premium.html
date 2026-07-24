@@ -85,16 +85,19 @@
         }
     </style>
 </head>
-<body class="font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8 dark">
+<body class="font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8">
 
     <!-- Sticky Navbar -->
     <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card/90 backdrop-blur-sm border border-border rounded-full px-5 py-3 sm:px-8 sm:py-4 mb-6 gap-3 shadow-2xl shadow-black/20 sticky top-4 z-50" style="background-color: var(--card-bg);">
         <a href="index.html" class="text-lg sm:text-2xl font-bold text-gold tracking-tight">🔥 Premium Fonts</a>
-        <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm md:text-base font-medium">
+        <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm md:text-base font-medium items-center">
             <a href="index.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">Home</a>
             <a href="premium.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-accent/20 text-gold hover:bg-accent/40 transition">Premium</a>
             <a href="about.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">About</a>
-            <button onclick="toggleTheme()" class="px-3 py-1.5 rounded-full text-zinc-400 hover:bg-accent/20 transition" title="Toggle theme">🌗</button>
+            <!-- Theme Toggle Button -->
+            <button onclick="toggleTheme()" id="themeToggleBtn" class="px-3 py-1.5 rounded-full text-xs sm:text-sm font-medium bg-card border border-border text-zinc-600 hover:bg-accent/20 transition flex items-center gap-1 ml-1" style="background-color: var(--card-bg); border-color: var(--border-color);">
+                <span id="themeIcon">☀️</span> <span id="themeLabel">Light Mode</span>
+            </button>
         </div>
     </nav>
 
@@ -169,16 +172,28 @@
     </footer>
 
     <script>
-        // Theme toggle synced
+        // ============ THEME TOGGLE (Default Dark) ============
+        function updateThemeButton() {
+            const isDark = !document.body.classList.contains('light');
+            document.getElementById('themeIcon').textContent = isDark ? '☀️' : '🌙';
+            document.getElementById('themeLabel').textContent = isDark ? 'Light Mode' : 'Dark Mode';
+        }
+
         function toggleTheme() {
             document.body.classList.toggle('light');
             localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
+            updateThemeButton();
         }
-        if (localStorage.getItem('theme') === 'light') {
-            document.body.classList.add('light');
-        } else {
-            document.body.classList.add('dark');
-        }
+
+        (function() {
+            const saved = localStorage.getItem('theme');
+            if (saved === 'light') {
+                document.body.classList.add('light');
+            } else {
+                document.body.classList.remove('light');
+            }
+            updateThemeButton();
+        })();
 
         const input = document.getElementById('userInput');
         const resultsContainer = document.getElementById('results');
@@ -227,9 +242,9 @@
         }
 
         const PREMIUM_STYLES = [
-            // Glitch category
+            // Glitch
             { name: 'Glitch Storm', category: 'glitch', fn: glitch },
-            // Zalgo category
+            // Zalgo
             { name: 'Zalgo Max', category: 'zalgo', fn: t => zalgo(t, 8) },
             { name: 'Zalgo Medium', category: 'zalgo', fn: t => zalgo(t, 4) },
             { name: 'Zalgo Light', category: 'zalgo', fn: t => zalgo(t, 1) },
@@ -369,9 +384,7 @@
         window.copyText = function(text, styleName) {
             navigator.clipboard.writeText(text);
             showToast(`Copied ${styleName}!`);
-            if (window.navigator && window.navigator.vibrate) {
-                window.navigator.vibrate(15);
-            }
+            if (window.navigator && window.navigator.vibrate) window.navigator.vibrate(15);
         };
 
         window.copyAll = function() {
@@ -386,17 +399,12 @@
         };
 
         window.clearInput = function() {
-            input.value = '';
-            input.focus();
-            renderCards();
+            input.value = ''; input.focus(); renderCards();
         };
 
         window.toggleFavorite = function(name) {
-            if (favorites.includes(name)) {
-                favorites = favorites.filter(f => f !== name);
-            } else {
-                favorites.push(name);
-            }
+            if (favorites.includes(name)) favorites = favorites.filter(f => f !== name);
+            else favorites.push(name);
             localStorage.setItem('favPremiumFonts', JSON.stringify(favorites));
             renderCards();
         };
@@ -416,10 +424,7 @@
         };
 
         window.randomFont = function() {
-            if (!input.value.trim()) {
-                alert('Type something first!');
-                return;
-            }
+            if (!input.value.trim()) { alert('Type something first!'); return; }
             const all = PREMIUM_STYLES;
             const randomStyle = all[Math.floor(Math.random() * all.length)];
             const transformed = randomStyle.fn(input.value.trim());
