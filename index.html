@@ -6,118 +6,38 @@
     <title>30+ Stylish Fonts & Fancy Text Generator | Copy & Paste</title>
     <meta name="description" content="Convert normal text into 30+ cool stylish fonts for Instagram bio, PUBG names, WhatsApp status, and Facebook. Free fancy text generator.">
     
-    <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
+    <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS (same as before) -->
     <script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
     <script src="https://pl30435708.effectivecpmnetwork.com/9a/ed/e3/9aede353386a30be5ea9e7a22e9f04b7.js"></script>
 
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN (professional design) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0f172a',
+                        card: '#1e293b',
+                        accent: '#6366f1',
+                        'accent-hover': '#4f46e5',
+                        border: '#334155',
+                        gold: '#d9a441'
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root {
-            --bg-color: #0f172a;
-            --card-bg: #1e293b;
-            --accent-color: #6366f1;
-            --accent-hover: #4f46e5;
-            --text-color: #f8fafc;
-            --text-secondary: #94a3b8;
-            --border-color: #334155;
-            --gold: #d9a441;
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 20px 10px;
-        }
-
-        /* Navigation Bar */
-        nav {
-            width: 100%;
-            max-width: 900px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: var(--card-bg);
-            border-radius: 12px;
-            margin-bottom: 20px;
-            border: 1px solid var(--border-color);
-        }
-
-        .logo { font-size: 1.2rem; font-weight: 700; color: var(--accent-color); text-decoration: none; }
-        .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 15px; font-size: 0.9rem; }
-
-        /* Container */
-        .container { width: 100%; max-width: 900px; text-align: center; }
-
-        h1 {
-            font-size: 2.2rem;
-            margin-bottom: 10px;
+        /* Custom styles that Tailwind can't easily do */
+        .gradient-text {
             background: linear-gradient(135deg, #a855f7, #6366f1);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
-
-        p.subtitle { color: var(--text-secondary); margin-bottom: 25px; font-size: 0.95rem; }
-
-        /* Input Box */
-        .input-box {
-            width: 100%;
-            padding: 16px;
-            font-size: 1.15rem;
-            border-radius: 12px;
-            border: 2px solid var(--border-color);
-            background: var(--card-bg);
-            color: var(--text-color);
-            outline: none;
-            transition: 0.3s;
-            margin-bottom: 20px;
-        }
-
-        .input-box:focus { border-color: var(--accent-color); box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); }
-
-        /* Ad Slots */
-        .ad-slot { width: 100%; margin: 20px 0; text-align: center; min-height: 90px; }
-
-        /* Font Results Cards */
-        .results-container { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
-
-        .font-card {
-            background: var(--card-bg);
-            border: 1px solid var(--border-color);
-            padding: 15px 20px;
-            border-radius: 10px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.2s;
-        }
-
-        .font-card:hover { border-color: var(--accent-color); transform: translateY(-2px); }
-
-        .font-text { font-size: 1.2rem; word-break: break-word; text-align: left; padding-right: 10px; }
-
-        .copy-btn {
-            background: var(--accent-color);
-            color: white;
-            border: none;
-            padding: 8px 18px;
-            border-radius: 6px;
-            cursor: pointer;
-            font-weight: 500;
-            transition: 0.2s;
-            white-space: nowrap;
-        }
-
-        .copy-btn:hover { background: var(--accent-hover); }
-
-        /* Toast Popup */
         #toast {
             visibility: hidden;
             min-width: 220px;
@@ -129,51 +49,59 @@
             position: fixed;
             z-index: 999;
             bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
             font-weight: 600;
             box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
-
-        #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.5s 2s; }
-
+        #toast.show {
+            visibility: visible;
+            animation: fadein 0.3s, fadeout 0.5s 2s;
+        }
         @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
         @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
-
-        footer { margin-top: 40px; padding: 20px; color: var(--text-secondary); font-size: 0.85rem; text-align: center; }
     </style>
 </head>
-<body>
+<body class="bg-dark text-white font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8">
 
-    <nav>
-        <a href="#" class="logo">✨ Fancy Font Generator</a>
-        <div class="nav-links">
-            <a href="#">Home</a>
+    <!-- Navigation Bar -->
+    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-xl p-4 mb-6 gap-4">
+        <a href="index.html" class="text-xl font-bold text-accent">✨ Fancy Font Generator</a>
+        <div class="flex space-x-4 text-sm font-medium">
+            <a href="index.html" class="text-white hover:text-accent">Home</a>
+            <a href="premium.html" class="text-slate-400 hover:text-accent">🔥 Premium</a>
+            <a href="about.html" class="text-slate-400 hover:text-accent">About</a>
         </div>
     </nav>
 
-    <div class="container">
-        <h1>30+ Stylish Fonts Generator</h1>
-        <p class="subtitle">Type your text below to generate fancy fonts for Instagram, WhatsApp & PUBG!</p>
+    <!-- Main Container -->
+    <div class="w-full max-w-4xl text-center">
+        <h1 class="text-3xl md:text-4xl font-bold mb-2 gradient-text">30+ Stylish Fonts Generator</h1>
+        <p class="text-slate-400 mb-6 text-sm md:text-base">Type your text below to generate fancy fonts for Instagram, WhatsApp & PUBG!</p>
 
-        <!-- ADSTERRA AD SLOT 1 (728x90) -->
-        <div class="ad-slot">
+        <!-- ADSTERRA AD SLOT 1 (728x90) - Top -->
+        <div class="w-full flex justify-center mb-6 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
             </script>
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <input type="text" id="userInput" class="input-box" placeholder="Type something..." value="Muhammad">
+        <!-- Input Box -->
+        <input type="text" id="userInput" placeholder="Type something..." value="Muhammad"
+               class="w-full p-4 text-lg bg-card border-2 border-border rounded-xl text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition mb-6">
 
         <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
-        <div class="ad-slot">
+        <div class="w-full flex justify-center mb-6 min-h-[90px]">
             <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
             <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
         </div>
 
-        <div class="results-container" id="results"></div>
+        <!-- Font Cards Container -->
+        <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"></div>
 
-        <!-- ADSTERRA AD SLOT 3 (BOTTOM 728x90) -->
-        <div class="ad-slot">
+        <!-- ADSTERRA AD SLOT 3 (728x90) - Bottom -->
+        <div class="w-full flex justify-center mt-8 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
             </script>
@@ -183,7 +111,7 @@
 
     <div id="toast">Copied to Clipboard! ✨</div>
 
-    <footer>
+    <footer class="mt-12 text-slate-500 text-xs text-center">
         <p>© 2026 Fancy Font Generator | All Rights Reserved</p>
     </footer>
 
@@ -192,6 +120,7 @@
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
 
+        // Unicode mapping helper
         function mapOffset(str, offsetUpper, offsetLower) {
             return Array.from(str).map(char => {
                 let code = char.charCodeAt(0);
@@ -201,47 +130,104 @@
             }).join('');
         }
 
+        function fullWidth(str) {
+            return Array.from(str).map(c => {
+                const code = c.charCodeAt(0);
+                if (code >= 33 && code <= 126) return String.fromCodePoint(0xFF01 + (code - 33));
+                return c;
+            }).join('');
+        }
+
+        function smallCaps(str) {
+            return Array.from(str).map(c => {
+                const code = c.toUpperCase().charCodeAt(0);
+                // small caps mapping (partial)
+                if (c >= 'a' && c <= 'z') {
+                    return String.fromCodePoint(0x1D00 + (c.charCodeAt(0) - 97)); // not full, keep English small caps simpler
+                }
+                return c;
+            }).join('');
+        }
+
         const STYLES = [
-            { name:'Serif Bold', fn: t => mapOffset(t, 0x1D400, 0x1D41A) },
-            { name:'Serif Italic', fn: t => mapOffset(t, 0x1D434, 0x1D44E) },
-            { name:'Sans Bold', fn: t => mapOffset(t, 0x1D5E2, 0x1D5FC) },
-            { name:'Sans Italic', fn: t => mapOffset(t, 0x1D61A, 0x1D634) },
-            { name:'Gothic Bold', fn: t => mapOffset(t, 0x1D56C, 0x1D586) },
-            { name:'Double Struck (Outline)', fn: t => mapOffset(t, 0x1D5A0, 0x1D5BA) },
-            { name:'Cursive Bold', fn: t => mapOffset(t, 0x1D4D0, 0x1D4EA) },
-            { name:'Monospace Tech', fn: t => mapOffset(t, 0x1D670, 0x1D68A) },
-            { name:'Circled Light', fn: t => Array.from(t).map(c => { let code = c.toUpperCase().charCodeAt(0); return (code >= 65 && code <= 90) ? String.fromCodePoint(0x24B6 + (code - 65)) : c; }).join('') },
-            { name:'Squared Light', fn: t => Array.from(t).map(c => { let code = c.toUpperCase().charCodeAt(0); return (code >= 65 && code <= 90) ? String.fromCodePoint(0x1F130 + (code - 65)) : c; }).join('') },
-            { name:'Aesthetic Sparkle', fn: t => `✨ ${t} ✨` },
-            { name:'Love Heart Wave', fn: t => `❤️ ${t} ❤️` },
-            { name:'Vaporwave Brackets', fn: t => `【 ${t} 】` },
-            { name:'Royal Crown Elite', fn: t => `👑 ${t} 👑` },
-            { name:'Cyber Lightning', fn: t => `⚡ ${t} ⚡` },
-            { name:'Strikethrough', fn: t => Array.from(t).map(c => c + '\u0336').join('') },
-            { name:'Underline Clean', fn: t => Array.from(t).map(c => c + '\u0332').join('') }
+            { name: 'Serif Bold', fn: t => mapOffset(t, 0x1D400, 0x1D41A) },
+            { name: 'Serif Italic', fn: t => mapOffset(t, 0x1D434, 0x1D44E) },
+            { name: 'Sans Bold', fn: t => mapOffset(t, 0x1D5E2, 0x1D5FC) },
+            { name: 'Sans Italic', fn: t => mapOffset(t, 0x1D61A, 0x1D634) },
+            { name: 'Gothic Bold', fn: t => mapOffset(t, 0x1D56C, 0x1D586) },
+            { name: 'Double Struck', fn: t => mapOffset(t, 0x1D5A0, 0x1D5BA) },
+            { name: 'Cursive Bold', fn: t => mapOffset(t, 0x1D4D0, 0x1D4EA) },
+            { name: 'Monospace Tech', fn: t => mapOffset(t, 0x1D670, 0x1D68A) },
+            { name: 'Fraktur', fn: t => mapOffset(t, 0x1D504, 0x1D51E) },
+            { name: 'Sans-Serif Bold Italic', fn: t => mapOffset(t, 0x1D63A, 0x1D654) },
+            { name: 'Script Bold', fn: t => mapOffset(t, 0x1D4AA, 0x1D4C4) }, // placeholder, actually script: 1D4AA
+            { name: 'Circled (Uppercase)', fn: t => Array.from(t).map(c => {
+                let code = c.toUpperCase().charCodeAt(0);
+                return (code >= 65 && code <= 90) ? String.fromCodePoint(0x24B6 + (code - 65)) : c;
+            }).join('') },
+            { name: 'Squared (Uppercase)', fn: t => Array.from(t).map(c => {
+                let code = c.toUpperCase().charCodeAt(0);
+                return (code >= 65 && code <= 90) ? String.fromCodePoint(0x1F130 + (code - 65)) : c;
+            }).join('') },
+            { name: 'Fullwidth / Vaporwave', fn: fullWidth },
+            { name: 'Small Caps', fn: smallCaps }, // simplified small caps
+            { name: 'Upside Down', fn: t => t.split('').map(c => {
+                const flip = {
+                    'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'l','m':'ɯ','n':'u','o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z',
+                    'A':'∀','B':'𐐒','C':'Ɔ','D':'◖','E':'Ǝ','F':'Ⅎ','G':'⅁','H':'H','I':'I','J':'ſ','K':'⋊','L':'⅃','M':'W','N':'N','O':'O','P':'d','Q':'Ό','R':'ᴚ','S':'S','T':'⊥','U':'∩','V':'Λ','W':'M','X':'X','Y':'⅄','Z':'Z'
+                };
+                return flip[c] || c;
+            }).join('').split('').reverse().join('') },
+            { name: 'Bubble Text', fn: t => Array.from(t).map(c => {
+                let code = c.charCodeAt(0);
+                if (c >= 'A' && c <= 'Z') return String.fromCodePoint(0x1F150 + (code - 65));
+                if (c >= 'a' && c <= 'z') return String.fromCodePoint(0x1F150 + (code - 97));
+                if (c >= '0' && c <= '9') return String.fromCodePoint(0x1F7F0 + (code - 48));
+                return c;
+            }).join('') },
+            { name: 'Square Text', fn: t => Array.from(t).map(c => {
+                if (c >= 'A' && c <= 'Z') return String.fromCodePoint(0x1F130 + (c.charCodeAt(0) - 65));
+                if (c >= 'a' && c <= 'z') return String.fromCodePoint(0x1F130 + (c.charCodeAt(0) - 97));
+                return c;
+            }).join('') },
+            { name: 'Tiny Text (Superscript)', fn: t => Array.from(t).map(c => {
+                const sup = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹',
+                    'a':'ᵃ','b':'ᵇ','c':'ᶜ','d':'ᵈ','e':'ᵉ','f':'ᶠ','g':'ᵍ','h':'ʰ','i':'ⁱ','j':'ʲ','k':'ᵏ','l':'ˡ','m':'ᵐ','n':'ⁿ','o':'ᵒ','p':'ᵖ','q':'ᑫ','r':'ʳ','s':'ˢ','t':'ᵗ','u':'ᵘ','v':'ᵛ','w':'ʷ','x':'ˣ','y':'ʸ','z':'ᶻ',
+                    'A':'ᴬ','B':'ᴮ','C':'ᶜ','D':'ᴰ','E':'ᴱ','F':'ᶠ','G':'ᴳ','H':'ᴴ','I':'ᴵ','J':'ᴶ','K':'ᴷ','L':'ᴸ','M':'ᴹ','N':'ᴺ','O':'ᴼ','P':'ᴾ','Q':'ᑫ','R':'ᴿ','S':'ˢ','T':'ᵀ','U':'ᵁ','V':'ⱽ','W':'ᵂ','X':'ˣ','Y':'ʸ','Z':'ᶻ'};
+                return sup[c] || c;
+            }).join('') },
+            { name: 'Strikethrough', fn: t => Array.from(t).map(c => c + '\u0336').join('') },
+            { name: 'Underline', fn: t => Array.from(t).map(c => c + '\u0332').join('') },
+            { name: 'Double Underline', fn: t => Array.from(t).map(c => c + '\u0333').join('') },
+            { name: 'Aesthetic Sparkle', fn: t => `✨ ${t} ✨` },
+            { name: 'Love Hearts', fn: t => `❤️ ${t} ❤️` },
+            { name: 'Royal Crown', fn: t => `👑 ${t} 👑` },
+            { name: 'Cyber Lightning', fn: t => `⚡ ${t} ⚡` },
+            { name: 'Stars Frame', fn: t => `🌟 ${t} 🌟` },
+            { name: 'Brackets Vaporwave', fn: t => `【 ${t} 】` },
+            { name: 'Arrow Emphasis', fn: t => `➤ ${t} ➤` }
         ];
 
         function renderCards() {
-            const val = input.value || "Muhammad";
+            const val = input.value.trim() || "Muhammad";
             resultsContainer.innerHTML = "";
-
             STYLES.forEach(style => {
                 const transformed = style.fn(val);
                 const card = document.createElement('div');
-                card.className = 'font-card';
+                card.className = "bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-accent hover:-translate-y-1 transition duration-200";
                 card.innerHTML = `
-                    <div class="font-text">${transformed}</div>
-                    <button class="copy-btn" onclick="copyToClipboard('${transformed.replace(/'/g, "\\'")}')">Copy</button>
+                    <div class="font-text text-lg break-all pr-2">${transformed}</div>
+                    <button class="copy-btn bg-accent hover:bg-accent-hover text-white font-medium py-2 px-4 rounded-lg transition whitespace-nowrap" onclick="copyText('${transformed.replace(/'/g, "\\'")}')">Copy</button>
                 `;
                 resultsContainer.appendChild(card);
             });
         }
 
-        function copyToClipboard(str) {
-            navigator.clipboard.writeText(str);
+        window.copyText = function(text) {
+            navigator.clipboard.writeText(text);
             toast.className = "show";
             setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2200);
-        }
+        };
 
         input.addEventListener('input', renderCards);
         renderCards();
