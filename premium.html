@@ -3,25 +3,28 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Premium Stylish Fonts Generator | Exclusive Free Fonts</title>
-    <meta name="description" content="Unlock exclusive premium fancy fonts – Glitch, Zalgo, Gradient & more. All free, no signup.">
+    <title>40+ Premium Stylish Fonts | Glitch, Zalgo & More (Free)</title>
+    <meta name="description" content="Unlock 40+ exclusive premium fancy fonts – Glitch, Zalgo, Old English, Demon, Angel & more. All free, no signup required.">
     
-    <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS (same) -->
+    <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
     <script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
     <script src="https://pl30435708.effectivecpmnetwork.com/9a/ed/e3/9aede353386a30be5ea9e7a22e9f04b7.js"></script>
 
+    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        dark: '#0f172a',
-                        card: '#1e293b',
-                        accent: '#6366f1',
-                        'accent-hover': '#4f46e5',
-                        border: '#334155',
+                        dark: '#08080a',
+                        card: '#131317',
+                        accent: '#f59e0b',
+                        'accent-hover': '#d97706',
+                        border: '#27272a',
                         gold: '#d9a441'
                     }
                 }
@@ -30,25 +33,25 @@
     </script>
     <style>
         .gradient-text {
-            background: linear-gradient(135deg, #f59e0b, #d946ef);
+            background: linear-gradient(135deg, #fbbf24, #d946ef);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
         #toast {
             visibility: hidden;
             min-width: 220px;
-            background-color: #10b981;
+            background: linear-gradient(135deg, #10b981, #059669);
             color: #fff;
             text-align: center;
-            border-radius: 8px;
-            padding: 12px;
+            border-radius: 999px;
+            padding: 12px 24px;
             position: fixed;
             z-index: 999;
             bottom: 30px;
             left: 50%;
             transform: translateX(-50%);
             font-weight: 600;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
         #toast.show {
             visibility: visible;
@@ -60,40 +63,44 @@
 </head>
 <body class="bg-dark text-white font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8">
 
-    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-xl p-4 mb-6 gap-4">
-        <a href="index.html" class="text-xl font-bold text-gold">✨ Premium Fonts</a>
-        <div class="flex space-x-4 text-sm font-medium">
-            <a href="index.html" class="text-slate-400 hover:text-accent">Home</a>
-            <a href="premium.html" class="text-white hover:text-gold">🔥 Premium</a>
-            <a href="about.html" class="text-slate-400 hover:text-accent">About</a>
+    <!-- Navigation Bar -->
+    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-full px-8 py-4 mb-8 gap-4 shadow-2xl shadow-black/50">
+        <a href="index.html" class="text-xl font-bold text-gold tracking-tight">🔥 Premium Fonts</a>
+        <div class="flex space-x-2 text-sm md:text-base font-medium">
+            <a href="index.html" class="px-5 py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">Home</a>
+            <a href="premium.html" class="px-5 py-2 rounded-full bg-accent/20 text-gold hover:bg-accent/40 transition">Premium</a>
+            <a href="about.html" class="px-5 py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">About</a>
         </div>
     </nav>
 
+    <!-- Main Container -->
     <div class="w-full max-w-4xl text-center">
-        <h1 class="text-3xl md:text-4xl font-bold mb-2 gradient-text">Exclusive Premium Fonts</h1>
-        <p class="text-slate-400 mb-6 text-sm md:text-base">Special glitch, zalgo, gradient & 3D fonts – absolutely FREE!</p>
+        <h1 class="text-3xl md:text-5xl font-bold mb-2 gradient-text">40+ Exclusive Premium Fonts</h1>
+        <p class="text-zinc-400 mb-8 text-sm md:text-base">Glitch, Zalgo, Old English, Demon, Angel & more – absolutely FREE!</p>
 
         <!-- ADSTERRA AD SLOT 1 (Top) -->
-        <div class="w-full flex justify-center mb-6 min-h-[90px]">
+        <div class="w-full flex justify-center mb-8 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
             </script>
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <input type="text" id="userInput" placeholder="Type something..." value="Muhammad"
-               class="w-full p-4 text-lg bg-card border-2 border-border rounded-xl text-white outline-none focus:border-accent focus:ring-2 focus:ring-accent/30 transition mb-6">
+        <!-- Input Box -->
+        <input type="text" id="userInput" placeholder="✨ Type here (e.g. Muhammad / Mazzi Khan)... ✨" value="Muhammad"
+               class="w-full p-5 text-lg bg-card border-2 border-border rounded-2xl text-white outline-none focus:border-gold focus:ring-4 focus:ring-gold/20 transition placeholder:text-zinc-500 mb-8">
 
-        <!-- ADSTERRA IN-FEED NATIVE AD -->
-        <div class="w-full flex justify-center mb-6 min-h-[90px]">
+        <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
+        <div class="w-full flex justify-center mb-8 min-h-[90px]">
             <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
             <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
         </div>
 
+        <!-- Font Cards Grid -->
         <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"></div>
 
         <!-- ADSTERRA AD SLOT 3 (Bottom) -->
-        <div class="w-full flex justify-center mt-8 min-h-[90px]">
+        <div class="w-full flex justify-center mt-10 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
             </script>
@@ -103,7 +110,7 @@
 
     <div id="toast">Copied! ✨</div>
 
-    <footer class="mt-12 text-slate-500 text-xs text-center">
+    <footer class="mt-16 text-zinc-500 text-xs text-center">
         <p>© 2026 Fancy Font Generator | Premium Collection</p>
     </footer>
 
@@ -112,6 +119,7 @@
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
 
+        // Zalgo function with adjustable intensity
         function zalgo(text, intensity = 5) {
             const zalgoUp = [0x030D,0x030E,0x0304,0x0305,0x033F,0x0311,0x0306,0x0310,0x0352,0x0357,0x0351,0x0307,0x0308,0x030A,0x0342,0x0343,0x0344,0x034A,0x034B,0x034C,0x0303,0x0302,0x030C,0x0350,0x0300,0x0301,0x030B,0x030F,0x0312,0x0313,0x0314,0x033D,0x0309,0x0363,0x0364,0x0365,0x0366,0x0367,0x0368,0x0369,0x036A,0x036B,0x036C,0x036D,0x036E,0x036F,0x033E,0x035B,0x0346,0x031A];
             const zalgoMid = [0x0315,0x031B,0x0340,0x0341,0x0358,0x0321,0x0322,0x0327,0x0328,0x0334,0x0335,0x0336,0x034F,0x035C,0x035D,0x035E,0x035F,0x0360,0x0362,0x0338,0x0337,0x0361,0x0489];
@@ -128,51 +136,97 @@
             }).join('');
         }
 
+        // Glitch heavy
         function glitch(text) {
-            // simple glitch: combine with random combining marks and strike
+            const marks = ['\u0336', '\u0337', '\u0338', '\u035C', '\u035D', '\u035E', '\u0323', '\u0324'];
             return Array.from(text).map(c => {
-                const glitchMarks = ['\u0336', '\u0337', '\u0338', '\u035C', '\u035D', '\u035E'];
-                const rand = Math.floor(Math.random() * glitchMarks.length);
-                return c + glitchMarks[rand];
+                let result = c;
+                for (let i = 0; i < 3; i++) {
+                    result += marks[Math.floor(Math.random() * marks.length)];
+                }
+                return result;
             }).join('');
         }
 
+        // Old English (Fraktur)
+        function oldEnglish(str) {
+            const map = {
+                'a':'𝔞','b':'𝔟','c':'𝔠','d':'𝔡','e':'𝔢','f':'𝔣','g':'𝔤','h':'𝔥','i':'𝔦','j':'𝔧','k':'𝔨','l':'𝔩','m':'𝔪','n':'𝔫','o':'𝔬','p':'𝔭','q':'𝔮','r':'𝔯','s':'𝔰','t':'𝔱','u':'𝔲','v':'𝔳','w':'𝔴','x':'𝔵','y':'𝔶','z':'𝔷',
+                'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'
+            };
+            return Array.from(str).map(c => map[c] || c).join('');
+        }
+
+        // 40 PREMIUM STYLES
         const PREMIUM_STYLES = [
-            { name: 'Glitch Text', fn: glitch },
-            { name: 'Zalgo Craziness', fn: t => zalgo(t, 4) },
-            { name: 'Neon Glow (brackets)', fn: t => `【≋ ${t} ≋】` },
-            { name: 'Fairy Dust', fn: t => `₊˚. ${t} .˚₊` },
-            { name: 'Dark Academia', fn: t => `☾ ${t} ☽` },
+            { name: 'Glitch Storm', fn: glitch },
+            { name: 'Zalgo Max', fn: t => zalgo(t, 8) },
+            { name: 'Zalgo Medium', fn: t => zalgo(t, 4) },
+            { name: 'Zalgo Light', fn: t => zalgo(t, 1) },
+            { name: 'Demon Core', fn: t => `🔥👹 ${t} 👹🔥` },
+            { name: 'Angelic Halo', fn: t => `😇☁️ ${t} ☁️😇` },
+            { name: 'Old English', fn: oldEnglish },
             { name: 'Medieval Script', fn: t => Array.from(t).map(c => {
                 const m = {'a':'𝔞','b':'𝔟','c':'𝔠','d':'𝔡','e':'𝔢','f':'𝔣','g':'𝔤','h':'𝔥','i':'𝔦','j':'𝔧','k':'𝔨','l':'𝔩','m':'𝔪','n':'𝔫','o':'𝔬','p':'𝔭','q':'𝔮','r':'𝔯','s':'𝔰','t':'𝔱','u':'𝔲','v':'𝔳','w':'𝔴','x':'𝔵','y':'𝔶','z':'𝔷',
-                    'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'};
+                'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'};
                 return m[c] || c;
             }).join('') },
-            { name: 'Inverted Case', fn: t => Array.from(t).map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('') },
-            { name: 'Cursive Elegant', fn: t => Array.from(t).map(c => {
-                const cur = {'a':'𝒶','b':'𝒷','c':'𝒸','d':'𝒹','e':'𝑒','f':'𝒻','g':'𝑔','h':'𝒽','i':'𝒾','j':'𝒿','k':'𝓀','l':'𝓁','m':'𝓂','n':'𝓃','o':'𝑜','p':'𝓅','q':'𝓆','r':'𝓇','s':'𝓈','t':'𝓉','u':'𝓊','v':'𝓋','w':'𝓌','x':'𝓍','y':'𝓎','z':'𝓏',
-                    'A':'𝒜','B':'𝐵','C':'𝒞','D':'𝒟','E':'𝐸','F':'𝐹','G':'𝒢','H':'𝐻','I':'𝐼','J':'𝒥','K':'𝒦','L':'𝐿','M':'𝑀','N':'𝒩','O':'𝒪','P':'𝒫','Q':'𝒬','R':'𝑅','S':'𝒮','T':'𝒯','U':'𝒰','V':'𝒱','W':'𝒲','X':'𝒳','Y':'𝒴','Z':'𝒵'};
-                return cur[c] || c;
+            { name: 'Cursed Text', fn: t => Array.from(t).map(c => c + '\u0361' + c).join('') }, // ties
+            { name: 'Mirror (Right-to-Left)', fn: t => '\u202E' + t + '\u202C' }, // visually mirrored, use carefully
+            { name: 'Wingdings Style', fn: t => Array.from(t).map(c => {
+                const w = {'a':'♋︎','b':'♌︎','c':'♍︎','d':'♎︎','e':'♏︎','f':'♐︎','g':'♑︎','h':'♒︎','i':'♓︎','j':'♈︎','k':'♉︎','l':'♊︎','m':'♠︎','n':'♣︎','o':'♥︎','p':'♦︎','q':'♤','r':'♧','s':'♡','t':'♢','u':'☀','v':'☁','w':'☂','x':'☃','y':'☄','z':'★',
+                'A':'♋︎','B':'♌︎','C':'♍︎','D':'♎︎','E':'♏︎','F':'♐︎','G':'♑︎','H':'♒︎','I':'♓︎','J':'♈︎','K':'♉︎','L':'♊︎','M':'♠︎','N':'♣︎','O':'♥︎','P':'♦︎','Q':'♤','R':'♧','S':'♡','T':'♢','U':'☀','V':'☁','W':'☂','X':'☃','Y':'☄','Z':'★'};
+                return w[c] || c;
             }).join('') },
+            { name: 'Rainbow Borders', fn: t => `🌈 ${t} 🌈` },
+            { name: 'Skull Aesthetic', fn: t => `💀 ${t} 💀` },
+            { name: 'Neon Glow', fn: t => `【≋ ${t} ≋】` },
+            { name: 'Fairy Dust', fn: t => `₊˚. ${t} .˚₊` },
+            { name: 'Dark Academia', fn: t => `☾ ${t} ☽` },
+            { name: 'Hanging Stars', fn: t => `⋆｡°✩ ${t} ✩°｡⋆` },
+            { name: 'Crystal Clear', fn: t => `✧ ${t} ✧` },
+            { name: 'Love Wave', fn: t => `~✿ ${t} ✿~` },
+            { name: 'Vaporwave Frame', fn: t => `【≋ ${t} ≋】` },
             { name: 'Double Struck Sans', fn: t => Array.from(t).map(c => {
                 const d = {'0':'𝟘','1':'𝟙','2':'𝟚','3':'𝟛','4':'𝟜','5':'𝟝','6':'𝟞','7':'𝟟','8':'𝟠','9':'𝟡',
                     'a':'𝕒','b':'𝕓','c':'𝕔','d':'𝕕','e':'𝕖','f':'𝕗','g':'𝕘','h':'𝕙','i':'𝕚','j':'𝕛','k':'𝕜','l':'𝕝','m':'𝕞','n':'𝕟','o':'𝕠','p':'𝕡','q':'𝕢','r':'𝕣','s':'𝕤','t':'𝕥','u':'𝕦','v':'𝕧','w':'𝕨','x':'𝕩','y':'𝕪','z':'𝕫',
                     'A':'𝔸','B':'𝔹','C':'ℂ','D':'𝔻','E':'𝔼','F':'𝔽','G':'𝔾','H':'ℍ','I':'𝕀','J':'𝕁','K':'𝕂','L':'𝕃','M':'𝕄','N':'ℕ','O':'𝕆','P':'ℙ','Q':'ℚ','R':'ℝ','S':'𝕊','T':'𝕋','U':'𝕌','V':'𝕍','W':'𝕎','X':'𝕏','Y':'𝕐','Z':'ℤ'};
                 return d[c] || c;
             }).join('') },
-            { name: 'Magic Sparkles', fn: t => `✦ ${t} ✦` },
-            { name: 'Rainbow Borders', fn: t => `🌈 ${t} 🌈` },
-            { name: 'Skull Aesthetic', fn: t => `💀 ${t} 💀` },
-            { name: 'Old English', fn: t => Array.from(t).map(c => {
-                const oe = {'a':'𝔞','b':'𝔟','c':'𝔠','d':'𝔡','e':'𝔢','f':'𝔣','g':'𝔤','h':'𝔥','i':'𝔦','j':'𝔧','k':'𝔨','l':'𝔩','m':'𝔪','n':'𝔫','o':'𝔬','p':'𝔭','q':'𝔮','r':'𝔯','s':'𝔰','t':'𝔱','u':'𝔲','v':'𝔳','w':'𝔴','x':'𝔵','y':'𝔶','z':'𝔷',
-                    'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'};
-                return oe[c] || c;
+            { name: 'Inverted Case', fn: t => Array.from(t).map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('') },
+            { name: 'Cursive Elegant', fn: t => Array.from(t).map(c => {
+                const cur = {'a':'𝒶','b':'𝒷','c':'𝒸','d':'𝒹','e':'𝑒','f':'𝒻','g':'𝑔','h':'𝒽','i':'𝒾','j':'𝒿','k':'𝓀','l':'𝓁','m':'𝓂','n':'𝓃','o':'𝑜','p':'𝓅','q':'𝓆','r':'𝓇','s':'𝓈','t':'𝓉','u':'𝓊','v':'𝓋','w':'𝓌','x':'𝓍','y':'𝓎','z':'𝓏',
+                'A':'𝒜','B':'𝐵','C':'𝒞','D':'𝒟','E':'𝐸','F':'𝐹','G':'𝒢','H':'𝐻','I':'𝐼','J':'𝒥','K':'𝒦','L':'𝐿','M':'𝑀','N':'𝒩','O':'𝒪','P':'𝒫','Q':'𝒬','R':'𝑅','S':'𝒮','T':'𝒯','U':'𝒰','V':'𝒱','W':'𝒲','X':'𝒳','Y':'𝒴','Z':'𝒵'};
+                return cur[c] || c;
             }).join('') },
+            { name: 'Strikethrough Heavy', fn: t => Array.from(t).map(c => c + '\u0336\u0336').join('') },
             { name: 'Underline Wave', fn: t => Array.from(t).map(c => c + '\u035C').join('') },
-            { name: 'Hanging Stars', fn: t => `⋆｡°✩ ${t} ✩°｡⋆` },
-            { name: 'Crystal Clear', fn: t => `✧ ${t} ✧` },
-            { name: 'Angelic', fn: t => `☁️ ${t} ☁️` },
-            { name: 'Demon Core', fn: t => `🔥 ${t} 🔥` }
+            { name: 'Dot Matrix', fn: t => Array.from(t).map(c => c + '\u0323').join('') },
+            { name: 'Circle Frame', fn: t => `⭕ ${t} ⭕` },
+            { name: 'Hex Borders', fn: t => `⬡ ${t} ⬡` },
+            { name: 'Arrow Targets', fn: t => `➳ ${t} ➳` },
+            { name: 'Sword Aesthetic', fn: t => `⚔️ ${t} ⚔️` },
+            { name: 'Butterfly Wings', fn: t => `🦋 ${t} 🦋` },
+            { name: 'Moon Phases', fn: t => `🌑 ${t} 🌕` },
+            { name: 'Comet Tail', fn: t => `☄️ ${t} ☄️` },
+            { name: 'Alien Text', fn: t => `👽 ${t} 👽` },
+            { name: 'Pixel Border', fn: t => `▣ ${t} ▣` },
+            { name: 'Chess Symbols', fn: t => `♔ ${t} ♔` },
+            { name: 'Music Notes', fn: t => `♪ ${t} ♪` },
+            { name: 'Greek Style', fn: t => Array.from(t).map(c => {
+                const g = {'a':'α','b':'β','c':'ς','d':'δ','e':'ε','f':'φ','g':'γ','h':'η','i':'ι','j':'ϳ','k':'κ','l':'λ','m':'μ','n':'ν','o':'ο','p':'π','q':'θ','r':'ρ','s':'σ','t':'τ','u':'υ','v':'ω','w':'ω','x':'χ','y':'ψ','z':'ζ',
+                'A':'Α','B':'Β','C':'Σ','D':'Δ','E':'Ε','F':'Φ','G':'Γ','H':'Η','I':'Ι','J':'ϳ','K':'Κ','L':'Λ','M':'Μ','N':'Ν','O':'Ο','P':'Π','Q':'Θ','R':'Ρ','S':'Σ','T':'Τ','U':'Υ','V':'Ω','W':'Ω','X':'Χ','Y':'Ψ','Z':'Ζ'};
+                return g[c] || c;
+            }).join('') },
+            { name: 'Reverse Upside Down', fn: t => t.split('').reverse().join('').split('').map(c => {
+                const flip = {
+                    'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'l','m':'ɯ','n':'u',
+                    'o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z',
+                    'A':'∀','B':'ᙠ','C':'Ɔ','D':'ᗡ','E':'Ǝ','F':'Ⅎ','G':'⅁','H':'H','I':'I','J':'ſ','K':'⋊','L':'⅃','M':'W','N':'N',
+                    'O':'O','P':'Ԁ','Q':'Ό','R':'ᴚ','S':'S','T':'⊥','U':'∩','V':'Λ','W':'M','X':'X','Y':'⅄','Z':'Z'
+                };
+                return flip[c] || c;
+            }).join('') },
         ];
 
         function renderCards() {
@@ -181,10 +235,10 @@
             PREMIUM_STYLES.forEach(style => {
                 const transformed = style.fn(val);
                 const card = document.createElement('div');
-                card.className = "bg-card border border-border rounded-xl p-4 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-gold hover:-translate-y-1 transition duration-200";
+                card.className = "bg-card border border-border rounded-2xl p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-gold hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/10 transition duration-300";
                 card.innerHTML = `
-                    <div class="font-text text-lg break-all pr-2">${transformed}</div>
-                    <button class="copy-btn bg-amber-500 hover:bg-amber-600 text-white font-medium py-2 px-4 rounded-lg transition whitespace-nowrap" onclick="copyText('${transformed.replace(/'/g, "\\'")}')">Copy</button>
+                    <div class="font-text text-base md:text-lg break-all pr-2 leading-relaxed">${transformed}</div>
+                    <button class="copy-btn bg-gold hover:bg-amber-500 text-black font-semibold py-2 px-5 rounded-full transition whitespace-nowrap shadow-lg shadow-gold/30" onclick="copyText('${transformed.replace(/'/g, "\\'")}')">Copy</button>
                 `;
                 resultsContainer.appendChild(card);
             });
