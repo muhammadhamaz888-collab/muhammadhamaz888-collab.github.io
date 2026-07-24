@@ -1,361 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Fancy Font Generator — Stylish Text for Instagram, Discord &amp; WhatsApp</title>
-<meta name="description" content="Type your text and instantly get 30 stylish fancy fonts — bold, cursive, gothic, boxed, and more. Tap to copy and paste anywhere.">
-<meta name="theme-color" content="#18151F">
-<link rel="icon" href="data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20viewBox='0%200%20100%20100'%3E%3Crect%20width='100'%20height='100'%20rx='20'%20fill='%23E7572C'/%3E%3Ctext%20x='50'%20y='68'%20font-size='56'%20font-family='Georgia,serif'%20fill='%23F4EEDF'%20text-anchor='middle'%3EAa%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>30+ Stylish Fonts & Fancy Text Generator | Copy & Paste</title>
+    <meta name="description" content="Convert normal text into 30+ cool stylish fonts for Instagram bio, PUBG names, WhatsApp status, and Facebook. Free fancy text generator.">
+    
+    <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
+    <script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
+    <script src="https://pl30435708.effectivecpmnetwork.com/9a/ed/e3/9aede353386a30be5ea9e7a22e9f04b7.js"></script>
 
-<!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
-<script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
-<script src="https://pl30435708.effectivecpmnetwork.com/9a/ed/e3/9aede353386a30be5ea9e7a22e9f04b7.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --accent-color: #6366f1;
+            --accent-hover: #4f46e5;
+            --text-color: #f8fafc;
+            --text-secondary: #94a3b8;
+            --border-color: #334155;
+            --gold: #d9a441;
+        }
 
-<style>
-  :root{
-    --ink:#18151F;
-    --ink-panel:#211C2C;
-    --paper:#F4EEDF;
-    --paper-2:#EAE0C8;
-    --rule:#3A3548;
-    --rule-soft:#CFC3A2;
-    --stamp:#E7572C;
-    --stamp-2:#C2431E;
-    --gold:#D9A441;
-    --ink-soft:#6E6754;
-    --ink-faint:#A79CC9;
-    --success:#4C9A6A;
-    --radius:16px;
-    --radius-sm:10px;
-    --shadow:0 18px 40px -20px rgba(0,0,0,.55);
-    --font-display:'Fraunces', Georgia, serif;
-    --font-body:'Space Grotesk', system-ui, -apple-system, sans-serif;
-    --font-mono:'JetBrains Mono', 'Courier New', monospace;
-  }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
 
-  *{box-sizing:border-box;margin:0;padding:0;}
-  body{
-    background:var(--ink);
-    color:var(--paper);
-    font-family:var(--font-body);
-    line-height:1.5;
-    min-height:100vh;
-  }
-  button{font:inherit;color:inherit;background:none;border:none;cursor:pointer;}
-  textarea{font:inherit;color:inherit;}
-  .visually-hidden{
-    position:absolute;width:1px;height:1px;overflow:hidden;
-    clip:rect(0 0 0 0);white-space:nowrap;
-  }
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 20px 10px;
+        }
 
-  /* HEADER */
-  .site-header{
-    border-bottom:1px solid var(--rule);
-    background:radial-gradient(circle at 1px 1px, rgba(244,238,223,.06) 1px, transparent 1px) 0 0/16px 16px, var(--ink-panel);
-  }
-  .header-inner{
-    max-width:1180px;margin:0 auto;padding:16px 20px;
-    display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;
-  }
-  .brand{display:flex;align-items:center;gap:10px;}
-  .brand-mark{
-    font-family:var(--font-display);font-weight:700;font-size:1.1rem;
-    background:var(--stamp);color:var(--paper);
-    width:36px;height:36px;border-radius:9px;
-    display:flex;align-items:center;justify-content:center;
-  }
-  .brand-name{font-family:var(--font-display);font-weight:600;font-size:1.05rem;}
-  .header-note{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);}
+        /* Navigation Bar */
+        nav {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: var(--card-bg);
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid var(--border-color);
+        }
 
-  /* ADS */
-  .ad-slot{max-width:1180px;margin:22px auto;padding:0 20px;text-align:center;min-height:90px;}
-  .ad-label{
-    display:block;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;
-    text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px;
-  }
+        .logo { font-size: 1.2rem; font-weight: 700; color: var(--accent-color); text-decoration: none; }
+        .nav-links a { color: var(--text-secondary); text-decoration: none; margin-left: 15px; font-size: 0.9rem; }
 
-  /* LAYOUT & COMPOSER */
-  .page{max-width:1180px;margin:0 auto;padding:8px 20px 0;}
-  .hero{text-align:center;max-width:720px;margin:38px auto 30px;}
-  .eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
-  .hero h1{font-family:var(--font-display);font-weight:600;font-size:clamp(1.9rem, 1.4rem + 2.4vw, 3.1rem);line-height:1.12;margin-bottom:14px;}
-  .hero-sub{color:var(--ink-faint);font-size:clamp(.95rem,.9rem + .3vw,1.05rem);}
+        /* Container */
+        .container { width: 100%; max-width: 900px; text-align: center; }
 
-  .composer-card{
-    background:var(--paper);color:var(--ink);
-    border-radius:var(--radius);box-shadow:var(--shadow);
-    max-width:760px;margin:0 auto 34px;padding:20px 20px 16px;
-  }
-  .composer-label{display:block;font-family:var(--font-mono);font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:10px;}
-  #input-text{
-    width:100%;min-height:88px;resize:vertical;
-    border:1px solid var(--rule-soft);border-radius:var(--radius-sm);
-    background:#FFFDF7;color:var(--ink);padding:14px 16px;font-size:1.15rem;
-  }
-  .composer-meta{display:flex;align-items:center;justify-content:space-between;margin-top:10px;font-family:var(--font-mono);font-size:.78rem;color:var(--ink-soft);}
-  .ghost-btn{font-family:var(--font-mono);font-size:.75rem;border:1px solid var(--rule-soft);border-radius:999px;padding:6px 14px;}
-  .ghost-btn:hover{background:var(--ink);color:var(--paper);}
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #a855f7, #6366f1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-  .layout{display:grid;grid-template-columns:1fr;gap:28px;align-items:start;}
-  @media (min-width:1024px){ .layout{grid-template-columns:1fr 300px;} }
+        p.subtitle { color: var(--text-secondary); margin-bottom: 25px; font-size: 0.95rem; }
 
-  /* FILTERS & GRID */
-  .toolbar{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
-  .chip{font-family:var(--font-mono);font-size:.75rem;padding:7px 14px;border-radius:999px;border:1px solid var(--rule);color:var(--ink-faint);}
-  .chip.is-active{background:var(--gold);border-color:var(--gold);color:var(--ink);font-weight:600;}
-  .stat-line{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);margin:-8px 0 16px;}
+        /* Input Box */
+        .input-box {
+            width: 100%;
+            padding: 16px;
+            font-size: 1.15rem;
+            border-radius: 12px;
+            border: 2px solid var(--border-color);
+            background: var(--card-bg);
+            color: var(--text-color);
+            outline: none;
+            transition: 0.3s;
+            margin-bottom: 20px;
+        }
 
-  .results-grid{display:grid;grid-template-columns:repeat(auto-fill, minmax(260px, 1fr));gap:14px;padding-bottom:8px;}
-  .specimen-card{
-    display:flex;flex-direction:column;gap:12px;background:var(--paper);color:var(--ink);
-    border:1px solid var(--rule-soft);border-radius:var(--radius);padding:16px 16px 14px;
-    box-shadow:var(--shadow);cursor:pointer;transition:transform .16s ease;
-  }
-  .specimen-card:hover{transform:translateY(-3px);border-color:var(--stamp);}
-  .specimen-card.is-copied{border-color:var(--success);}
-  .specimen-head{display:flex;align-items:baseline;gap:9px;border-bottom:1px dashed var(--rule-soft);padding-bottom:9px;}
-  .specimen-no{font-family:var(--font-mono);font-size:.68rem;color:var(--ink-soft);}
-  .specimen-name{font-weight:600;font-size:.76rem;text-transform:uppercase;color:var(--stamp-2);}
-  .specimen-preview{font-size:1.3rem;color:var(--ink);word-break:break-word;min-height:2.6em;display:flex;align-items:center;}
-  .specimen-action{font-family:var(--font-mono);font-size:.68rem;border:1px solid var(--ink);border-radius:999px;padding:5px 12px;margin-left:auto;}
-  
-  .empty-state{grid-column:1/-1;border:1.5px dashed var(--rule-soft);border-radius:var(--radius);padding:40px 20px;text-align:center;}
-  .site-footer{max-width:1180px;margin:40px auto 0;padding:22px 20px 40px;border-top:1px solid var(--rule);color:var(--ink-faint);font-size:.82rem;text-align:center;}
-</style>
+        .input-box:focus { border-color: var(--accent-color); box-shadow: 0 0 15px rgba(99, 102, 241, 0.3); }
+
+        /* Ad Slots */
+        .ad-slot { width: 100%; margin: 20px 0; text-align: center; min-height: 90px; }
+
+        /* Font Results Cards */
+        .results-container { display: flex; flex-direction: column; gap: 12px; margin-top: 10px; }
+
+        .font-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 15px 20px;
+            border-radius: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: 0.2s;
+        }
+
+        .font-card:hover { border-color: var(--accent-color); transform: translateY(-2px); }
+
+        .font-text { font-size: 1.2rem; word-break: break-word; text-align: left; padding-right: 10px; }
+
+        .copy-btn {
+            background: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 8px 18px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: 0.2s;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover { background: var(--accent-hover); }
+
+        /* Toast Popup */
+        #toast {
+            visibility: hidden;
+            min-width: 220px;
+            background-color: #10b981;
+            color: #fff;
+            text-align: center;
+            border-radius: 8px;
+            padding: 12px;
+            position: fixed;
+            z-index: 999;
+            bottom: 30px;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.5s 2s; }
+
+        @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
+        @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+
+        footer { margin-top: 40px; padding: 20px; color: var(--text-secondary); font-size: 0.85rem; text-align: center; }
+    </style>
 </head>
 <body>
 
-<header class="site-header">
-  <div class="header-inner">
-    <div class="brand"><span class="brand-mark">Aa</span><span class="brand-name">Fancy Font Generator</span></div>
-    <span class="header-note">Free · Instant copy</span>
-  </div>
-</header>
+    <nav>
+        <a href="#" class="logo">✨ Fancy Font Generator</a>
+        <div class="nav-links">
+            <a href="#">Home</a>
+        </div>
+    </nav>
 
-<!-- ADSTERRA TOP AD SLOT 1 -->
-<div class="ad-slot">
-  <span class="ad-label">Advertisement</span>
-  <script>
-    atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
-  </script>
-  <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
-</div>
+    <div class="container">
+        <h1>30+ Stylish Fonts Generator</h1>
+        <p class="subtitle">Type your text below to generate fancy fonts for Instagram, WhatsApp & PUBG!</p>
 
-<main class="page">
-  <section class="hero">
-    <p class="eyebrow">Specimen Catalog · No. 001</p>
-    <h1>Turn plain text into 30 stylish fonts</h1>
-    <p class="hero-sub">Type your line once — get instant cool variations. Tap to copy.</p>
-  </section>
+        <!-- ADSTERRA AD SLOT 1 (728x90) -->
+        <div class="ad-slot">
+            <script>
+                atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
+            </script>
+            <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
+        </div>
 
-  <section class="composer-card">
-    <label for="input-text" class="composer-label">Compose</label>
-    <textarea id="input-text" maxlength="200" placeholder="Type something…">Muhammad</textarea>
-    <div class="composer-meta">
-      <span id="char-count">0 / 200</span>
-      <button type="button" id="clear-btn" class="ghost-btn">Clear</button>
-    </div>
-  </section>
+        <input type="text" id="userInput" class="input-box" placeholder="Type something..." value="Muhammad">
 
-  <!-- ADSTERRA IN-FEED AD SLOT 2 -->
-  <div class="ad-slot" style="margin-bottom:30px;">
-    <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
-    <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
-  </div>
+        <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
+        <div class="ad-slot">
+            <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
+            <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
+        </div>
 
-  <div class="layout">
-    <div class="layout-main">
-      <div class="toolbar" id="filter-toolbar">
-        <button class="chip is-active" data-filter="all">All</button>
-        <button class="chip" data-filter="classic">Classic</button>
-        <button class="chip" data-filter="ornate">Ornate</button>
-        <button class="chip" data-filter="boxed">Boxed</button>
-        <button class="chip" data-filter="effects">Effects</button>
-        <button class="chip" data-filter="decorative">Decorative</button>
-      </div>
-      <p class="stat-line" id="stat-line"></p>
-      <div class="results-grid" id="results-grid"></div>
+        <div class="results-container" id="results"></div>
+
+        <!-- ADSTERRA AD SLOT 3 (BOTTOM 728x90) -->
+        <div class="ad-slot">
+            <script>
+                atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
+            </script>
+            <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
+        </div>
     </div>
 
-    <!-- ADSTERRA SIDEBAR AD SLOT 3 -->
-    <aside class="layout-aside">
-      <div class="ad-slot">
-        <span class="ad-label">Advertisement</span>
-        <script>
-          atOptions = {'key':'7b298fcb50faf70c6b17c128304176f6','format':'iframe','height':250,'width':300,'params':{}};
-        </script>
-        <script src="https://www.highperformanceformat.com/7b298fcb50faf70c6b17c128304176f6/invoke.js"></script>
-      </div>
-    </aside>
-  </div>
+    <div id="toast">Copied to Clipboard! ✨</div>
 
-  <!-- ADSTERRA BOTTOM AD SLOT 4 -->
-  <div class="ad-slot">
-    <span class="ad-label">Advertisement</span>
+    <footer>
+        <p>© 2026 Fancy Font Generator | All Rights Reserved</p>
+    </footer>
+
     <script>
-      atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
+        const input = document.getElementById('userInput');
+        const resultsContainer = document.getElementById('results');
+        const toast = document.getElementById('toast');
+
+        function mapOffset(str, offsetUpper, offsetLower) {
+            return Array.from(str).map(char => {
+                let code = char.charCodeAt(0);
+                if (code >= 65 && code <= 90) return String.fromCodePoint(offsetUpper + (code - 65));
+                if (code >= 97 && code <= 122) return String.fromCodePoint(offsetLower + (code - 97));
+                return char;
+            }).join('');
+        }
+
+        const STYLES = [
+            { name:'Serif Bold', fn: t => mapOffset(t, 0x1D400, 0x1D41A) },
+            { name:'Serif Italic', fn: t => mapOffset(t, 0x1D434, 0x1D44E) },
+            { name:'Sans Bold', fn: t => mapOffset(t, 0x1D5E2, 0x1D5FC) },
+            { name:'Sans Italic', fn: t => mapOffset(t, 0x1D61A, 0x1D634) },
+            { name:'Gothic Bold', fn: t => mapOffset(t, 0x1D56C, 0x1D586) },
+            { name:'Double Struck (Outline)', fn: t => mapOffset(t, 0x1D5A0, 0x1D5BA) },
+            { name:'Cursive Bold', fn: t => mapOffset(t, 0x1D4D0, 0x1D4EA) },
+            { name:'Monospace Tech', fn: t => mapOffset(t, 0x1D670, 0x1D68A) },
+            { name:'Circled Light', fn: t => Array.from(t).map(c => { let code = c.toUpperCase().charCodeAt(0); return (code >= 65 && code <= 90) ? String.fromCodePoint(0x24B6 + (code - 65)) : c; }).join('') },
+            { name:'Squared Light', fn: t => Array.from(t).map(c => { let code = c.toUpperCase().charCodeAt(0); return (code >= 65 && code <= 90) ? String.fromCodePoint(0x1F130 + (code - 65)) : c; }).join('') },
+            { name:'Aesthetic Sparkle', fn: t => `✨ ${t} ✨` },
+            { name:'Love Heart Wave', fn: t => `❤️ ${t} ❤️` },
+            { name:'Vaporwave Brackets', fn: t => `【 ${t} 】` },
+            { name:'Royal Crown Elite', fn: t => `👑 ${t} 👑` },
+            { name:'Cyber Lightning', fn: t => `⚡ ${t} ⚡` },
+            { name:'Strikethrough', fn: t => Array.from(t).map(c => c + '\u0336').join('') },
+            { name:'Underline Clean', fn: t => Array.from(t).map(c => c + '\u0332').join('') }
+        ];
+
+        function renderCards() {
+            const val = input.value || "Muhammad";
+            resultsContainer.innerHTML = "";
+
+            STYLES.forEach(style => {
+                const transformed = style.fn(val);
+                const card = document.createElement('div');
+                card.className = 'font-card';
+                card.innerHTML = `
+                    <div class="font-text">${transformed}</div>
+                    <button class="copy-btn" onclick="copyToClipboard('${transformed.replace(/'/g, "\\'")}')">Copy</button>
+                `;
+                resultsContainer.appendChild(card);
+            });
+        }
+
+        function copyToClipboard(str) {
+            navigator.clipboard.writeText(str);
+            toast.className = "show";
+            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2200);
+        }
+
+        input.addEventListener('input', renderCards);
+        renderCards();
     </script>
-    <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
-  </div>
-</main>
-
-<footer class="site-footer">
-  <p>© 2026 Fancy Font Generator — Styled Unicode text generator for Socials & Gaming.</p>
-</footer>
-
-<div id="sr-announcer" class="visually-hidden" aria-live="polite"></div>
-
-<script>
-(function(){
-  "use strict";
-
-  function mapOffset(str, offsetUpper, offsetLower) {
-    return Array.from(str).map(function(char) {
-      var code = char.charCodeAt(0);
-      if (code >= 65 && code <= 90) return String.fromCodePoint(offsetUpper + (code - 65));
-      if (code >= 97 && code <= 122) return String.fromCodePoint(offsetLower + (code - 97));
-      return char;
-    }).join('');
-  }
-
-  var STYLES = [
-    { name:'Serif Bold', category:'classic', fn: function(t){ return mapOffset(t, 0x1D400, 0x1D41A); } },
-    { name:'Serif Italic', category:'classic', fn: function(t){ return mapOffset(t, 0x1D434, 0x1D44E); } },
-    { name:'Serif Bold Italic', category:'classic', fn: function(t){ return mapOffset(t, 0x1D468, 0x1D482); } },
-    { name:'Sans Normal', category:'classic', fn: function(t){ return mapOffset(t, 0x1D5B4, 0x1D5CE); } },
-    { name:'Sans Bold', category:'classic', fn: function(t){ return mapOffset(t, 0x1D5E2, 0x1D5FC); } },
-    { name:'Sans Italic', category:'classic', fn: function(t){ return mapOffset(t, 0x1D61A, 0x1D634); } },
-    { name:'Sans Bold Italic', category:'classic', fn: function(t){ return mapOffset(t, 0x1D64E, 0x1D668); } },
-    { name:'Gothic Normal', category:'ornate', fn: function(t){ return mapOffset(t, 0x1D504, 0x1D51E); } },
-    { name:'Gothic Bold', category:'ornate', fn: function(t){ return mapOffset(t, 0x1D56C, 0x1D586); } },
-    { name:'Double Struck (Outline)', category:'ornate', fn: function(t){ return mapOffset(t, 0x1D5A0, 0x1D5BA); } },
-    { name:'Cursive Normal', category:'ornate', fn: function(t){ return mapOffset(t, 0x1D49C, 0x1D4B6); } },
-    { name:'Cursive Bold', category:'ornate', fn: function(t){ return mapOffset(t, 0x1D4D0, 0x1D4EA); } },
-    { name:'Monospace Tech', category:'classic', fn: function(t){ return mapOffset(t, 0x1D670, 0x1D68A); } },
-    
-    { name:'Circled Light', category:'boxed', fn: function(t) {
-        return Array.from(t).map(function(c){
-          var code = c.toUpperCase().charCodeAt(0);
-          if(code >= 65 && code <= 90) return String.fromCodePoint(0x24B6 + (code - 65));
-          return c;
-        }).join('');
-      }
-    },
-    { name:'Circled Dark', category:'boxed', fn: function(t) {
-        return Array.from(t).map(function(c){
-          var code = c.toUpperCase().charCodeAt(0);
-          if(code >= 65 && code <= 90) return String.fromCodePoint(0x1F150 + (code - 65));
-          return c;
-        }).join('');
-      }
-    },
-    { name:'Squared Light', category:'boxed', fn: function(t) {
-        return Array.from(t).map(function(c){
-          var code = c.toUpperCase().charCodeAt(0);
-          if(code >= 65 && code <= 90) return String.fromCodePoint(0x1F130 + (code - 65));
-          return c;
-        }).join('');
-      }
-    },
-    { name:'Squared Dark', category:'boxed', fn: function(t) {
-        return Array.from(t).map(function(c){
-          var code = c.toUpperCase().charCodeAt(0);
-          if(code >= 65 && code <= 90) return String.fromCodePoint(0x1F170 + (code - 65));
-          return c;
-        }).join('');
-      }
-    },
-    { name:'Fullwidth Asian Style', category:'classic', fn: function(t) {
-        return Array.from(t).map(function(c){
-          var code = c.charCodeAt(0);
-          if(code >= 33 && code <= 126) return String.fromCharCode(code + 65248);
-          return c;
-        }).join('');
-      }
-    },
-    { name:'Small Caps Modern', category:'classic', fn: function(t){
-        var map = {a:'ᴀ',b:'ʙ',c:'ᴄ',d:'ᴅ',e:'ᴇ',f:'ꜰ',g:'ɢ',h:'ʜ',i:'ɪ',j:'ᴊ',k:'ᴋ',l:'ʟ',m:'ᴍ',n:'ɴ',o:'ᴏ',p:'ᴘ',q:'ǫ',r:'ʀ',s:'s',t:'ᴛ',u:'ᴜ',v:'ᴠ',w:'ᴡ',x:'x',y:'ʏ',z:'ᴢ'};
-        return Array.from(t).map(function(c){ return map[c.toLowerCase()] || c; }).join('');
-      }
-    },
-    { name:'Upside Down Flip', category:'effects', fn: function(t){
-        var map = {a:'ɐ',b:'q',c:'ɔ',d:'p',e:'ǝ',f:'ɟ',g:'ƃ',h:'ɥ',i:'ᴉ',j:'ɾ',k:'ʞ',l:'l',m:'ɯ',n:'u',o:'o',p:'d',q:'b',r:'ɹ',s:'s',t:'ʇ',u:'n',v:'ʌ',w:'ʍ',x:'x',y:'ʎ',z:'z',A:'∀',B:'𐐒',C:'Ɔ',D:'𐐔',E:'Ǝ',F:'Ⅎ',G:'⅁',H:'H',I:'I',J:'ſ',K:'ʞ',L:'˥',M:'W',N:'N',O:'O',P:'Ԁ',Q:'Ò',R:'ᴚ',S:'S',T:'⊥',U:'∩',V:'Λ',W:'M',X:'X',Y:'⅄',Z:'Z'};
-        return Array.from(t).map(function(c){ return map[c] || c; }).reverse().join('');
-      }
-    },
-    
-    { name:'Strikethrough', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0336'; }).join(''); } },
-    { name:'Crossed Slash', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0338'; }).join(''); } },
-    { name:'Underline Clean', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0332'; }).join(''); } },
-    { name:'Double Underline', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0333'; }).join(''); } },
-    
-    { name:'Aesthetic Sparkle', category:'decorative', fn: function(t){ return "✨ " + t + " ✨"; } },
-    { name:'Love Heart Wave', category:'decorative', fn: function(t){ return "❤️ " + t + " ❤️"; } },
-    { name:'Vaporwave Brackets', category:'decorative', fn: function(t){ return "【 " + t + " 】"; } },
-    { name:'Royal Crown Elite', category:'decorative', fn: function(t){ return "👑 " + t + " 👑"; } },
-    { name:'Cyber Lightning', category:'decorative', fn: function(t){ return "⚡ " + t + " ⚡"; } },
-    { name:'Vintage Borders', category:'decorative', fn: function(t){ return "⎝ " + t + " ⎠"; } }
-  ];
-
-  var inputText = document.getElementById('input-text');
-  var charCount = document.getElementById('char-count');
-  var resultsGrid = document.getElementById('results-grid');
-  var filterToolbar = document.getElementById('filter-toolbar');
-  var statLine = document.getElementById('stat-line');
-
-  var currentFilter = 'all';
-
-  function renderCards() {
-    var query = inputText.value || "";
-    charCount.textContent = query.length + " / 200";
-    resultsGrid.innerHTML = "";
-
-    var filtered = STYLES.filter(function(s) { return currentFilter === 'all' || s.category === currentFilter; });
-    statLine.textContent = "Showing " + filtered.length + " modern font variations";
-
-    if (query.trim() === "") {
-      resultsGrid.innerHTML = '<div class="empty-state"><h3>No text entered</h3><p>Please type something to see fonts.</p></div>';
-      return;
-    }
-
-    filtered.forEach(function(style, idx) {
-      var transformed = style.fn(query);
-      var card = document.createElement('div');
-      card.className = 'specimen-card';
-      card.innerHTML = '<div class="specimen-head"><span class="specimen-no">' + String(idx+1).padStart(2,'0') + '</span><span class="specimen-name">' + style.name + '</span></div>' +
-                       '<div class="specimen-preview">' + transformed + '</div>' +
-                       '<div style="display:flex;"><span class="specimen-action">Copy</span></div>';
-      
-      card.addEventListener('click', function() {
-        navigator.clipboard.writeText(transformed).then(function() {
-          var act = card.querySelector('.specimen-action');
-          act.textContent = 'Copied!';
-          card.classList.add('is-copied');
-          setTimeout(function() { act.textContent = 'Copy'; card.classList.remove('is-copied'); }, 1200);
-        });
-      });
-      resultsGrid.appendChild(card);
-    });
-  }
-
-  inputText.addEventListener('input', renderCards);
-  document.getElementById('clear-btn').addEventListener('click', function() { inputText.value = ""; renderCards(); });
-  
-  filterToolbar.addEventListener('click', function(e) {
-    var btn = e.target.closest('.chip');
-    if (!btn) return;
-    filterToolbar.querySelectorAll('.chip').forEach(function(b) { b.classList.remove('is-active'); });
-    btn.classList.add('is-active');
-    currentFilter = btn.getAttribute('data-filter');
-    renderCards();
-  });
-
-  renderCards();
-})();
-</script>
 </body>
 </html>
