@@ -32,11 +32,26 @@
         }
     </script>
     <style>
+        /* RGB Shining Logo */
+        .shiny-logo {
+            background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00ff00, #00ffff, #0088ff, #aa00ff, #ff0000);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            text-shadow: 0 0 10px rgba(255,255,255,0.6), 0 0 20px rgba(0,0,0,0.8);
+        }
+        @keyframes shine {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 200% 50%; }
+        }
+
         .gradient-text {
             background: linear-gradient(135deg, #a78bfa, #7c3aed);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         #toast {
             visibility: hidden;
             min-width: 220px;
@@ -65,7 +80,9 @@
 
     <!-- Navigation Bar - Wide Pill Shape -->
     <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-full px-8 py-4 mb-8 gap-4 shadow-2xl shadow-black/50">
-        <a href="index.html" class="text-xl font-bold text-accent tracking-tight">✨ Fancy Font Generator</a>
+        <a href="index.html" class="text-2xl md:text-3xl font-extrabold tracking-tight shiny-logo">
+            💎 MAZZIS 💎 — ULTIMATE FONT GENERATOR 🔥
+        </a>
         <div class="flex space-x-2 text-sm md:text-base font-medium">
             <a href="index.html" class="px-5 py-2 rounded-full bg-accent/20 text-white hover:bg-accent/40 transition">Home</a>
             <a href="premium.html" class="px-5 py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">🔥 Premium</a>
@@ -86,8 +103,8 @@
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <!-- Input Box -->
-        <input type="text" id="userInput" placeholder="✨ Type here (e.g. Muhammad / Mazzi Khan)... ✨" value="Muhammad"
+        <!-- Input Box (No default value) -->
+        <input type="text" id="userInput" placeholder="✨ Type here (e.g. Muhammad / Mazzi Khan)... ✨"
                class="w-full p-5 text-lg bg-card border-2 border-border rounded-2xl text-white outline-none focus:border-accent focus:ring-4 focus:ring-accent/20 transition placeholder:text-zinc-500 mb-8">
 
         <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
@@ -119,7 +136,7 @@
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
 
-        // Unicode mapping helper
+        // Helper for math bold/italic Unicode
         function mapOffset(str, offsetUpper, offsetLower) {
             return Array.from(str).map(char => {
                 let code = char.charCodeAt(0);
@@ -129,7 +146,6 @@
             }).join('');
         }
 
-        // Special functions
         function fullWidth(str) {
             return Array.from(str).map(c => {
                 const code = c.charCodeAt(0);
@@ -138,7 +154,6 @@
             }).join('');
         }
 
-        // Small Caps (using IPA Extensions, works best for lowercase)
         const smallCapsMap = {
             'a':'ᴀ','b':'ʙ','c':'ᴄ','d':'ᴅ','e':'ᴇ','f':'ғ','g':'ɢ','h':'ʜ','i':'ɪ','j':'ᴊ','k':'ᴋ','l':'ʟ','m':'ᴍ',
             'n':'ɴ','o':'ᴏ','p':'ᴘ','q':'ǫ','r':'ʀ','s':'s','t':'ᴛ','u':'ᴜ','v':'ᴠ','w':'ᴡ','x':'x','y':'ʏ','z':'ᴢ',
@@ -149,7 +164,6 @@
             return Array.from(str).map(c => smallCapsMap[c] || c).join('');
         }
 
-        // Upside Down
         const flipMap = {
             'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'l','m':'ɯ','n':'u',
             'o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z',
@@ -161,7 +175,6 @@
             return str.split('').map(c => flipMap[c] || c).reverse().join('');
         }
 
-        // Parenthesized letters
         function parenthesized(str) {
             return Array.from(str).map(c => {
                 const code = c.charCodeAt(0);
@@ -171,26 +184,68 @@
             }).join('');
         }
 
-        // Zalgo Mini (very light)
         function zalgoMini(text) {
             const marks = [0x0300,0x0301,0x0302,0x0303,0x0304,0x0305,0x0306,0x0307,0x0308,0x0309];
             return Array.from(text).map(c => {
                 let result = c;
-                for (let i = 0; i < 1; i++) { // only 1 mark
+                for (let i = 0; i < 1; i++) {
                     result += String.fromCodePoint(marks[Math.floor(Math.random() * marks.length)]);
                 }
                 return result;
             }).join('');
         }
 
-        // 40 STYLES
+        // New font: Greek Style
+        function greekStyle(str) {
+            const greekMap = {
+                'a':'α','b':'β','c':'ς','d':'δ','e':'ε','f':'φ','g':'γ','h':'η','i':'ι','j':'ϳ','k':'κ','l':'λ','m':'μ','n':'ν',
+                'o':'ο','p':'π','q':'θ','r':'ρ','s':'σ','t':'τ','u':'υ','v':'ω','w':'ω','x':'χ','y':'ψ','z':'ζ',
+                'A':'Α','B':'Β','C':'Σ','D':'Δ','E':'Ε','F':'Φ','G':'Γ','H':'Η','I':'Ι','J':'ϳ','K':'Κ','L':'Λ','M':'Μ','N':'Ν',
+                'O':'Ο','P':'Π','Q':'Θ','R':'Ρ','S':'Σ','T':'Τ','U':'Υ','V':'Ω','W':'Ω','X':'Χ','Y':'Ψ','Z':'Ζ'
+            };
+            return Array.from(str).map(c => greekMap[c] || c).join('');
+        }
+
+        // New font: Circled White (uppercase + lowercase)
+        function circledWhite(str) {
+            return Array.from(str).map(c => {
+                let code = c.charCodeAt(0);
+                if (code >= 65 && code <= 90) return String.fromCodePoint(0x24B6 + (code - 65));
+                if (code >= 97 && code <= 122) return String.fromCodePoint(0x24D0 + (code - 97));
+                return c;
+            }).join('');
+        }
+
+        // New font: Flag Letters (Regional Indicator)
+        function flagLetters(str) {
+            return Array.from(str).map(c => {
+                let upper = c.toUpperCase();
+                if (upper >= 'A' && upper <= 'Z') {
+                    return String.fromCodePoint(0x1F1E6 + (upper.charCodeAt(0) - 65));
+                }
+                return c;
+            }).join('');
+        }
+
+        // New font: White Square (uppercase only, but applied to uppercase/lowercase)
+        function whiteSquare(str) {
+            return Array.from(str).map(c => {
+                let upper = c.toUpperCase();
+                if (upper >= 'A' && upper <= 'Z') {
+                    return String.fromCodePoint(0x1F120 + (upper.charCodeAt(0) - 65));
+                }
+                return c;
+            }).join('');
+        }
+
+        // 40 STYLES (updated – removed 4, added 4)
         const STYLES = [
             { name: 'Bold Serif', fn: t => mapOffset(t, 0x1D400, 0x1D41A) },
-            { name: 'Italic Serif', fn: t => mapOffset(t, 0x1D434, 0x1D44E) },
+            { name: 'Greek Style', fn: greekStyle },                        // new
             { name: 'Bold Italic Serif', fn: t => mapOffset(t, 0x1D468, 0x1D482) },
-            { name: 'Sans Bold', fn: t => mapOffset(t, 0x1D5E2, 0x1D5FC) },
-            { name: 'Sans Italic', fn: t => mapOffset(t, 0x1D61A, 0x1D634) },
-            { name: 'Sans Bold Italic', fn: t => mapOffset(t, 0x1D63A, 0x1D654) },
+            { name: 'Circled White', fn: circledWhite },                   // new
+            { name: 'Flag Letters', fn: flagLetters },                     // new
+            { name: 'White Square', fn: whiteSquare },                     // new
             { name: 'Double Struck', fn: t => mapOffset(t, 0x1D538, 0x1D552) },
             { name: 'Script (Cursive)', fn: t => mapOffset(t, 0x1D49C, 0x1D4B6) },
             { name: 'Script Bold', fn: t => mapOffset(t, 0x1D4D0, 0x1D4EA) },
@@ -233,7 +288,6 @@
             { name: 'Brackets', fn: t => `【 ${t} 】` },
             { name: 'Aesthetic Fade', fn: t => `｡･:*:･ﾟ★,｡･:*:･ﾟ☆ ${t} ☆ﾟ･:*:･｡,★ﾟ･:*:･｡` },
             { name: 'Zalgo Mini', fn: zalgoMini },
-            { name: 'Glitch Light', fn: t => Array.from(t).map(c => c + '\u0336').join('') }, // simple, will adjust to be distinct, but can leave as is
             { name: 'Reverse Text', fn: t => t.split('').reverse().join('') },
             { name: 'Cyrillic Style', fn: t => Array.from(t).map(c => {
                 const fake = {'a':'а','e':'е','o':'о','p':'р','c':'с','y':'у','x':'х','A':'А','B':'В','E':'Е','O':'О','P':'Р','C':'С','Y':'У','X':'Х'};
@@ -242,7 +296,11 @@
         ];
 
         function renderCards() {
-            const val = input.value.trim() || "Muhammad";
+            const val = input.value.trim();
+            if (!val) {
+                resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-16 text-xl col-span-full">✨ Type something above to generate fonts ✨</p>`;
+                return;
+            }
             resultsContainer.innerHTML = "";
             STYLES.forEach(style => {
                 const transformed = style.fn(val);
@@ -263,6 +321,7 @@
         };
 
         input.addEventListener('input', renderCards);
+        // Initial render with empty state
         renderCards();
     </script>
 </body>
