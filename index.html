@@ -74,15 +74,15 @@
         @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
         @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
 
-        /* Glowing CTA button */
+        /* Glowing CTA */
         .cta-premium {
             display: inline-block;
-            padding: 14px 30px;
+            padding: 12px 24px;
             border-radius: 999px;
             background: linear-gradient(135deg, #f59e0b, #d946ef);
             color: #fff;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-decoration: none;
             box-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 30px rgba(217, 70, 239, 0.4);
             transition: transform 0.2s, box-shadow 0.2s;
@@ -96,24 +96,24 @@
 <body class="bg-dark text-white font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8">
 
     <!-- Navigation Bar -->
-    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-full px-8 py-4 mb-8 gap-4 shadow-2xl shadow-black/50">
-        <a href="index.html" class="text-2xl md:text-3xl font-extrabold tracking-tight shiny-logo">
+    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-full px-5 py-3 sm:px-8 sm:py-4 mb-6 gap-3 shadow-2xl shadow-black/50">
+        <a href="index.html" class="text-lg sm:text-2xl md:text-3xl font-extrabold tracking-tight shiny-logo">
             💎 MAZZIS 💎 — ULTIMATE FONT GENERATOR 🔥
         </a>
-        <div class="flex space-x-2 text-sm md:text-base font-medium">
-            <a href="index.html" class="px-5 py-2 rounded-full bg-accent/20 text-white hover:bg-accent/40 transition">Home</a>
-            <a href="premium.html" class="px-5 py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">🔥 Premium</a>
-            <a href="about.html" class="px-5 py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">About</a>
+        <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm md:text-base font-medium">
+            <a href="index.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-accent/20 text-white hover:bg-accent/40 transition">Home</a>
+            <a href="premium.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">🔥 Premium</a>
+            <a href="about.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">About</a>
         </div>
     </nav>
 
     <!-- Main Container -->
     <div class="w-full max-w-4xl text-center">
-        <h1 class="text-3xl md:text-5xl font-bold mb-2 gradient-text">40+ Stylish Fonts Generator</h1>
-        <p class="text-zinc-400 mb-8 text-sm md:text-base">Type your text below to generate fancy fonts for Instagram, WhatsApp & PUBG!</p>
+        <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 gradient-text">40+ Stylish Fonts Generator</h1>
+        <p class="text-zinc-400 mb-6 text-xs sm:text-sm md:text-base">Type your text below to generate fancy fonts for Instagram, WhatsApp & PUBG!</p>
 
-        <!-- ADSTERRA AD SLOT 1 (728x90) - Top -->
-        <div class="w-full flex justify-center mb-8 min-h-[90px]">
+        <!-- ADSTERRA AD SLOT 1 (728x90) - Top - HIDDEN ON MOBILE -->
+        <div class="w-full hidden sm:flex justify-center mb-6 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
             </script>
@@ -122,28 +122,28 @@
 
         <!-- Input Box -->
         <input type="text" id="userInput" placeholder="✨ Type here (e.g. Muhammad / Mazzi Khan)... ✨"
-               class="w-full p-5 text-lg bg-card border-2 border-border rounded-2xl text-white outline-none focus:border-accent focus:ring-4 focus:ring-accent/20 transition placeholder:text-zinc-500 mb-8">
+               class="w-full p-4 sm:p-5 text-base sm:text-lg bg-card border-2 border-border rounded-xl sm:rounded-2xl text-white outline-none focus:border-accent focus:ring-4 focus:ring-accent/20 transition placeholder:text-zinc-500 mb-5 sm:mb-8">
 
-        <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
-        <div class="w-full flex justify-center mb-8 min-h-[90px]">
+        <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 (Visible on all screens) -->
+        <div class="w-full flex justify-center mb-6 min-h-[90px]">
             <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
             <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
         </div>
 
         <!-- Font Cards Grid -->
-        <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-4 text-left"></div>
+        <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-left"></div>
 
-        <!-- ADSTERRA AD SLOT 3 (728x90) - Bottom -->
-        <div class="w-full flex justify-center mt-10 min-h-[90px]">
+        <!-- ADSTERRA AD SLOT 3 (728x90) - Bottom - HIDDEN ON MOBILE -->
+        <div class="w-full hidden sm:flex justify-center mt-8 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
             </script>
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <!-- ⚡ Call to Action: Explore Premium Fonts -->
-        <div class="mt-12 mb-6">
-            <a href="premium.html" class="cta-premium">
+        <!-- Call to Action -->
+        <div class="mt-8 sm:mt-12 mb-4">
+            <a href="premium.html" class="cta-premium text-sm sm:text-base">
                 🚀 Explore 44+ Premium Fonts 🔥 →
             </a>
         </div>
@@ -151,7 +151,7 @@
 
     <div id="toast">Copied! ✨</div>
 
-    <footer class="mt-16 text-zinc-500 text-xs text-center">
+    <footer class="mt-12 sm:mt-16 text-zinc-500 text-xs text-center">
         <p>© 2026 Fancy Font Generator | All Rights Reserved</p>
     </footer>
 
@@ -316,17 +316,17 @@
         function renderCards() {
             const val = input.value.trim();
             if (!val) {
-                resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-16 text-xl col-span-full">✨ Type something above to generate fonts ✨</p>`;
+                resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-12 sm:py-16 text-lg sm:text-xl col-span-full">✨ Type something above to generate fonts ✨</p>`;
                 return;
             }
             resultsContainer.innerHTML = "";
             STYLES.forEach(style => {
                 const transformed = style.fn(val);
                 const card = document.createElement('div');
-                card.className = "bg-card border border-border rounded-2xl p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4 hover:border-accent hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10 transition duration-300";
+                card.className = "bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-accent hover:-translate-y-1 hover:shadow-xl hover:shadow-accent/10 transition duration-300";
                 card.innerHTML = `
-                    <div class="font-text text-base md:text-lg break-all pr-2 leading-relaxed">${transformed}</div>
-                    <button class="copy-btn bg-accent hover:bg-accent-hover text-white font-semibold py-2 px-5 rounded-full transition whitespace-nowrap shadow-lg shadow-accent/30" onclick="copyText('${transformed.replace(/'/g, "\\'")}')">Copy</button>
+                    <div class="font-text text-sm sm:text-base md:text-lg break-all pr-2 leading-relaxed">${transformed}</div>
+                    <button class="copy-btn bg-accent hover:bg-accent-hover text-white font-semibold py-1.5 sm:py-2 px-4 sm:px-5 rounded-full transition whitespace-nowrap shadow-lg shadow-accent/30 text-xs sm:text-sm" onclick="copyText('${transformed.replace(/'/g, "\\'")}')">Copy</button>
                 `;
                 resultsContainer.appendChild(card);
             });
