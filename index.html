@@ -32,7 +32,6 @@
         }
     </script>
     <style>
-        /* RGB Shining Logo */
         .shiny-logo {
             background: linear-gradient(90deg, #ff0000, #ff8800, #ffff00, #00ff00, #00ffff, #0088ff, #aa00ff, #ff0000);
             background-size: 300% 100%;
@@ -74,11 +73,29 @@
         }
         @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
         @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+
+        /* Glowing CTA button */
+        .cta-premium {
+            display: inline-block;
+            padding: 14px 30px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, #f59e0b, #d946ef);
+            color: #fff;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-decoration: none;
+            box-shadow: 0 0 20px rgba(245, 158, 11, 0.6), 0 0 30px rgba(217, 70, 239, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .cta-premium:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.8), 0 0 45px rgba(217, 70, 239, 0.7);
+        }
     </style>
 </head>
 <body class="bg-dark text-white font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8">
 
-    <!-- Navigation Bar - Wide Pill Shape -->
+    <!-- Navigation Bar -->
     <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-full px-8 py-4 mb-8 gap-4 shadow-2xl shadow-black/50">
         <a href="index.html" class="text-2xl md:text-3xl font-extrabold tracking-tight shiny-logo">
             💎 MAZZIS 💎 — ULTIMATE FONT GENERATOR 🔥
@@ -103,7 +120,7 @@
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <!-- Input Box (No default value) -->
+        <!-- Input Box -->
         <input type="text" id="userInput" placeholder="✨ Type here (e.g. Muhammad / Mazzi Khan)... ✨"
                class="w-full p-5 text-lg bg-card border-2 border-border rounded-2xl text-white outline-none focus:border-accent focus:ring-4 focus:ring-accent/20 transition placeholder:text-zinc-500 mb-8">
 
@@ -123,6 +140,13 @@
             </script>
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
+
+        <!-- ⚡ Call to Action: Explore Premium Fonts -->
+        <div class="mt-12 mb-6">
+            <a href="premium.html" class="cta-premium">
+                🚀 Explore 44+ Premium Fonts 🔥 →
+            </a>
+        </div>
     </div>
 
     <div id="toast">Copied! ✨</div>
@@ -136,7 +160,6 @@
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
 
-        // Helper for math bold/italic Unicode
         function mapOffset(str, offsetUpper, offsetLower) {
             return Array.from(str).map(char => {
                 let code = char.charCodeAt(0);
@@ -195,7 +218,6 @@
             }).join('');
         }
 
-        // New font: Greek Style
         function greekStyle(str) {
             const greekMap = {
                 'a':'α','b':'β','c':'ς','d':'δ','e':'ε','f':'φ','g':'γ','h':'η','i':'ι','j':'ϳ','k':'κ','l':'λ','m':'μ','n':'ν',
@@ -206,7 +228,6 @@
             return Array.from(str).map(c => greekMap[c] || c).join('');
         }
 
-        // New font: Circled White (uppercase + lowercase)
         function circledWhite(str) {
             return Array.from(str).map(c => {
                 let code = c.charCodeAt(0);
@@ -216,7 +237,6 @@
             }).join('');
         }
 
-        // New font: Flag Letters (Regional Indicator)
         function flagLetters(str) {
             return Array.from(str).map(c => {
                 let upper = c.toUpperCase();
@@ -227,7 +247,6 @@
             }).join('');
         }
 
-        // New font: White Square (uppercase only, but applied to uppercase/lowercase)
         function whiteSquare(str) {
             return Array.from(str).map(c => {
                 let upper = c.toUpperCase();
@@ -238,14 +257,13 @@
             }).join('');
         }
 
-        // 40 STYLES (updated – removed 4, added 4)
         const STYLES = [
             { name: 'Bold Serif', fn: t => mapOffset(t, 0x1D400, 0x1D41A) },
-            { name: 'Greek Style', fn: greekStyle },                        // new
+            { name: 'Greek Style', fn: greekStyle },
             { name: 'Bold Italic Serif', fn: t => mapOffset(t, 0x1D468, 0x1D482) },
-            { name: 'Circled White', fn: circledWhite },                   // new
-            { name: 'Flag Letters', fn: flagLetters },                     // new
-            { name: 'White Square', fn: whiteSquare },                     // new
+            { name: 'Circled White', fn: circledWhite },
+            { name: 'Flag Letters', fn: flagLetters },
+            { name: 'White Square', fn: whiteSquare },
             { name: 'Double Struck', fn: t => mapOffset(t, 0x1D538, 0x1D552) },
             { name: 'Script (Cursive)', fn: t => mapOffset(t, 0x1D49C, 0x1D4B6) },
             { name: 'Script Bold', fn: t => mapOffset(t, 0x1D4D0, 0x1D4EA) },
@@ -321,7 +339,6 @@
         };
 
         input.addEventListener('input', renderCards);
-        // Initial render with empty state
         renderCards();
     </script>
 </body>
