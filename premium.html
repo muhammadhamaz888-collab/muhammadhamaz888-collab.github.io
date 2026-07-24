@@ -4,19 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>44+ Premium Stylish Fonts | Glitch, Zalgo & More (Free)</title>
-    <meta name="description" content="Unlock 44+ exclusive premium fancy fonts – Glitch, Zalgo, Old English, Game On, Cute styles & more. All free, no signup required.">
+    <meta name="description" content="Unlock 44+ exclusive premium fancy fonts – Glitch, Zalgo, Old English, Game On, Cute styles & more. All free, no signup. Categories, favorites, dark mode.">
     
     <!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
     <script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
     <script src="https://pl30435708.effectivecpmnetwork.com/9a/ed/e3/9aede353386a30be5ea9e7a22e9f04b7.js"></script>
 
     <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
@@ -32,11 +35,35 @@
         }
     </script>
     <style>
+        :root {
+            --bg: #08080a;
+            --card-bg: #131317;
+            --text: #ffffff;
+            --text-secondary: #a1a1aa;
+            --border-color: #27272a;
+            --accent: #f59e0b;
+            --gold: #d9a441;
+        }
+        .light {
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #0f172a;
+            --text-secondary: #475569;
+            --border-color: #e2e8f0;
+            --accent: #d97706;
+            --gold: #b45309;
+        }
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+        }
+
         .gradient-text {
             background: linear-gradient(135deg, #fbbf24, #d946ef);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+
         #toast {
             visibility: hidden;
             min-width: 220px;
@@ -59,17 +86,38 @@
         }
         @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
         @keyframes fadeout { from { bottom: 30px; opacity: 1; } to { bottom: 0; opacity: 0; } }
+
+        #backToTop {
+            position: fixed;
+            bottom: 80px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: var(--accent);
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            z-index: 40;
+            transition: 0.2s;
+        }
+        #backToTop:hover { transform: scale(1.1); }
     </style>
 </head>
-<body class="bg-dark text-white font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8">
+<body class="font-['Poppins'] min-h-screen flex flex-col items-center p-4 md:p-8 dark">
 
-    <!-- Navigation Bar -->
-    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card border border-border rounded-full px-5 py-3 sm:px-8 sm:py-4 mb-6 gap-3 shadow-2xl shadow-black/50">
-        <a href="index.html" class="text-lg sm:text-xl font-bold text-gold tracking-tight">🔥 Premium Fonts</a>
+    <!-- Sticky Navbar -->
+    <nav class="w-full max-w-4xl flex flex-col sm:flex-row justify-between items-center bg-card/90 backdrop-blur-sm border border-border rounded-full px-5 py-3 sm:px-8 sm:py-4 mb-6 gap-3 shadow-2xl shadow-black/20 sticky top-4 z-50" style="background-color: var(--card-bg);">
+        <a href="index.html" class="text-lg sm:text-2xl font-bold text-gold tracking-tight">🔥 Premium Fonts</a>
         <div class="flex space-x-1 sm:space-x-2 text-xs sm:text-sm md:text-base font-medium">
             <a href="index.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">Home</a>
             <a href="premium.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full bg-accent/20 text-gold hover:bg-accent/40 transition">Premium</a>
             <a href="about.html" class="px-3 sm:px-5 py-1.5 sm:py-2 rounded-full text-zinc-400 hover:bg-accent/20 hover:text-white transition">About</a>
+            <button onclick="toggleTheme()" class="px-3 py-1.5 rounded-full text-zinc-400 hover:bg-accent/20 transition" title="Toggle theme">🌗</button>
         </div>
     </nav>
 
@@ -78,7 +126,7 @@
         <h1 class="text-2xl sm:text-3xl md:text-5xl font-bold mb-2 gradient-text">44+ Exclusive Premium Fonts</h1>
         <p class="text-zinc-400 mb-6 text-xs sm:text-sm md:text-base">Glitch, Zalgo, Old English, Game On & more – absolutely FREE!</p>
 
-        <!-- ADSTERRA AD SLOT 1 (Top) - HIDDEN ON MOBILE -->
+        <!-- ADSTERRA AD SLOT 1 (Top) - hidden on mobile -->
         <div class="w-full hidden sm:flex justify-center mb-6 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
@@ -86,11 +134,28 @@
             <script src="https://www.highperformanceformat.com/b36d31ccf5ff108812022138b5f34ba4/invoke.js"></script>
         </div>
 
-        <!-- Input Box (No default value) -->
-        <input type="text" id="userInput" placeholder="✨ Type here (e.g. Hamaz / Mazzi Khan)... ✨"
-               class="w-full p-4 sm:p-5 text-base sm:text-lg bg-card border-2 border-border rounded-xl sm:rounded-2xl text-white outline-none focus:border-gold focus:ring-4 focus:ring-gold/20 transition placeholder:text-zinc-500 mb-5 sm:mb-8">
+        <!-- Input Box with Clear -->
+        <div class="relative w-full mb-5 sm:mb-8">
+            <input type="text" id="userInput" placeholder="✨ Type here (e.g. Hamaz / Mazzi Khan)... ✨"
+                   class="w-full p-4 sm:p-5 text-base sm:text-lg bg-card border-2 border-border rounded-xl sm:rounded-2xl text-white outline-none focus:border-gold focus:ring-4 focus:ring-gold/20 transition placeholder:text-zinc-500 pr-12" style="background-color: var(--card-bg); color: var(--text); border-color: var(--border-color);">
+            <button onclick="clearInput()" class="absolute right-3 top-1/2 -translate-y-1/2 text-zinc-400 hover:text-white text-2xl font-bold" id="clearBtn" style="display:none;">×</button>
+        </div>
 
-        <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 (Visible on all screens) -->
+        <!-- Category Tabs -->
+        <div class="flex flex-wrap justify-center gap-2 mb-5">
+            <button onclick="filterCategory('all')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-gold text-black transition" data-category="all">All</button>
+            <button onclick="filterCategory('glitch')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="glitch">Glitch</button>
+            <button onclick="filterCategory('zalgo')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="zalgo">Zalgo</button>
+            <button onclick="filterCategory('gaming')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="gaming">Gaming</button>
+            <button onclick="filterCategory('aesthetic')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="aesthetic">Aesthetic</button>
+            <button onclick="filterCategory('cute')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="cute">Cute</button>
+            <button onclick="filterCategory('classic')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="classic">Classic</button>
+            <button onclick="filterCategory('symbols')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="symbols">Symbols</button>
+            <button onclick="filterCategory('favorites')" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" data-category="favorites">❤️ My Favorites</button>
+            <button onclick="randomFont()" class="category-btn px-4 py-2 rounded-full text-sm font-semibold bg-card border border-border text-zinc-300 hover:bg-gold/20 transition" title="Surprise Me">🎲 Random</button>
+        </div>
+
+        <!-- ADSTERRA IN-FEED NATIVE AD SLOT 2 -->
         <div class="w-full flex justify-center mb-6 min-h-[90px]">
             <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
             <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
@@ -99,7 +164,7 @@
         <!-- Font Cards Grid -->
         <div id="results" class="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 text-left"></div>
 
-        <!-- ADSTERRA AD SLOT 3 (Bottom) - HIDDEN ON MOBILE -->
+        <!-- ADSTERRA AD SLOT 3 (Bottom) - hidden on mobile -->
         <div class="w-full hidden sm:flex justify-center mt-8 min-h-[90px]">
             <script>
                 atOptions = {'key':'b36d31ccf5ff108812022138b5f34ba4','format':'iframe','height':90,'width':728,'params':{}};
@@ -108,6 +173,10 @@
         </div>
     </div>
 
+    <!-- Back to Top Button -->
+    <div id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</div>
+
+    <!-- Toast -->
     <div id="toast">Copied! ✨</div>
 
     <footer class="mt-12 sm:mt-16 text-zinc-500 text-xs text-center">
@@ -115,10 +184,27 @@
     </footer>
 
     <script>
+        // Theme Toggle
+        function toggleTheme() {
+            document.body.classList.toggle('light');
+            localStorage.setItem('premiumTheme', document.body.classList.contains('light') ? 'light' : 'dark');
+        }
+        // Load saved theme
+        if (localStorage.getItem('premiumTheme') === 'light') {
+            document.body.classList.add('light');
+        } else {
+            document.body.classList.add('dark');
+        }
+
         const input = document.getElementById('userInput');
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
+        const clearBtn = document.getElementById('clearBtn');
+        const backToTop = document.getElementById('backToTop');
+        let currentCategory = 'all';
+        let favorites = JSON.parse(localStorage.getItem('favPremiumFonts')) || [];
 
+        // Zalgo function
         function zalgo(text, intensity = 5) {
             const zalgoUp = [0x030D,0x030E,0x0304,0x0305,0x033F,0x0311,0x0306,0x0310,0x0352,0x0357,0x0351,0x0307,0x0308,0x030A,0x0342,0x0343,0x0344,0x034A,0x034B,0x034C,0x0303,0x0302,0x030C,0x0350,0x0300,0x0301,0x030B,0x030F,0x0312,0x0313,0x0314,0x033D,0x0309,0x0363,0x0364,0x0365,0x0366,0x0367,0x0368,0x0369,0x036A,0x036B,0x036C,0x036D,0x036E,0x036F,0x033E,0x035B,0x0346,0x031A];
             const zalgoMid = [0x0315,0x031B,0x0340,0x0341,0x0358,0x0321,0x0322,0x0327,0x0328,0x0334,0x0335,0x0336,0x034F,0x035C,0x035D,0x035E,0x035F,0x0360,0x0362,0x0338,0x0337,0x0361,0x0489];
@@ -155,66 +241,79 @@
         }
 
         const PREMIUM_STYLES = [
-            { name: 'Glitch Storm', fn: glitch },
-            { name: 'Zalgo Max', fn: t => zalgo(t, 8) },
-            { name: 'Zalgo Medium', fn: t => zalgo(t, 4) },
-            { name: 'Zalgo Light', fn: t => zalgo(t, 1) },
-            { name: 'Demon Core', fn: t => `🔥👹 ${t} 👹🔥` },
-            { name: 'Angelic Halo', fn: t => `😇☁️ ${t} ☁️😇` },
-            { name: 'Old English', fn: oldEnglish },
-            { name: 'Medieval Script', fn: t => Array.from(t).map(c => {
+            // Glitch category
+            { name: 'Glitch Storm', category: 'glitch', fn: glitch },
+            // Zalgo category
+            { name: 'Zalgo Max', category: 'zalgo', fn: t => zalgo(t, 8) },
+            { name: 'Zalgo Medium', category: 'zalgo', fn: t => zalgo(t, 4) },
+            { name: 'Zalgo Light', category: 'zalgo', fn: t => zalgo(t, 1) },
+            // Gaming category
+            { name: 'Demon Core', category: 'gaming', fn: t => `🔥👹 ${t} 👹🔥` },
+            { name: 'Royal Crown', category: 'gaming', fn: t => `👑 ${t} 👑` },
+            { name: 'Lightning', category: 'gaming', fn: t => `⚡ ${t} ⚡` },
+            { name: 'Game On', category: 'gaming', fn: t => `▶ ${t} ◀` },
+            { name: 'Shadow Block', category: 'gaming', fn: t => `░▒▓█ ${t} █▓▒░` },
+            { name: 'Neon Cyber', category: 'gaming', fn: t => `▀▄▀▄ ${t} ▄▀▄▀` },
+            // Aesthetic category
+            { name: 'Angelic Halo', category: 'aesthetic', fn: t => `😇☁️ ${t} ☁️😇` },
+            { name: 'Rainbow Borders', category: 'aesthetic', fn: t => `🌈 ${t} 🌈` },
+            { name: 'Skull Aesthetic', category: 'aesthetic', fn: t => `💀 ${t} 💀` },
+            { name: 'Neon Glow', category: 'aesthetic', fn: t => `【≋ ${t} ≋】` },
+            { name: 'Fairy Dust', category: 'aesthetic', fn: t => `₊˚. ${t} .˚₊` },
+            { name: 'Dark Academia', category: 'aesthetic', fn: t => `☾ ${t} ☽` },
+            { name: 'Hanging Stars', category: 'aesthetic', fn: t => `⋆｡°✩ ${t} ✩°｡⋆` },
+            { name: 'Crystal Clear', category: 'aesthetic', fn: t => `✧ ${t} ✧` },
+            { name: 'Love Wave', category: 'aesthetic', fn: t => `~✿ ${t} ✿~` },
+            { name: 'Vaporwave Frame', category: 'aesthetic', fn: t => `【≋ ${t} ≋】` },
+            { name: 'Butterfly Wings', category: 'aesthetic', fn: t => `🦋 ${t} 🦋` },
+            { name: 'Moon Phases', category: 'aesthetic', fn: t => `🌑 ${t} 🌕` },
+            { name: 'Comet Tail', category: 'aesthetic', fn: t => `☄️ ${t} ☄️` },
+            { name: 'Alien Text', category: 'aesthetic', fn: t => `👽 ${t} 👽` },
+            // Cute category
+            { name: 'Heartbeat', category: 'cute', fn: t => `💓 ${t} 💓` },
+            { name: 'Bunny Cute', category: 'cute', fn: t => `🐰 ${t} 🐰` },
+            // Classic category
+            { name: 'Old English', category: 'classic', fn: oldEnglish },
+            { name: 'Medieval Script', category: 'classic', fn: t => Array.from(t).map(c => {
                 const m = {'a':'𝔞','b':'𝔟','c':'𝔠','d':'𝔡','e':'𝔢','f':'𝔣','g':'𝔤','h':'𝔥','i':'𝔦','j':'𝔧','k':'𝔨','l':'𝔩','m':'𝔪','n':'𝔫','o':'𝔬','p':'𝔭','q':'𝔮','r':'𝔯','s':'𝔰','t':'𝔱','u':'𝔲','v':'𝔳','w':'𝔴','x':'𝔵','y':'𝔶','z':'𝔷',
                 'A':'𝔄','B':'𝔅','C':'ℭ','D':'𝔇','E':'𝔈','F':'𝔉','G':'𝔊','H':'ℌ','I':'ℑ','J':'𝔍','K':'𝔎','L':'𝔏','M':'𝔐','N':'𝔑','O':'𝔒','P':'𝔓','Q':'𝔔','R':'ℜ','S':'𝔖','T':'𝔗','U':'𝔘','V':'𝔙','W':'𝔚','X':'𝔛','Y':'𝔜','Z':'ℨ'};
                 return m[c] || c;
             }).join('') },
-            { name: 'Cursed Text', fn: t => Array.from(t).map(c => c + '\u0361' + c).join('') },
-            { name: 'Mirror (RTL)', fn: t => '\u202E' + t + '\u202C' },
-            { name: 'Wingdings Style', fn: t => Array.from(t).map(c => {
-                const w = {'a':'♋︎','b':'♌︎','c':'♍︎','d':'♎︎','e':'♏︎','f':'♐︎','g':'♑︎','h':'♒︎','i':'♓︎','j':'♈︎','k':'♉︎','l':'♊︎','m':'♠︎','n':'♣︎','o':'♥︎','p':'♦︎','q':'♤','r':'♧','s':'♡','t':'♢','u':'☀','v':'☁','w':'☂','x':'☃','y':'☄','z':'★',
-                'A':'♋︎','B':'♌︎','C':'♍︎','D':'♎︎','E':'♏︎','F':'♐︎','G':'♑︎','H':'♒︎','I':'♓︎','J':'♈︎','K':'♉︎','L':'♊︎','M':'♠︎','N':'♣︎','O':'♥︎','P':'♦︎','Q':'♤','R':'♧','S':'♡','T':'♢','U':'☀','V':'☁','W':'☂','X':'☃','Y':'☄','Z':'★'};
-                return w[c] || c;
-            }).join('') },
-            { name: 'Rainbow Borders', fn: t => `🌈 ${t} 🌈` },
-            { name: 'Skull Aesthetic', fn: t => `💀 ${t} 💀` },
-            { name: 'Neon Glow', fn: t => `【≋ ${t} ≋】` },
-            { name: 'Fairy Dust', fn: t => `₊˚. ${t} .˚₊` },
-            { name: 'Dark Academia', fn: t => `☾ ${t} ☽` },
-            { name: 'Hanging Stars', fn: t => `⋆｡°✩ ${t} ✩°｡⋆` },
-            { name: 'Crystal Clear', fn: t => `✧ ${t} ✧` },
-            { name: 'Love Wave', fn: t => `~✿ ${t} ✿~` },
-            { name: 'Vaporwave Frame', fn: t => `【≋ ${t} ≋】` },
-            { name: 'Double Struck Sans', fn: t => Array.from(t).map(c => {
+            { name: 'Double Struck Sans', category: 'classic', fn: t => Array.from(t).map(c => {
                 const d = {'0':'𝟘','1':'𝟙','2':'𝟚','3':'𝟛','4':'𝟜','5':'𝟝','6':'𝟞','7':'𝟟','8':'𝟠','9':'𝟡',
                     'a':'𝕒','b':'𝕓','c':'𝕔','d':'𝕕','e':'𝕖','f':'𝕗','g':'𝕘','h':'𝕙','i':'𝕚','j':'𝕛','k':'𝕜','l':'𝕝','m':'𝕞','n':'𝕟','o':'𝕠','p':'𝕡','q':'𝕢','r':'𝕣','s':'𝕤','t':'𝕥','u':'𝕦','v':'𝕧','w':'𝕨','x':'𝕩','y':'𝕪','z':'𝕫',
                     'A':'𝔸','B':'𝔹','C':'ℂ','D':'𝔻','E':'𝔼','F':'𝔽','G':'𝔾','H':'ℍ','I':'𝕀','J':'𝕁','K':'𝕂','L':'𝕃','M':'𝕄','N':'ℕ','O':'𝕆','P':'ℙ','Q':'ℚ','R':'ℝ','S':'𝕊','T':'𝕋','U':'𝕌','V':'𝕍','W':'𝕎','X':'𝕏','Y':'𝕐','Z':'ℤ'};
                 return d[c] || c;
             }).join('') },
-            { name: 'Inverted Case', fn: t => Array.from(t).map(c => c === c.toUpperCase() ? c.toLowerCase() : c.toUpperCase()).join('') },
-            { name: 'Cursive Elegant', fn: t => Array.from(t).map(c => {
+            { name: 'Cursive Elegant', category: 'classic', fn: t => Array.from(t).map(c => {
                 const cur = {'a':'𝒶','b':'𝒷','c':'𝒸','d':'𝒹','e':'𝑒','f':'𝒻','g':'𝑔','h':'𝒽','i':'𝒾','j':'𝒿','k':'𝓀','l':'𝓁','m':'𝓂','n':'𝓃','o':'𝑜','p':'𝓅','q':'𝓆','r':'𝓇','s':'𝓈','t':'𝓉','u':'𝓊','v':'𝓋','w':'𝓌','x':'𝓍','y':'𝓎','z':'𝓏',
                 'A':'𝒜','B':'𝐵','C':'𝒞','D':'𝒟','E':'𝐸','F':'𝐹','G':'𝒢','H':'𝐻','I':'𝐼','J':'𝒥','K':'𝒦','L':'𝐿','M':'𝑀','N':'𝒩','O':'𝒪','P':'𝒫','Q':'𝒬','R':'𝑅','S':'𝒮','T':'𝒯','U':'𝒰','V':'𝒱','W':'𝒲','X':'𝒳','Y':'𝒴','Z':'𝒵'};
                 return cur[c] || c;
             }).join('') },
-            { name: 'Strikethrough Heavy', fn: t => Array.from(t).map(c => c + '\u0336\u0336').join('') },
-            { name: 'Underline Wave', fn: t => Array.from(t).map(c => c + '\u035C').join('') },
-            { name: 'Dot Matrix', fn: t => Array.from(t).map(c => c + '\u0323').join('') },
-            { name: 'Circle Frame', fn: t => `⭕ ${t} ⭕` },
-            { name: 'Hex Borders', fn: t => `⬡ ${t} ⬡` },
-            { name: 'Arrow Targets', fn: t => `➳ ${t} ➳` },
-            { name: 'Sword Aesthetic', fn: t => `⚔️ ${t} ⚔️` },
-            { name: 'Butterfly Wings', fn: t => `🦋 ${t} 🦋` },
-            { name: 'Moon Phases', fn: t => `🌑 ${t} 🌕` },
-            { name: 'Comet Tail', fn: t => `☄️ ${t} ☄️` },
-            { name: 'Alien Text', fn: t => `👽 ${t} 👽` },
-            { name: 'Pixel Border', fn: t => `▣ ${t} ▣` },
-            { name: 'Chess Symbols', fn: t => `♔ ${t} ♔` },
-            { name: 'Music Notes', fn: t => `♪ ${t} ♪` },
-            { name: 'Greek Style', fn: t => Array.from(t).map(c => {
+            // Symbols category
+            { name: 'Cursed Text', category: 'symbols', fn: t => Array.from(t).map(c => c + '\u0361' + c).join('') },
+            { name: 'Mirror (RTL)', category: 'symbols', fn: t => '\u202E' + t + '\u202C' },
+            { name: 'Wingdings Style', category: 'symbols', fn: t => Array.from(t).map(c => {
+                const w = {'a':'♋︎','b':'♌︎','c':'♍︎','d':'♎︎','e':'♏︎','f':'♐︎','g':'♑︎','h':'♒︎','i':'♓︎','j':'♈︎','k':'♉︎','l':'♊︎','m':'♠︎','n':'♣︎','o':'♥︎','p':'♦︎','q':'♤','r':'♧','s':'♡','t':'♢','u':'☀','v':'☁','w':'☂','x':'☃','y':'☄','z':'★',
+                'A':'♋︎','B':'♌︎','C':'♍︎','D':'♎︎','E':'♏︎','F':'♐︎','G':'♑︎','H':'♒︎','I':'♓︎','J':'♈︎','K':'♉︎','L':'♊︎','M':'♠︎','N':'♣︎','O':'♥︎','P':'♦︎','Q':'♤','R':'♧','S':'♡','T':'♢','U':'☀','V':'☁','W':'☂','X':'☃','Y':'☄','Z':'★'};
+                return w[c] || c;
+            }).join('') },
+            { name: 'Strikethrough Heavy', category: 'symbols', fn: t => Array.from(t).map(c => c + '\u0336\u0336').join('') },
+            { name: 'Underline Wave', category: 'symbols', fn: t => Array.from(t).map(c => c + '\u035C').join('') },
+            { name: 'Dot Matrix', category: 'symbols', fn: t => Array.from(t).map(c => c + '\u0323').join('') },
+            { name: 'Circle Frame', category: 'symbols', fn: t => `⭕ ${t} ⭕` },
+            { name: 'Hex Borders', category: 'symbols', fn: t => `⬡ ${t} ⬡` },
+            { name: 'Arrow Targets', category: 'symbols', fn: t => `➳ ${t} ➳` },
+            { name: 'Sword Aesthetic', category: 'symbols', fn: t => `⚔️ ${t} ⚔️` },
+            { name: 'Pixel Border', category: 'symbols', fn: t => `▣ ${t} ▣` },
+            { name: 'Chess Symbols', category: 'symbols', fn: t => `♔ ${t} ♔` },
+            { name: 'Music Notes', category: 'symbols', fn: t => `♪ ${t} ♪` },
+            { name: 'Greek Style', category: 'symbols', fn: t => Array.from(t).map(c => {
                 const g = {'a':'α','b':'β','c':'ς','d':'δ','e':'ε','f':'φ','g':'γ','h':'η','i':'ι','j':'ϳ','k':'κ','l':'λ','m':'μ','n':'ν','o':'ο','p':'π','q':'θ','r':'ρ','s':'σ','t':'τ','u':'υ','v':'ω','w':'ω','x':'χ','y':'ψ','z':'ζ',
                 'A':'Α','B':'Β','C':'Σ','D':'Δ','E':'Ε','F':'Φ','G':'Γ','H':'Η','I':'Ι','J':'ϳ','K':'Κ','L':'Λ','M':'Μ','N':'Ν','O':'Ο','P':'Π','Q':'Θ','R':'Ρ','S':'Σ','T':'Τ','U':'Υ','V':'Ω','W':'Ω','X':'Χ','Y':'Ψ','Z':'Ζ'};
                 return g[c] || c;
             }).join('') },
-            { name: 'Reverse Upside Down', fn: t => t.split('').reverse().join('').split('').map(c => {
+            { name: 'Reverse Upside Down', category: 'symbols', fn: t => t.split('').reverse().join('').split('').map(c => {
                 const flip = {
                     'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'l','m':'ɯ','n':'u',
                     'o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z',
@@ -223,40 +322,136 @@
                 };
                 return flip[c] || c;
             }).join('') },
-            // NEW PREMIUM FONTS
-            { name: 'Game On', fn: t => `▶ ${t} ◀` },
-            { name: 'Shadow Block', fn: t => `░▒▓█ ${t} █▓▒░` },
-            { name: 'Heartbeat', fn: t => `💓 ${t} 💓` },
-            { name: 'Bunny Cute', fn: t => `🐰 ${t} 🐰` },
-            { name: 'Neon Cyber', fn: t => `▀▄▀▄ ${t} ▄▀▄▀` },
         ];
 
+        // Render function
         function renderCards() {
             const val = input.value.trim();
             if (!val) {
-                resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-12 sm:py-16 text-lg sm:text-xl col-span-full">✨ Type something above to generate fonts ✨</p>`;
+                resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-12 text-lg col-span-full">✨ Type something above to generate premium fonts ✨</p>`;
                 return;
             }
+
+            let filtered = PREMIUM_STYLES;
+            if (currentCategory === 'favorites') {
+                filtered = PREMIUM_STYLES.filter(s => favorites.includes(s.name));
+                if (filtered.length === 0) {
+                    resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-12 text-lg col-span-full">❤️ No favorites yet. Click the heart on any premium font to save it.</p>`;
+                    return;
+                }
+            } else if (currentCategory !== 'all') {
+                filtered = PREMIUM_STYLES.filter(s => s.category === currentCategory);
+            }
+
             resultsContainer.innerHTML = "";
-            PREMIUM_STYLES.forEach(style => {
+            filtered.forEach(style => {
                 const transformed = style.fn(val);
+                const isFav = favorites.includes(style.name);
                 const card = document.createElement('div');
-                card.className = "bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-gold hover:-translate-y-1 hover:shadow-xl hover:shadow-gold/10 transition duration-300";
+                card.className = "bg-card border border-border rounded-xl sm:rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 hover:border-gold hover:-translate-y-1 transition duration-300";
+                card.style.backgroundColor = 'var(--card-bg)';
+                card.style.borderColor = 'var(--border-color)';
                 card.innerHTML = `
-                    <div class="font-text text-sm sm:text-base md:text-lg break-all pr-2 leading-relaxed">${transformed}</div>
-                    <button class="copy-btn bg-gold hover:bg-amber-500 text-black font-semibold py-1.5 sm:py-2 px-4 sm:px-5 rounded-full transition whitespace-nowrap shadow-lg shadow-gold/30 text-xs sm:text-sm" onclick="copyText('${transformed.replace(/'/g, "\\'")}')">Copy</button>
+                    <div class="font-text text-sm sm:text-base md:text-lg break-all pr-2 leading-relaxed flex-1">${transformed}</div>
+                    <div class="flex items-center gap-2">
+                        <button class="fav-btn text-xl ${isFav ? 'text-red-500' : 'text-zinc-500'}" onclick="toggleFavorite('${style.name.replace(/'/g,"\\'")}')" title="Favorite">${isFav ? '❤️' : '🤍'}</button>
+                        <button class="copy-btn bg-gold hover:bg-amber-500 text-black font-semibold py-1.5 sm:py-2 px-4 sm:px-5 rounded-full transition whitespace-nowrap shadow-lg text-xs sm:text-sm" onclick="copyText('${transformed.replace(/'/g,"\\'")}', '${style.name.replace(/'/g,"\\'")}')">Copy</button>
+                    </div>
                 `;
                 resultsContainer.appendChild(card);
             });
         }
 
-        window.copyText = function(text) {
-            navigator.clipboard.writeText(text);
-            toast.className = "show";
-            setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 2200);
+        // Favorites toggle
+        window.toggleFavorite = function(name) {
+            if (favorites.includes(name)) {
+                favorites = favorites.filter(f => f !== name);
+            } else {
+                favorites.push(name);
+            }
+            localStorage.setItem('favPremiumFonts', JSON.stringify(favorites));
+            renderCards();
         };
 
-        input.addEventListener('input', renderCards);
+        // Copy with share
+        window.copyText = function(text, styleName) {
+            navigator.clipboard.writeText(text);
+            showToast(`Copied ${styleName}!`);
+            if (window.navigator && window.navigator.vibrate) {
+                window.navigator.vibrate(15);
+            }
+            if (confirm('Copied! Do you want to share this font?')) {
+                const shareText = encodeURIComponent(`Check out this stylish premium font: ${text} - from MAZZIS Font Generator`);
+                const url = encodeURIComponent('https://muhammadhamaz888-collab.github.io/premium.html');
+                const whatsapp = `https://wa.me/?text=${shareText}`;
+                const twitter = `https://twitter.com/intent/tweet?text=${shareText}&url=${url}`;
+                const win = window.open('', '_blank');
+                win.document.write(`<h3>Share via:</h3><a href="${whatsapp}" target="_blank">WhatsApp</a> | <a href="${twitter}" target="_blank">Twitter</a>`);
+            }
+        };
+
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.className = "show";
+            setTimeout(() => { toast.className = toast.className.replace("show",""); }, 2500);
+        }
+
+        // Clear input
+        window.clearInput = function() {
+            input.value = '';
+            input.focus();
+            renderCards();
+        };
+        input.addEventListener('input', () => {
+            clearBtn.style.display = input.value ? 'block' : 'none';
+            renderCards();
+        });
+
+        // Category filter
+        window.filterCategory = function(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.dataset.category === cat) {
+                    btn.classList.add('bg-gold','text-black');
+                    btn.classList.remove('bg-card','border','border-border','text-zinc-300');
+                } else {
+                    btn.classList.remove('bg-gold','text-black');
+                    btn.classList.add('bg-card','border','border-border','text-zinc-300');
+                }
+            });
+            renderCards();
+        };
+
+        // Random font
+        window.randomFont = function() {
+            if (!input.value.trim()) {
+                alert('Type something first!');
+                return;
+            }
+            const all = PREMIUM_STYLES;
+            const randomStyle = all[Math.floor(Math.random() * all.length)];
+            const transformed = randomStyle.fn(input.value.trim());
+            resultsContainer.innerHTML = "";
+            const card = document.createElement('div');
+            card.className = "bg-card border border-gold rounded-2xl p-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-center";
+            card.style.backgroundColor = 'var(--card-bg)';
+            card.innerHTML = `
+                <div class="flex-1">
+                    <p class="text-xs text-zinc-400 mb-2">🎲 Random Pick: ${randomStyle.name}</p>
+                    <p class="text-xl font-bold break-all">${transformed}</p>
+                </div>
+                <button class="copy-btn bg-gold hover:bg-amber-500 text-black font-semibold py-2 px-5 rounded-full" onclick="copyText('${transformed.replace(/'/g,"\\'")}', '${randomStyle.name}')">Copy</button>
+            `;
+            resultsContainer.appendChild(card);
+            card.scrollIntoView({behavior:'smooth'});
+        };
+
+        // Back to top
+        window.addEventListener('scroll', () => {
+            backToTop.style.display = window.scrollY > 400 ? 'flex' : 'none';
+        });
+
+        // Initial render
         renderCards();
     </script>
 </body>
