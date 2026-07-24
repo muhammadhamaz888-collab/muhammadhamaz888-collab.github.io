@@ -11,6 +11,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 
+<!-- ADSTERRA POPUNDER & DIRECT SCRIPTS -->
 <script src="https://pl30435707.effectivecpmnetwork.com/cf/42/99/cf42998102fd8f80f7526edf393485c5.js"></script>
 <script src="https://pl30435708.effectivecpmnetwork.com/9a/ed/e3/9aede353386a30be5ea9e7a22e9f04b7.js"></script>
 
@@ -71,7 +72,7 @@
   .header-note{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);}
 
   /* ADS */
-  .ad-slot{max-width:1180px;margin:22px auto;padding:0 20px;text-align:center;}
+  .ad-slot{max-width:1180px;margin:22px auto;padding:0 20px;text-align:center;min-height:90px;}
   .ad-label{
     display:block;font-family:var(--font-mono);font-size:.65rem;letter-spacing:.14em;
     text-transform:uppercase;color:var(--ink-faint);margin-bottom:6px;
@@ -135,6 +136,7 @@
   </div>
 </header>
 
+<!-- ADSTERRA TOP AD SLOT 1 -->
 <div class="ad-slot">
   <span class="ad-label">Advertisement</span>
   <script>
@@ -152,13 +154,14 @@
 
   <section class="composer-card">
     <label for="input-text" class="composer-label">Compose</label>
-    <textarea id="input-text" maxlength="200" placeholder="Type something…">Hamza</textarea>
+    <textarea id="input-text" maxlength="200" placeholder="Type something…">Muhammad</textarea>
     <div class="composer-meta">
       <span id="char-count">0 / 200</span>
       <button type="button" id="clear-btn" class="ghost-btn">Clear</button>
     </div>
   </section>
 
+  <!-- ADSTERRA IN-FEED AD SLOT 2 -->
   <div class="ad-slot" style="margin-bottom:30px;">
     <script async="async" data-cfasync="false" src="https://pl30435709.effectivecpmnetwork.com/007bcca89e06fb1fa19fd5d634ba587e/invoke.js"></script>
     <div id="container-007bcca89e06fb1fa19fd5d634ba587e"></div>
@@ -178,6 +181,7 @@
       <div class="results-grid" id="results-grid"></div>
     </div>
 
+    <!-- ADSTERRA SIDEBAR AD SLOT 3 -->
     <aside class="layout-aside">
       <div class="ad-slot">
         <span class="ad-label">Advertisement</span>
@@ -189,6 +193,7 @@
     </aside>
   </div>
 
+  <!-- ADSTERRA BOTTOM AD SLOT 4 -->
   <div class="ad-slot">
     <span class="ad-label">Advertisement</span>
     <script>
@@ -199,7 +204,7 @@
 </main>
 
 <footer class="site-footer">
-  <p>Fancy Font Generator — styled Unicode text generator.</p>
+  <p>© 2026 Fancy Font Generator — Styled Unicode text generator for Socials & Gaming.</p>
 </footer>
 
 <div id="sr-announcer" class="visually-hidden" aria-live="polite"></div>
@@ -208,7 +213,6 @@
 (function(){
   "use strict";
 
-  // Mathematical absolute mapping via official Unicode math blocks (Ensures 100% Correct Spelling)
   function mapOffset(str, offsetUpper, offsetLower) {
     return Array.from(str).map(function(char) {
       var code = char.charCodeAt(0);
@@ -218,7 +222,6 @@
     }).join('');
   }
 
-  // 30 Completely Unique, Error-Free Modern Font Vectors
   var STYLES = [
     { name:'Serif Bold', category:'classic', fn: function(t){ return mapOffset(t, 0x1D400, 0x1D41A); } },
     { name:'Serif Italic', category:'classic', fn: function(t){ return mapOffset(t, 0x1D434, 0x1D44E); } },
@@ -285,13 +288,11 @@
       }
     },
     
-    // Aesthetic effects
     { name:'Strikethrough', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0336'; }).join(''); } },
     { name:'Crossed Slash', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0338'; }).join(''); } },
     { name:'Underline Clean', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0332'; }).join(''); } },
     { name:'Double Underline', category:'effects', fn: function(t){ return Array.from(t).map(function(c){ return c + '\u0333'; }).join(''); } },
     
-    // 2026 Decorative Bio Layouts
     { name:'Aesthetic Sparkle', category:'decorative', fn: function(t){ return "✨ " + t + " ✨"; } },
     { name:'Love Heart Wave', category:'decorative', fn: function(t){ return "❤️ " + t + " ❤️"; } },
     { name:'Vaporwave Brackets', category:'decorative', fn: function(t){ return "【 " + t + " 】"; } },
