@@ -65,10 +65,18 @@
         }
         @keyframes shine { 0% { background-position: 0% 50%; } 100% { background-position: 200% 50%; } }
 
+        .gradient-text {
+            background: linear-gradient(135deg, #a78bfa, #7c3aed);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
         #toast {
-            visibility: hidden; min-width: 220px; background: linear-gradient(135deg, #10b981, #059669); color: #fff;
-            text-align: center; border-radius: 999px; padding: 12px 24px; position: fixed; z-index: 999;
-            bottom: 30px; left: 50%; transform: translateX(-50%); font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+            visibility: hidden; min-width: 220px;
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: #fff; text-align: center; border-radius: 999px; padding: 12px 24px;
+            position: fixed; z-index: 999; bottom: 30px; left: 50%; transform: translateX(-50%);
+            font-weight: 600; box-shadow: 0 10px 25px rgba(0,0,0,0.5);
         }
         #toast.show { visibility: visible; animation: fadein 0.3s, fadeout 0.5s 2s; }
         @keyframes fadein { from { bottom: 0; opacity: 0; } to { bottom: 30px; opacity: 1; } }
@@ -77,7 +85,9 @@
         .cta-premium {
             display: inline-block; padding: 12px 24px; border-radius: 999px;
             background: linear-gradient(135deg, #f59e0b, #d946ef); color: #fff; font-weight: 700;
-            font-size: 1rem; text-decoration: none; box-shadow: 0 0 20px rgba(245,158,11,0.6), 0 0 30px rgba(217,70,239,0.4);
+            font-size: 1rem; text-decoration: none;
+            box-shadow: 0 0 20px rgba(245,158,11,0.6), 0 0 30px rgba(217,70,239,0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
         }
         .cta-premium:hover { transform: scale(1.05); box-shadow: 0 0 30px rgba(245,158,11,0.8), 0 0 45px rgba(217,70,239,0.7); }
 
@@ -148,7 +158,7 @@
         </div>
 
         <!-- Live Preview Box -->
-        <div id="livePreview" class="mb-5 text-center p-3 sm:p-4 border-2 border-dashed border-accent rounded-xl bg-card/50" style="background-color: var(--card-bg); border-color: var(--accent); min-height: 50px;">
+        <div id="livePreview" class="mb-5 text-center p-3 sm:p-4 rounded-xl" style="background-color: var(--card-bg); border-color: var(--accent); min-height: 50px;">
             <p id="previewText" class="text-sm sm:text-lg md:text-xl font-semibold text-zinc-400">👆 Click any font style to preview it here</p>
         </div>
 
@@ -157,7 +167,7 @@
             <button onclick="copyAll()" id="copyAllBtn" class="px-4 py-2 bg-accent/20 text-accent hover:bg-accent/40 rounded-full text-xs sm:text-sm font-semibold transition disabled:opacity-50" disabled>📋 Copy All (0)</button>
         </div>
 
-        <!-- Font Cards Grid (2 col mobile, 3 col desktop) -->
+        <!-- Font Cards Grid (2 columns mobile, 3 columns desktop) -->
         <div id="results" class="grid grid-cols-2 md:grid-cols-3 gap-2 sm:gap-3 text-left"></div>
 
         <!-- ADSTERRA AD SLOT 3 (Bottom) - hidden on mobile -->
@@ -186,37 +196,193 @@
     </footer>
 
     <script>
-        // Theme toggle (sync with other pages via 'theme' key)
+        // ============ THEME TOGGLE (synced with other pages via 'theme' key) ============
         function toggleTheme() {
             document.body.classList.toggle('light');
             localStorage.setItem('theme', document.body.classList.contains('light') ? 'light' : 'dark');
         }
-        if (localStorage.getItem('theme') === 'light') document.body.classList.add('light');
-        else document.body.classList.add('dark');
+        if (localStorage.getItem('theme') === 'light') {
+            document.body.classList.add('light');
+        } else {
+            document.body.classList.add('dark');
+        }
 
         const input = document.getElementById('userInput');
         const resultsContainer = document.getElementById('results');
         const toast = document.getElementById('toast');
         const clearBtn = document.getElementById('clearBtn');
-        const backToTop = document.getElementById('backToTop');
+        const backToTopBtn = document.getElementById('backToTop');
         const previewText = document.getElementById('previewText');
         const copyAllBtn = document.getElementById('copyAllBtn');
         let currentCategory = 'all';
         let favorites = JSON.parse(localStorage.getItem('favFonts')) || [];
 
-        // Helper functions (unchanged) ...
-        function mapOffset(str, offsetUpper, offsetLower) { ... } // Keep all existing helper functions exactly as before (they are same, I'll compress in final but here I'll omit for brevity; they are unchanged)
-        // (Full helper functions from previous index.html – I'll include them in the final answer as a complete block, but due to length I'll note they remain identical. In the actual answer I'll paste the complete script.)
+        // ============ UNICODE HELPERS ============
+        function mapOffset(str, offsetUpper, offsetLower) {
+            return Array.from(str).map(char => {
+                let code = char.charCodeAt(0);
+                if (code >= 65 && code <= 90) return String.fromCodePoint(offsetUpper + (code - 65));
+                if (code >= 97 && code <= 122) return String.fromCodePoint(offsetLower + (code - 97));
+                return char;
+            }).join('');
+        }
 
-        // STYLES array (identical to previous index.html with categories)
-        const STYLES = [ /* ... same array ... */ ];
+        function fullWidth(str) {
+            return Array.from(str).map(c => {
+                const code = c.charCodeAt(0);
+                if (code >= 33 && code <= 126) return String.fromCodePoint(0xFF01 + (code - 33));
+                return c;
+            }).join('');
+        }
 
-        // Live preview function
+        const smallCapsMap = {
+            'a':'ᴀ','b':'ʙ','c':'ᴄ','d':'ᴅ','e':'ᴇ','f':'ғ','g':'ɢ','h':'ʜ','i':'ɪ','j':'ᴊ','k':'ᴋ','l':'ʟ','m':'ᴍ',
+            'n':'ɴ','o':'ᴏ','p':'ᴘ','q':'ǫ','r':'ʀ','s':'s','t':'ᴛ','u':'ᴜ','v':'ᴠ','w':'ᴡ','x':'x','y':'ʏ','z':'ᴢ',
+            'A':'A','B':'B','C':'C','D':'D','E':'E','F':'F','G':'G','H':'H','I':'I','J':'J','K':'K','L':'L','M':'M',
+            'N':'N','O':'O','P':'P','Q':'Q','R':'R','S':'S','T':'T','U':'U','V':'V','W':'W','X':'X','Y':'Y','Z':'Z'
+        };
+        function smallCaps(str) {
+            return Array.from(str).map(c => smallCapsMap[c] || c).join('');
+        }
+
+        const flipMap = {
+            'a':'ɐ','b':'q','c':'ɔ','d':'p','e':'ǝ','f':'ɟ','g':'ƃ','h':'ɥ','i':'ᴉ','j':'ɾ','k':'ʞ','l':'l','m':'ɯ','n':'u',
+            'o':'o','p':'d','q':'b','r':'ɹ','s':'s','t':'ʇ','u':'n','v':'ʌ','w':'ʍ','x':'x','y':'ʎ','z':'z',
+            'A':'∀','B':'ᙠ','C':'Ɔ','D':'ᗡ','E':'Ǝ','F':'Ⅎ','G':'⅁','H':'H','I':'I','J':'ſ','K':'⋊','L':'⅃','M':'W','N':'N',
+            'O':'O','P':'Ԁ','Q':'Ό','R':'ᴚ','S':'S','T':'⊥','U':'∩','V':'Λ','W':'M','X':'X','Y':'⅄','Z':'Z',
+            '0':'0','1':'1','2':'2','3':'3','4':'4','5':'5','6':'9','7':'7','8':'8','9':'6'
+        };
+        function upsideDown(str) {
+            return str.split('').map(c => flipMap[c] || c).reverse().join('');
+        }
+
+        function parenthesized(str) {
+            return Array.from(str).map(c => {
+                const code = c.charCodeAt(0);
+                if (code >= 65 && code <= 90) return String.fromCodePoint(0x1F110 + (code - 65));
+                if (code >= 97 && code <= 122) return String.fromCodePoint(0x249C + (code - 97));
+                return c;
+            }).join('');
+        }
+
+        function zalgoMini(text) {
+            const marks = [0x0300,0x0301,0x0302,0x0303,0x0304,0x0305,0x0306,0x0307,0x0308,0x0309];
+            return Array.from(text).map(c => {
+                let result = c;
+                for (let i = 0; i < 1; i++) {
+                    result += String.fromCodePoint(marks[Math.floor(Math.random() * marks.length)]);
+                }
+                return result;
+            }).join('');
+        }
+
+        function greekStyle(str) {
+            const greekMap = {
+                'a':'α','b':'β','c':'ς','d':'δ','e':'ε','f':'φ','g':'γ','h':'η','i':'ι','j':'ϳ','k':'κ','l':'λ','m':'μ','n':'ν',
+                'o':'ο','p':'π','q':'θ','r':'ρ','s':'σ','t':'τ','u':'υ','v':'ω','w':'ω','x':'χ','y':'ψ','z':'ζ',
+                'A':'Α','B':'Β','C':'Σ','D':'Δ','E':'Ε','F':'Φ','G':'Γ','H':'Η','I':'Ι','J':'ϳ','K':'Κ','L':'Λ','M':'Μ','N':'Ν',
+                'O':'Ο','P':'Π','Q':'Θ','R':'Ρ','S':'Σ','T':'Τ','U':'Υ','V':'Ω','W':'Ω','X':'Χ','Y':'Ψ','Z':'Ζ'
+            };
+            return Array.from(str).map(c => greekMap[c] || c).join('');
+        }
+
+        function circledWhite(str) {
+            return Array.from(str).map(c => {
+                let code = c.charCodeAt(0);
+                if (code >= 65 && code <= 90) return String.fromCodePoint(0x24B6 + (code - 65));
+                if (code >= 97 && code <= 122) return String.fromCodePoint(0x24D0 + (code - 97));
+                return c;
+            }).join('');
+        }
+
+        function flagLetters(str) {
+            return Array.from(str).map(c => {
+                let upper = c.toUpperCase();
+                if (upper >= 'A' && upper <= 'Z') {
+                    return String.fromCodePoint(0x1F1E6 + (upper.charCodeAt(0) - 65));
+                }
+                return c;
+            }).join('');
+        }
+
+        function whiteSquare(str) {
+            return Array.from(str).map(c => {
+                let upper = c.toUpperCase();
+                if (upper >= 'A' && upper <= 'Z') {
+                    return String.fromCodePoint(0x1F120 + (upper.charCodeAt(0) - 65));
+                }
+                return c;
+            }).join('');
+        }
+
+        // ============ FONT STYLES WITH CATEGORIES ============
+        const STYLES = [
+            { name:'Bold Serif', category:'bold', fn: t => mapOffset(t, 0x1D400, 0x1D41A) },
+            { name:'Greek Style', category:'fancy', fn: greekStyle },
+            { name:'Bold Italic Serif', category:'bold', fn: t => mapOffset(t, 0x1D468, 0x1D482) },
+            { name:'Circled White', category:'symbols', fn: circledWhite },
+            { name:'Flag Letters', category:'symbols', fn: flagLetters },
+            { name:'White Square', category:'symbols', fn: whiteSquare },
+            { name:'Double Struck', category:'fancy', fn: t => mapOffset(t, 0x1D538, 0x1D552) },
+            { name:'Script (Cursive)', category:'cursive', fn: t => mapOffset(t, 0x1D49C, 0x1D4B6) },
+            { name:'Script Bold', category:'cursive', fn: t => mapOffset(t, 0x1D4D0, 0x1D4EA) },
+            { name:'Fraktur', category:'fancy', fn: t => mapOffset(t, 0x1D504, 0x1D51E) },
+            { name:'Fraktur Bold', category:'fancy', fn: t => mapOffset(t, 0x1D56C, 0x1D586) },
+            { name:'Monospace', category:'symbols', fn: t => mapOffset(t, 0x1D670, 0x1D68A) },
+            { name:'Small Caps', category:'fancy', fn: smallCaps },
+            { name:'Upside Down', category:'fancy', fn: upsideDown },
+            { name:'Parenthesized', category:'symbols', fn: parenthesized },
+            { name:'Fullwidth', category:'fancy', fn: fullWidth },
+            { name:'Bubble (Black)', category:'symbols', fn: t => Array.from(t).map(c => {
+                let code = c.toUpperCase().charCodeAt(0);
+                return (code >= 65 && code <= 90) ? String.fromCodePoint(0x1F150 + (code - 65)) : c;
+            }).join('') },
+            { name:'Square Box', category:'symbols', fn: t => Array.from(t).map(c => {
+                let code = c.toUpperCase().charCodeAt(0);
+                return (code >= 65 && code <= 90) ? String.fromCodePoint(0x1F130 + (code - 65)) : c;
+            }).join('') },
+            { name:'Superscript', category:'fancy', fn: t => Array.from(t).map(c => {
+                const sup = {'0':'⁰','1':'¹','2':'²','3':'³','4':'⁴','5':'⁵','6':'⁶','7':'⁷','8':'⁸','9':'⁹',
+                    'a':'ᵃ','b':'ᵇ','c':'ᶜ','d':'ᵈ','e':'ᵉ','f':'ᶠ','g':'ᵍ','h':'ʰ','i':'ⁱ','j':'ʲ','k':'ᵏ','l':'ˡ','m':'ᵐ','n':'ⁿ',
+                    'o':'ᵒ','p':'ᵖ','q':'ᑫ','r':'ʳ','s':'ˢ','t':'ᵗ','u':'ᵘ','v':'ᵛ','w':'ʷ','x':'ˣ','y':'ʸ','z':'ᶻ',
+                    'A':'ᴬ','B':'ᴮ','C':'ᶜ','D':'ᴰ','E':'ᴱ','F':'ᶠ','G':'ᴳ','H':'ᴴ','I':'ᴵ','J':'ᴶ','K':'ᴷ','L':'ᴸ','M':'ᴹ','N':'ᴺ',
+                    'O':'ᴼ','P':'ᴾ','Q':'ᑫ','R':'ᴿ','S':'ˢ','T':'ᵀ','U':'ᵁ','V':'ⱽ','W':'ᵂ','X':'ˣ','Y':'ʸ','Z':'ᶻ'};
+                return sup[c] || c;
+            }).join('') },
+            { name:'Strikethrough', category:'symbols', fn: t => Array.from(t).map(c => c + '\u0336').join('') },
+            { name:'Underline', category:'symbols', fn: t => Array.from(t).map(c => c + '\u0332').join('') },
+            { name:'Double Underline', category:'symbols', fn: t => Array.from(t).map(c => c + '\u0333').join('') },
+            { name:'Wavy Underline', category:'symbols', fn: t => Array.from(t).map(c => c + '\u0330').join('') },
+            { name:'Dot Above', category:'symbols', fn: t => Array.from(t).map(c => c + '\u0307').join('') },
+            { name:'Circle Above', category:'symbols', fn: t => Array.from(t).map(c => c + '\u030A').join('') },
+            { name:'Tilde Above', category:'symbols', fn: t => Array.from(t).map(c => c + '\u0303').join('') },
+            { name:'Heart Frame', category:'fancy', fn: t => `❤️ ${t} ❤️` },
+            { name:'Sparkle Frame', category:'fancy', fn: t => `✨ ${t} ✨` },
+            { name:'Star Frame', category:'fancy', fn: t => `🌟 ${t} 🌟` },
+            { name:'Royal Crown', category:'gaming', fn: t => `👑 ${t} 👑` },
+            { name:'Lightning', category:'gaming', fn: t => `⚡ ${t} ⚡` },
+            { name:'Arrow Accent', category:'gaming', fn: t => `➤ ${t} ➤` },
+            { name:'Brackets', category:'gaming', fn: t => `【 ${t} 】` },
+            { name:'Aesthetic Fade', category:'fancy', fn: t => `｡･:*:･ﾟ★,｡･:*:･ﾟ☆ ${t} ☆ﾟ･:*:･｡,★ﾟ･:*:･｡` },
+            { name:'Zalgo Mini', category:'gaming', fn: zalgoMini },
+            { name:'Reverse Text', category:'fancy', fn: t => t.split('').reverse().join('') },
+            { name:'Cyrillic Style', category:'fancy', fn: t => Array.from(t).map(c => {
+                const fake = {'a':'а','e':'е','o':'о','p':'р','c':'с','y':'у','x':'х','A':'А','B':'В','E':'Е','O':'О','P':'Р','C':'С','Y':'У','X':'Х'};
+                return fake[c] || c;
+            }).join('') },
+        ];
+
+        // ============ FUNCTIONS ============
+        function showToast(msg) {
+            toast.textContent = msg;
+            toast.className = "show";
+            setTimeout(() => { toast.className = toast.className.replace("show",""); }, 2500);
+        }
+
         window.previewFont = function(text, styleName) {
             previewText.innerHTML = `<span class="text-xs text-zinc-400 block mb-1">Preview: ${styleName}</span><span class="break-all">${text}</span>`;
         };
 
-        // Render function (compact)
         function renderCards() {
             const val = input.value.trim();
             if (!val) {
@@ -230,7 +396,7 @@
             if (currentCategory === 'favorites') {
                 filtered = STYLES.filter(s => favorites.includes(s.name));
                 if (filtered.length === 0) {
-                    resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-12 text-lg col-span-full">❤️ No favorites yet.</p>`;
+                    resultsContainer.innerHTML = `<p class="text-zinc-500 text-center py-12 text-lg col-span-full">❤️ No favorites yet. Click the heart on any font to save it.</p>`;
                     copyAllBtn.disabled = true;
                     copyAllBtn.textContent = `📋 Copy All (0)`;
                     return;
@@ -263,7 +429,14 @@
             });
         }
 
-        // Copy All
+        window.copyText = function(text, styleName) {
+            navigator.clipboard.writeText(text);
+            showToast(`Copied ${styleName}!`);
+            if (window.navigator && window.navigator.vibrate) {
+                window.navigator.vibrate(15);
+            }
+        };
+
         window.copyAll = function() {
             const val = input.value.trim();
             if (!val) return;
@@ -275,28 +448,70 @@
             showToast(`All ${filtered.length} fonts copied!`);
         };
 
-        window.copyText = function(text, styleName) {
-            navigator.clipboard.writeText(text);
-            showToast(`Copied ${styleName}!`);
-            if (window.navigator && window.navigator.vibrate) window.navigator.vibrate(15);
+        window.clearInput = function() {
+            input.value = '';
+            input.focus();
+            renderCards();
         };
 
-        window.clearInput = function() { input.value = ''; input.focus(); renderCards(); };
-        input.addEventListener('input', () => { clearBtn.style.display = input.value ? 'block' : 'none'; renderCards(); });
-
         window.toggleFavorite = function(name) {
-            if (favorites.includes(name)) favorites = favorites.filter(f => f !== name);
-            else favorites.push(name);
+            if (favorites.includes(name)) {
+                favorites = favorites.filter(f => f !== name);
+            } else {
+                favorites.push(name);
+            }
             localStorage.setItem('favFonts', JSON.stringify(favorites));
             renderCards();
         };
 
-        window.filterCategory = function(cat) { ... }; // same as before
-        window.randomFont = function() { ... }; // same as before, but also update preview
+        window.filterCategory = function(cat) {
+            currentCategory = cat;
+            document.querySelectorAll('.category-btn').forEach(btn => {
+                if (btn.dataset.category === cat) {
+                    btn.classList.add('bg-accent','text-white');
+                    btn.classList.remove('bg-card','border','border-border','text-zinc-300');
+                } else {
+                    btn.classList.remove('bg-accent','text-white');
+                    btn.classList.add('bg-card','border','border-border','text-zinc-300');
+                }
+            });
+            renderCards();
+        };
 
-        function showToast(msg) { ... };
+        window.randomFont = function() {
+            if (!input.value.trim()) {
+                alert('Type something first!');
+                return;
+            }
+            const all = STYLES;
+            const randomStyle = all[Math.floor(Math.random() * all.length)];
+            const transformed = randomStyle.fn(input.value.trim());
+            resultsContainer.innerHTML = "";
+            const card = document.createElement('div');
+            card.className = "bg-card border border-gold rounded-2xl p-4 sm:p-5 flex flex-col sm:flex-row justify-between items-center gap-4 text-center col-span-2 md:col-span-3";
+            card.style.backgroundColor = 'var(--card-bg)';
+            card.innerHTML = `
+                <div class="flex-1">
+                    <p class="text-xs text-zinc-400 mb-2">🎲 Random Pick: ${randomStyle.name}</p>
+                    <p class="text-xl font-bold break-all">${transformed}</p>
+                </div>
+                <button class="copy-btn bg-accent hover:bg-accent-hover text-white font-semibold py-2 px-5 rounded-full" onclick="event.stopPropagation(); copyText('${transformed.replace(/'/g,"\\'")}', '${randomStyle.name}')">Copy</button>
+            `;
+            resultsContainer.appendChild(card);
+            card.scrollIntoView({behavior:'smooth'});
+            previewFont(transformed, randomStyle.name);
+        };
 
-        window.addEventListener('scroll', () => { backToTop.style.display = window.scrollY > 400 ? 'flex' : 'none'; });
+        input.addEventListener('input', () => {
+            clearBtn.style.display = input.value ? 'block' : 'none';
+            renderCards();
+        });
+
+        window.addEventListener('scroll', () => {
+            backToTopBtn.style.display = window.scrollY > 400 ? 'flex' : 'none';
+        });
+
+        // Initial render
         renderCards();
     </script>
 </body>
